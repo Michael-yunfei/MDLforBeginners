@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+% add some essential packages, some might not be used
+%\usepackage{CJKutf8}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{authblk}
+\usepackage{xeCJK}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+%\usepackage[a4paper,margin=2in,bottom=1.0in]{geometry}
+\usepackage{url}
+\usepackage{array}
+\usepackage{bbding}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{appendix}
+\usepackage{url}
+\usepackage[english]{babel}
+\usepackage{adjustbox}
+\usepackage{textgreek}
+\usepackage{NotesTeX}
+\usepackage{lipsum}
+\usepackage[procnames]{listings}
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage[procnames]{listings}
+\usepackage[scaled=0.9]{DejaVuSansMono}
+\usepackage{pythonhighlight}
+
+\usepackage{rotating} % for the horizontal page table
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usepackage{color}
+\usepackage{setspace}
+% python highlight package
+
+
+
+\usepackage{tcolorbox} % package for making colorful box
+
+ \setlength{\parskip}{0.15cm} % change the paragraph spacing
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$} % set the bullet size as tiny
+
+% \newcommand*\rot{\rotatebox{90}} % for rotate text
+
+%\usepackage{courier}
+
+
+
+
+
+\title{{\Huge 人工智能基础(高中版)}\\{\Large{辅导讲义}}}
+\author{王斐 Michael\footnote{\href{https://www.michaelyunfei.com}{\textit{Author Website}}}}
+
+\affiliation{School of Mathematics and Statistics, UCD}
+\emailAdd{michael.yunfei@gmail.com}
+
+
+\numberwithin{equation}{section}
+
+
+
+\begin{document}
+  \maketitle
+  \flushbottom
+  \newpage
+  \pagestyle{fancynotes}
+
+
+\setcounter{part}{2}
+
+\part*{第三章:神经网络模型初探}
+
+\marginnote{\begin{tcolorbox}《大学》中语:知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。物有本末，事有终始。知所先后，则近道矣。\end{tcolorbox}}
+
+亲爱的同学们，从这一章开始我们将会接触目前比较流行的人工智能模型-神经网络模型。相较前一章节，本章难度有所提升，而且模型背后的相关概念更加抽象。如果你已经开始阅读第三章节的内容，或许你会觉得\textit{`不知所云'}或者\textit{`无从下手'}。 对于任何一个初学者来说，这都是很正常的经历，希望你们不要气馁，更不要怀疑自己。此时此刻，希望同学们仍然要怀着探索的心态去进入这一章节的学习。
+
+我们将会在接下来的三周里沉浸在神经网络模型中，如果同学们紧跟老师的节奏，按照要求完成\textbf{课前预习，课上笔记，及课后练习}这三个环节，我可以向你们保证，三周之后你们完全可以:
+\begin{itemize}
+	\item 理解为什么人工智能在神经网络\sn{Neutral Network}出现后具有了广泛得应用价值;
+	\item 掌握神经网络的本质所在，并且了解模型背后的思想精髓所在;
+	\item 能够用Python透过向量\sn{Vector}和矩阵\sn{Matrix}进行编写20行左右的小程序，从而以此去理解神经网络的模型设计逻辑;
+	\item 能够使用Python中人工智能学习平台,如TensorFlow来进行神经网络的训练和调试，从而可以独立自主得对大量的图片数据进行分析。
+\end{itemize}
+
+为了提高沟通速率且帮助同学们养成良好学习节奏，我们以后会将课前预习，课上笔记，及课后练习简称为C1, C2, C3。比如，如果我说\textit{你需要在下周一之前完成C1,那就意味着你需要根据我在C1中的指示进行课前预习}。下面的表格是后面课程中C1, C2, C3中的包含的内容以及所设定的预订目标。
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{ccc}
+		\hline
+		\hline
+		C1 & C2 & C3 \\
+		\hline 
+		背景资料阅览 & 课堂老师讲解 & 课后习题和编程 \\
+		\hline 
+	\end{tabular}
+\end{table}
+
+
+\setcounter{section}{3}
+\subsection{前言}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
