@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  15 MAY 2020 17:19
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  16 MAY 2020 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2939,10 +2939,10 @@ Package marginnote Info: xpos seems to be 30.71661pt,
 LaTeX Warning: Marginpar on page 1 moved.
 
 Package marginnote Info: Margin note 3.2 is on absolute page 3
-(marginnote)              on input line 114.
-Package marginnote Info: right page because not two side mode on input line 114.
-Package marginnote Info: xpos seems to be 30.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 114.
+(marginnote)              on input line 115.
+Package marginnote Info: right page because not two side mode on input line 115.
+Package marginnote Info: xpos seems to be 326.16542pt,
+(marginnote)             \marginnoterightadjust ignored on input line 115.
 
 Overfull \hbox (3.04573pt too wide) in paragraph at lines 120--139
  [][] 
@@ -3013,7 +3013,7 @@ Underfull \vbox (badness 3417) has occurred while \output is active []
 Package marginnote Info: Margin note 7.1 is on absolute page 7
 (marginnote)              on input line 313.
 Package marginnote Info: right page because not two side mode on input line 313.
-Package marginnote Info: xpos seems to be 239.45244pt,
+Package marginnote Info: xpos seems to be 243.70244pt,
 (marginnote)             \marginnoterightadjust ignored on input line 313.
 
 Overfull \hbox (9.78511pt too wide) in paragraph at lines 313--313
@@ -3021,11 +3021,39 @@ Overfull \hbox (9.78511pt too wide) in paragraph at lines 313--313
  []
 
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 366.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 366.
+Overfull \hbox (107.39854pt too wide) in paragraph at lines 396--397
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (65.0988pt too wide) in paragraph at lines 399--400
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (107.39854pt too wide) in paragraph at lines 400--401
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (86.24867pt too wide) in paragraph at lines 404--405
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+Overfull \hbox (1.64919pt too wide) in paragraph at lines 421--423
+[][][][][][][][][][][][][] 
+ []
+
+[7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 443.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 443.
  (/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/.texpadtmp/C3_Notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 366.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 366.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 443.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 443.
 Package rerunfilecheck Info: File `C3_Notes.out' has not changed.
 (rerunfilecheck)             Checksum: A1C0177F67ED5119394B0886CD148BBE.
 
@@ -3034,12 +3062,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 43940 strings out of 492970
- 885583 string characters out of 6133938
- 1119235 words of memory out of 5000000
- 47226 multiletter control sequences out of 15000+600000
+ 43958 strings out of 492970
+ 886741 string characters out of 6133938
+ 1128236 words of memory out of 5000000
+ 47244 multiletter control sequences out of 15000+600000
  665695 words of font info for 134 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 65i,16n,95p,10436b,920s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,16n,95p,10436b,1667s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/.texpadtmp/C3_Notes.pdf (7 pages).
+Output written on /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/.texpadtmp/C3_Notes.pdf (9 pages).

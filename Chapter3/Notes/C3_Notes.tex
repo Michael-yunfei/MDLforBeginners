@@ -17,6 +17,7 @@
 \usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{subcaption}
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{appendix}
@@ -110,9 +111,9 @@
 	\item 能够使用Python中人工智能学习平台,如TensorFlow来进行神经网络的训练和调试，从而可以独立自主得对大量的图片数据进行分析。
 \end{itemize}
 
-\marginnote{\begin{tcolorbox}[colframe=gray]我大学有个德国的同学曾经自恃聪明，声称自己不需要读任何诗歌就可以作诗，我说你来写一首中文诗歌，他也只能相对无言。每个人的大脑都可以是一个储存器，没有输入就不会有输出，所以`自学成才'的前提是自学。不过老师可以负责任的告诉你，自学你需要花更多时间。独孤很可能会败求，切勿舍近求远。\end{tcolorbox}}
+%\marginnote{\begin{tcolorbox}[colframe=gray]jh\end{tcolorbox}}
 
-为了提高沟通速率且帮助同学们养成良好学习节奏，我们以后会将课前预习，课上笔记，及课后练习简称为C1, C2, C3。比如，如果我说\textit{`你需要在下周一之前完成C1',那就意味着你需要根据我在C1中的指示进行课前预习}。下面的表格是后面课程中C1, C2, C3中的包含的内容以及所设定的预订目标。
+为了提高沟通速率且帮助同学们养成良好学习节奏\mn{我大学有个德国的同学曾经自恃聪明，声称自己不需要读任何诗歌就可以作诗，我说你来写一首中文诗歌，他也只能相对无言。每个人的大脑都可以是一个储存器，没有输入就不会有输出，所以`自学成才'的前提是自学。不过老师可以负责任的告诉你，自学你需要花更多时间。独孤很可能会败求，切勿舍近求远。}，我们以后会将课前预习，课上笔记，及课后练习简称为C1, C2, C3。比如，如果我说\textit{`你需要在下周一之前完成C1',那就意味着你需要根据我在C1中的指示进行课前预习}。下面的表格是后面课程中C1, C2, C3中的包含的内容以及所设定的预订目标。
 
 \begin{table}[H]
 	\centering
@@ -344,9 +345,133 @@
 
 
 \begin{question}{C1-Q7}
-	(Python编程题) 阅读下列代码，并且复制到你自己的Python平台上运行且查看结果。以下代码是我们C1-Q1到C1-Q6，问题所涉及概念的程序演练。
+	(Python编程题) 阅读下列代码，并且复制到你自己的Python平台上运行且查看结果。以下代码是我们C1-Q1到C1-Q6，问题所涉及概念的程序演练\mn{Numpy 是Python中常用的数据处理扩展程序，其全称为 Numberical Python (数值计算的Python）。需要提醒同学们的是。Python语言的发展是一个不断融合其它编程语言的过程。其中，对其影响最大的几个有: C, C++, Java; Matlab; R. 其中第一类主要是对Python的性能的语言结构上的影响。第二类Matlab是对其数值计算和可视化的影响（你甚至可以说,Numpy+Matlplot = Matlab)。比如向量的建立在Matlab中可以直接输入[1, 2, 3]，Python的输入仿照了Matlab，再比如np.zeros([3, 3])就是直接复制Matlab。另外，Python中常用的可视化工具Matplotlib,全称是Matlab Plot Library，名字就不言而喻了。因为R语言在统计和数据处理上有广泛得应用，所以Python的pandas这个扩展程序主要是借用了R语言中dataframe这个概念。}。
 \end{question}
 
+\begin{python}
+# Chapter 3 Pre-lecture Exercise
+# 第三章课前练习
+# @ Michael
+
+# Import essential packages
+# 导入必要扩展
+
+import numpy as np
+
+# Create a vector and matrix，创建向量和矩阵
+
+a = np.array([1, 2, 3])
+print(a)
+type(a)
+a.dtype
+a.ndim
+a.shape
+
+a1 = np.array([4, 5, 6])
+a2 = np.array([7, 8, 9])
+print(a1+a2)  # 简单的矢量计算
+
+b = np.array([1, 2, 3], [5.6, 7.8, 9.9])  # 错误的输入
+b = np.array([[1, 2, 3], [5.6, 7.8, 9.9]])
+b.dtype
+b.ndim
+b.shape  # always use shape to check the dimension
+print(b)
+
+b1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+b2 = np.array([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
+b1.shape
+b2.shape
+print(b1+b2)
+
+np.ones([3, 3])  # 快速创建3x3的0矩阵
+np.zeros([6, 6])  # 快速创建6x6的1矩阵
+\end{python}
+\noindent
+\textcolor{blue}{C1-Q1的程序化解决}\mn{Python的主要对象单元有:int, float, str, tuple, list, range, dict. 其中后四个是具有一定结构的数据单元，很多更高层级的程式和扩展都是依托在这四个结构数据单元上建立的。比如我们使用的Numpy，很多指令是依托在list上，即[ ],所以你在使用numpy的时候，数据的输入都要加上中括号。有关Python的语言结构和特性我们会再具体的应用时，酌情进行讲解。}
+\begin{python}
+# C1-Q1 的程序化解决
+
+def comper(n, q):
+    # A function for calculating all possible combinations of sequences
+    # Input:
+    # n - maximial length of sequence
+    # q - number of digits, e.g., 2 means binary, 3 means ternary
+    # Output: number of all possible sequences we can get given n and q
+    # 计算所有可能数组
+    # 输入:
+    # n - 数组的长度的最大值
+    # q - 可选数值，比如2 意味着二进制可选0， 1； 3意味着可选0, 1, 2
+    # 输出: 所有可能数组的数量
+    t = 0  # initialize a variable to store the result
+    # 初始化一个变量t,用来储存结果
+    for i in range(n):
+        temp = pow(q, i+1)
+        t = t + temp
+    return(t)
+
+
+# Test our function, 测试我们的方程
+result = comper(3, 2)
+print(result)
+# Try different parameters
+comper(32, 2)  # 8589934590
+comper(64, 2)  # 36893488147419103230
+comper(32, 4)  # 24595658764946068820
+comper(64, 4)  # 453709822561251284617832809909024281940
+
+# HOPE, now you understand why we need quantum computer
+# 希望现在你能够理解为什么我们需要量子计算器了	
+\end{python}
+
+\noindent
+\textcolor{blue}{C1-Q5的Python作图}。\mn{就像我们再C1-Q5中手动作图一样，Python在作图时也需要你给出X—Y上的点。计算机作图和数据可视化已经可以成为单独的一门学科，比较数据可视化比较常用的编程语言是Javascript，比如D3.js和Chart.js。你在网络上看到的很多的数据动画都是使用以上两种语言制作的。此外,R语言的数据可视化也比较流行，Python正在奋起直追，比如最新的Python作图拓展Seaborn。\begin{figure}[H]
+	\includegraphics[width=0.4\textwidth]{fig/relu}
+\end{figure}\begin{figure}[H]
+	\includegraphics[width=0.4\textwidth]{fig/sigmoid}
+\end{figure}}
+\begin{python}
+# Chapter 3 Pre-lecture Exercise
+# 第三章课前练习
+# @ Michael
+
+# Import essential packages
+# 导入必要扩展
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Play with colours in Python
+# 简单的颜色绘图
+# We will use matplotlib to plot a very simple function 
+# with varied colours
+# 我们将会使用 matplotlib 绘制简单的方程图形并且调试不同颜色
+
+plt.plot([2], [3], 'bo')
+plt.plot([4], [4], 'ro')
+plt.plot([5], [2], 'go')
+plt.axis([0, 6, 0, 7])  # change the range of axis
+plt.grid(color='gray', linestyle='--', linewidth=1)  # add grid
+plt.title('My first plot')
+
+
+# plot ReLU function
+x1 = np.arange(-2, 0.2, 0.2)
+x2 = np.arange(0, 3, 0.2)
+plt.plot(x1, 0*x1, color=(70/255, 136/255, 241/255))
+# RGB(70, 136, 241)
+plt.plot(x2, 1.5*x2, 'purple')
+plt.title('rectified linear unit (ReLU) Function')
+
+
+# plot sigmoid function
+x3 = np.arange(-8, 8, 0.2)
+y3 = np.exp(x3)/(1+np.exp(x3))
+plt.plot(x3, y3)
+plt.grid(color='gray', linestyle='--', linewidth=1)  # add grid
+plt.axvline(x=0, color=(243/255, 66/255, 53/255), linestyle='--')
+# add vertial line
+\end{python}
 
 
 \subsection{课堂讲义C2}
