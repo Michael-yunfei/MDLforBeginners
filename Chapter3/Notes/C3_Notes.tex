@@ -34,6 +34,7 @@
 \usepackage[procnames]{listings}
 \usepackage[scaled=0.9]{DejaVuSansMono}
 \usepackage{pythonhighlight}
+%\usepackage{marvosym} % coffeecup 
 
 \usepackage{rotating} % for the horizontal page table
 
@@ -425,7 +426,7 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 \end{python}
 
 \noindent
-\textcolor{blue}{C1-Q5的Python作图}。\mn{就像我们再C1-Q5中手动作图一样，Python在作图时也需要你给出X—Y上的点。计算机作图和数据可视化已经可以成为单独的一门学科，比较数据可视化比较常用的编程语言是Javascript，比如D3.js和Chart.js。你在网络上看到的很多的数据动画都是使用以上两种语言制作的。此外,R语言的数据可视化也比较流行，Python正在奋起直追，比如最新的Python作图拓展Seaborn。\begin{figure}[H]
+\textcolor{blue}{C1-Q5的Python作图}。\mn{就像我们在C1-Q5中手动作图一样，Python在作图时也需要你给出X—Y上的点。计算机作图和数据可视化已经可以成为单独的一门学科，数据可视化比较常用的编程语言是Javascript，比如D3.js和Chart.js。你在网络上看到的很多的数据动画都是使用以上两种语言制作的。此外,R语言的数据可视化也比较流行，Python正在奋起直追，比如最新的Python作图拓展Seaborn。\begin{figure}[H]
 	\includegraphics[width=0.4\textwidth]{fig/relu}
 \end{figure}\begin{figure}[H]
 	\includegraphics[width=0.4\textwidth]{fig/sigmoid}
@@ -472,12 +473,202 @@ plt.grid(color='gray', linestyle='--', linewidth=1)  # add grid
 plt.axvline(x=0, color=(243/255, 66/255, 53/255), linestyle='--')
 # add vertial line
 \end{python}
+\noindent
+\textcolor{blue}{三色图结构}:
+下面Python编程是对图片的数字化解构，这一部分程序的运行我们在\textbf{编程练习课中会进一步讲解},因此预习该部分时，稍微浏览即可，无需深入探究。另外，课堂中我们还会进一步探究图片的存储结构和颜色结构，所以请`稍安勿躁'。\mn{计算机图形学已经成为一门独立的学科，而且是一个很庞大的产业。比如苹果的创始人之一Steve Jobs(乔布斯)最初设立苹果公司的初衷就是想要一款可以显示精美字体的计算机，而不是他认为很`丑陋’的windows。如果经常浏览国外网站的同学可能会注意在网页审美设计上，我们还有很大的进步空间。比如浙大的官网，就让人觉得该校的网页设计专业可能不会太好，否则设计的网站不会如此的让人怀疑自己是否具有`信息密集恐怖症'。\textbf{特别提醒}:我们在Python环境下进行图片处理时，优选jpg格式,尽量避免使用png格式。具体的原因和不同情况下的转换，我们会进一步讲解。不过如此的传统也有好处，就是你会发现中国很多的网页设计都像是`头条’设计，一个方框内放一排排的文字再陪一张图片(喝一瓶娃哈哈，解解渴吧)。}
+\begin{python}
+# Chapter 3 Pre-lecture Exercise
+# 第三章课前练习
+# @ Michael
+
+# Import essential packages
+# 导入必要扩展
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mtmg
+
+# Discover images (探索图片)
+# We will import two images and explore how computer store and display images
+# 我们将会读取两张图片来探索计算机是如何存储和显示图片的
+
+# The cute panda 可爱的大熊猫
+im_panda = mtmg.imread(
+    '/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/panda.JPG')
+# read panda image 熊猫图片读取
+plt.imshow(im_panda)  # show image, 图片显示
+
+im_panda.shape  # (1400, 1400, 3)
+print(type(im_panda))   # <class 'numpy.ndarray'>
+print(im_panda[:10, :10, 1])  # print 10 by 10 matrix in the second layer
+plt.imshow(im_panda[:, :, 0], cmap='gray')
+plt.imshow(im_panda[:, :, 1])
+plt.imshow(im_panda[:, :, 2])
+print(im_panda[700:710, 700:710, 0])
+print(im_panda[700:710, 700:710, 1])
+print(im_panda[700:710, 700:710, 2])
+
+fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(15, 9))
+for i, ax in zip(range(3), ax):
+    split_temp = np.zeros(im_panda.shape, dtype='uint8')
+    split_temp[:, :, i] = im_panda[:, :, i]
+    ax.imshow(split_temp)
 
 
+# The Mosaic Painting 马赛克绘画
+# prefer jpg format, rather than png format
+im_mosaic1 = mtmg.imread(
+    '/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg')
+plt.imshow(im_mosaic1)
+im_mosaic1.shape  # (1034, 1562, 4)
+print(im_mosaic1[:10, :10, 1])
+plt.imshow(im_mosaic1[:, :, 0])
+print(im_mosaic1[700:710, 700:710, 0])
+print(im_mosaic1[700:710, 700:710, 1])
+print(im_mosaic1[700:710, 700:710, 2])
+
+fig, ax = plt.subplots(1, 3, figsize=(15, 9))
+for i, ax in zip(range(3), ax):
+    split_temp = np.zeros(im_mosaic1.shape, dtype='uint8')
+    split_temp[:, :, i] = im_mosaic1[:, :, i]
+    ax.imshow(split_temp)
+
+
+# The RGB Mosaic
+# 三色马赛克
+im_rgbmosaic = mtmg.imread(
+    '/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/rgbmosaic.jpg')
+plt.imshow(im_rgbmosaic)
+im_rgbmosaic.shape
+plt.savefig(
+    '/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png',
+    figsize=(6, 9), dpi=156)
+
+# pin down the red color
+print(im_rgbmosaic[500:520, 600:620, 0])
+print(im_rgbmosaic[500:520, 600:620, 1])
+print(im_rgbmosaic[500:520, 600:620, 2])
+plt.imshow(im_rgbmosaic[500:520, 600:620, :])
+
+# pin down the blue color
+print(im_rgbmosaic[500:520, 230:250, 0])
+print(im_rgbmosaic[500:520, 230:250, 1])
+print(im_rgbmosaic[500:520, 230:250, 2])
+plt.imshow(im_rgbmosaic[500:520, 230:250, :])
+
+# pin down the green color
+print(im_rgbmosaic[800:820, 830:850, 0])
+print(im_rgbmosaic[800:820, 830:850, 1])
+print(im_rgbmosaic[800:820, 830:850, 2])
+plt.imshow(im_rgbmosaic[800:820, 830:850, :])	
+\end{python}
+\noindent
+\textcolor{purple}{反馈统计}:请扫描右边二维码，回答对此次课前预习的评估,只有三个问题。Michael 表示非常感谢，请同学多多配合。老师会根据你们的反馈对下一次C1进行提升和改进。填问卷的时候记得喝一杯茶或者咖啡$\heartsuit$。 \begin{marginfigure}
+	\centering
+	\includegraphics[width=\textwidth]{fig/C3C1qrcode}
+\end{marginfigure}
+
+
+\newpage
 \subsection{课堂讲义C2}
 
+从这一小章节\mn{课堂讲义里的内容是你应该重点学习的内容，学期末的考核所包含的知识点，都涵盖在课堂讲义中，所以你要做到`熟读百遍，而有备无患'。}开始，我们开始进一步学习神经网络模型。按时完成C1的同学，或许已经对人工智能的广泛应用和蓬勃发展已经有了一定的了解。那么接下来，我们就开始系统学习或者说系统训练你们的`人工智能’思维。\textbf{因为这是高中课程，所以我的授课重点是训练你用人工智能解决问题的思维方式}， 在此基础上教授你相应的编程工具。本章节的学习重点有:
+\begin{itemize}
+	\item 何谓一般的`学习过程’
+	\item 传统的问题解决方式和人工智能的解决方式有什么不同
+	\item 大数据对人工智能的意涵是什么
+	\item 标准神经网络学习模型的组成结构
+\end{itemize}
+
+\subsubsection{学习过程的一般性原理}
+
+\begin{fullmodel}
+	我们在C1的哲学延伸中(p.2)给出了一个简单的学习过程，即你第一次感受到烫伤后的行为调整过程。同学们可以回忆下自己第一次学自行车，或者第一次使用手机等学习过程中，都包括以下三个基本过程:
+	\begin{itemize}
+		\item 认知对象(问题)的接触，认知感觉和经验的揽集;
+		\item 调用已有概念或知识对所在的场景进行分析;
+		\item 做出判断和行动指令，并且有所行动。\begin{itemize}
+		\item 如果所做判断和行动，符合预期目标，则维持；
+		\item 否则进行修正和调整
+		\end{itemize}
+	\end{itemize}
+	
+对以上的学习和认知过程，我们简单概况为一个认知框架:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.69\textwidth]{fig/epismeflow}
+\end{figure}
+
+传统的问题解决方法和人工智能解决方法都符合以上框架，但是两者在对具体问题的解决上\textbf{有很大的不同}！
+\end{fullmodel}
+
+\subsubsection{传统问题解决方式 VS. 人工智能问题解决方式}
+
+传统的问题解决方式和人工智能问题解决方式最大的不同体现在以下两个方面:
+	\begin{itemize}
+		\item 传统的问题解决方式着重对问题进行分步骤拆解和处理；
+		\item 人工智能对问题的解决方式着重对整个流程的两个端口进行数据和模型联通。
+	\end{itemize}
+我们通过具体的三个个案例来进行详细的分析，案例一是有关商业广告的投放，案例二是有关信用卡违约，案例三是谷歌AlphaGo(阿尔法狗)的`blackbox'(黑箱）模式。
+
+\definecolor{deepramp}{RGB}{104, 25, 65}
+
+\noindent
+\textcolor{deepramp}{案例一} 商业广告投放: 传统的商业广告投放在确定了目标客户后，会通过各种方式(比如问卷调查，消费行为习惯，心里图谱鉴定)对客户群体通过一些列数据来描述。根据所收集的数据建立相应的模型。这些模型的建立往往经由专业人士，比如管理学毕业的学生，或者经济学毕业的学生来完成。决策者在收集数据和模型建立后，然后进行广告的投放。然而，人工智能下的问题解决框架仍然需要收集大量数据，不过由于数字经济方兴未艾，所以数据的收集变得更加容易。收集数据后，对于广告投放的模型构建上，就不需要太多得研究，因为我们可以选择深度学习模型(deepmind model)让计算机自己去学习。\textbf{机器具体如何学习，是我们本章节的重点内容}。
+
+\hfil
+
+\noindent
+\textcolor{deepramp}{案例二} 信用卡违约：传统信用卡违约的解决，同样需要进行数据收集，然后银行会聘用专业的风险分析师或者精算师，来进行模型的构建。这些模型的构建往往需要概率论和统计学的系统训练。比如精算师会根据不同场景进行风险的计算，然后指导银行进行信用卡的管理。人工智能是在收集大量数据的基础上，对于相关模型进行训练，然后指导银行进行信用卡管理。我们会在课上，进一步讲解机器是如何学习的。
+
+\hfil
+
+\noindent
+\textcolor{deepramp}{案例三} AlphaGo: 2016年阿尔法狗战胜之后，科学美国人杂志(Scientific American)采访AlphaGo的设计人员，邀请他们介绍DeepMind(深度神经网络)为什么能够打败人类顶尖棋手。设计人员可以接受他们模型的构造原理，但是具体这个模型内部的运行过程，他们经常戏称为`黑箱作业'（Black Box)。我们会在本节课中解释他们所称的黑箱是何物。科学美国人原文链接:\url{https://www.scientificamerican.com/article/demystifying-the-black-box-that-is-ai/}
 
 
+\subsubsection{神经网络模型机制}
+
+\begin{fullmodel}
+	教材中有两张图片，即图3-15和图3-19,给出了神经网络模型的工作流程。我们把两个图片中的模型进行简化，绘制下面这张流程图(来源:斯坦福大学深度学习官网)。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/deepmindflow}
+	\caption{深度学习简要框架}
+\end{figure}
+深度模型的构建的基本单元是一连串的函数组合，这些函数的线性组合构成了我们所称的`神经网络'以及卷积(convolution)的过程。了解这些函数的作用以及卷积的过程对于理解深度学习网络至关重要。所以我们会花费比较多的时间来讲解这些数学概念。
+\end{fullmodel}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \subsection{课后练习C3}
 
 
