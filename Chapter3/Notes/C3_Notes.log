@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  18 MAY 2020 00:32
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  18 MAY 2020 00:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -3224,85 +3224,73 @@ Package babel Info: Redefining russian shorthand "~
 File: fig/C3C1qrcode.png Graphic file (type bmp)
 <fig/C3C1qrcode.png>
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 574.
+(babel)             in language  on input line 573.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 574.
+(babel)             in language  on input line 573.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 574.
+(babel)             in language  on input line 573.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 574.
+(babel)             in language  on input line 573.
  [9]
-
-LaTeX Warning: Marginpar on page 10 moved.
-
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 576.
+(babel)             in language  on input line 574.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 576.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 576.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 576.
-[10]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 577.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 577.
-Package marginnote Info: Margin note 13.1 is on absolute page 13
-(marginnote)              on input line 579.
-Package marginnote Info: right page because not two side mode on input line 579.
+(babel)             in language  on input line 574.
+Package marginnote Info: Margin note 12.1 is on absolute page 12
+(marginnote)              on input line 576.
+Package marginnote Info: right page because not two side mode on input line 576.
 Package marginnote Info: xpos seems to be 112.06427pt,
-(marginnote)             \marginnoterightadjust ignored on input line 579.
+(marginnote)             \marginnoterightadjust ignored on input line 576.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 587.
+(babel)             in language  on input line 584.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 587.
+(babel)             in language  on input line 584.
 File: fig/epismeflow.png Graphic file (type bmp)
 <fig/epismeflow.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 589--608
+Overfull \hbox (149.25pt too wide) in paragraph at lines 586--605
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--608
+Underfull \hbox (badness 10000) in paragraph at lines 586--605
 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 608.
+(babel)             in language  on input line 605.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 608.
+(babel)             in language  on input line 605.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 608.
+(babel)             in language  on input line 605.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 608.
-[11]
+(babel)             in language  on input line 605.
+[10]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 609.
+(babel)             in language  on input line 606.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 609.
+(babel)             in language  on input line 606.
 
-Overfull \hbox (50.37184pt too wide) in paragraph at lines 630--632
+Overfull \hbox (50.37184pt too wide) in paragraph at lines 627--629
 \TU/FandolSong-Regular(0)/m/n/12 接\TU/DejaVuSansMono-TLF/m/n/12 :[][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 634.
+(babel)             in language  on input line 631.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 634.
+(babel)             in language  on input line 631.
 File: fig/deepmindflow.png Graphic file (type bmp)
 <fig/deepmindflow.png>
 Missing character: There is no Р in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no и in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no с in font [lmroman10-bold]:mapping=tex-text;!
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 636--645
+Overfull \hbox (149.25pt too wide) in paragraph at lines 633--642
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--645
+Underfull \hbox (badness 10000) in paragraph at lines 633--642
 
  []
 
@@ -3310,134 +3298,134 @@ Underfull \hbox (badness 10000) in paragraph at lines 636--645
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 645.
+(babel)             in language  on input line 642.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 645.
+(babel)             in language  on input line 642.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 645.
+(babel)             in language  on input line 642.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 645.
- [12]
+(babel)             in language  on input line 642.
+ [11]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 646.
+(babel)             in language  on input line 643.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 646.
-Package marginnote Info: Margin note 15.1 is on absolute page 15
-(marginnote)              on input line 648.
-Package marginnote Info: right page because not two side mode on input line 648.
+(babel)             in language  on input line 643.
+Package marginnote Info: Margin note 14.1 is on absolute page 14
+(marginnote)              on input line 645.
+Package marginnote Info: right page because not two side mode on input line 645.
 Package marginnote Info: xpos seems to be 111.71262pt,
-(marginnote)             \marginnoterightadjust ignored on input line 648.
+(marginnote)             \marginnoterightadjust ignored on input line 645.
 File: fig/dataframeEx.png Graphic file (type bmp)
 <fig/dataframeEx.png>
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 667.
+(babel)             in language  on input line 664.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 667.
+(babel)             in language  on input line 664.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 667.
+(babel)             in language  on input line 664.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 667.
- [13]
+(babel)             in language  on input line 664.
+ [12]
 File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg Graphic file (type bmp)
 </Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg>
 Missing character: There is no Р in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no и in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no с in font [lmroman10-bold]:mapping=tex-text;!
-Package marginnote Info: Margin note 16.1 is on absolute page 17
-(marginnote)              on input line 696.
-Package marginnote Info: right page because not two side mode on input line 696.
+Package marginnote Info: Margin note 15.1 is on absolute page 16
+(marginnote)              on input line 693.
+Package marginnote Info: right page because not two side mode on input line 693.
 Package marginnote Info: xpos seems to be 369.64063pt,
-(marginnote)             \marginnoterightadjust ignored on input line 696.
+(marginnote)             \marginnoterightadjust ignored on input line 693.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 710.
+(babel)             in language  on input line 707.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 710.
+(babel)             in language  on input line 707.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 707.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 707.
+ [13]
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 710.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 710.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 746.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 746.
+Package marginnote Info: Margin note 16.1 is on absolute page 16
+(marginnote)              on input line 748.
+Package marginnote Info: right page because not two side mode on input line 748.
+Package marginnote Info: xpos seems to be 51.71262pt,
+(marginnote)             \marginnoterightadjust ignored on input line 748.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 749.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 749.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 749.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 749.
  [14]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 713.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 713.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 749.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 749.
-Package marginnote Info: Margin note 17.1 is on absolute page 17
-(marginnote)              on input line 751.
-Package marginnote Info: right page because not two side mode on input line 751.
-Package marginnote Info: xpos seems to be 51.71262pt,
-(marginnote)             \marginnoterightadjust ignored on input line 751.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 752.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 752.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 752.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 752.
- [15]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 754.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 754.
+(babel)             in language  on input line 751.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 810.
+(babel)             in language  on input line 807.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 810.
+(babel)             in language  on input line 807.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 810.
+(babel)             in language  on input line 807.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 810.
- [16]
+(babel)             in language  on input line 807.
+ [15]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 860.
+(babel)             in language  on input line 857.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 860.
-Package marginnote Info: Margin note 19.1 is on absolute page 19
-(marginnote)              on input line 870.
-Package marginnote Info: right page because not two side mode on input line 870.
+(babel)             in language  on input line 857.
+Package marginnote Info: Margin note 18.1 is on absolute page 18
+(marginnote)              on input line 867.
+Package marginnote Info: right page because not two side mode on input line 867.
 Package marginnote Info: xpos seems to be 211.81937pt,
-(marginnote)             \marginnoterightadjust ignored on input line 870.
+(marginnote)             \marginnoterightadjust ignored on input line 867.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 879.
+(babel)             in language  on input line 876.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 879.
+(babel)             in language  on input line 876.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 879.
+(babel)             in language  on input line 876.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 879.
- [17]
-Package marginnote Info: Margin note 20.1 is on absolute page 20
-(marginnote)              on input line 891.
-Package marginnote Info: right page because not two side mode on input line 891.
+(babel)             in language  on input line 876.
+ [16]
+Package marginnote Info: Margin note 19.1 is on absolute page 19
+(marginnote)              on input line 888.
+Package marginnote Info: right page because not two side mode on input line 888.
 Package marginnote Info: xpos seems to be 319.42007pt,
-(marginnote)             \marginnoterightadjust ignored on input line 891.
-Package marginnote Info: Margin note 20.2 is on absolute page 20
-(marginnote)              on input line 895.
-Package marginnote Info: right page because not two side mode on input line 895.
+(marginnote)             \marginnoterightadjust ignored on input line 888.
+Package marginnote Info: Margin note 19.2 is on absolute page 19
+(marginnote)              on input line 892.
+Package marginnote Info: right page because not two side mode on input line 892.
 Package marginnote Info: xpos seems to be 293.15263pt,
-(marginnote)             \marginnoterightadjust ignored on input line 895.
+(marginnote)             \marginnoterightadjust ignored on input line 892.
 
 
 LaTeX Font Warning: Font shape `TU/DejaVuSansMono-TLF/m/it' undefined
-(Font)              using `TU/DejaVuSansMono-TLF/m/n' instead on input line 895.
+(Font)              using `TU/DejaVuSansMono-TLF/m/n' instead on input line 892.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--895
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 [] [] [][][][][][][][][][][][][][][][][][] [] [][][] []
  []
 
 
-Overfull \hbox (162.89252pt too wide) in paragraph at lines 895--895
+Overfull \hbox (162.89252pt too wide) in paragraph at lines 892--892
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
  []
 
@@ -3446,147 +3434,147 @@ File: fig/mtconvo.png Graphic file (type bmp)
 Missing character: There is no Р in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no и in font [lmroman10-bold]:mapping=tex-text;!
 Missing character: There is no с in font [lmroman10-bold]:mapping=tex-text;!
-Package marginnote Info: Margin note 20.3 is on absolute page 21
-(marginnote)              on input line 909.
-Package marginnote Info: right page because not two side mode on input line 909.
+Package marginnote Info: Margin note 19.3 is on absolute page 20
+(marginnote)              on input line 906.
+Package marginnote Info: right page because not two side mode on input line 906.
 Package marginnote Info: xpos seems to be 165.71262pt,
-(marginnote)             \marginnoterightadjust ignored on input line 909.
+(marginnote)             \marginnoterightadjust ignored on input line 906.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 911.
+(babel)             in language  on input line 908.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 911.
+(babel)             in language  on input line 908.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 911.
+(babel)             in language  on input line 908.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 911.
-[18]
-Package marginnote Info: Margin note 21.1 is on absolute page 21
-(marginnote)              on input line 930.
-Package marginnote Info: right page because not two side mode on input line 930.
+(babel)             in language  on input line 908.
+[17]
+Package marginnote Info: Margin note 20.1 is on absolute page 20
+(marginnote)              on input line 927.
+Package marginnote Info: right page because not two side mode on input line 927.
 Package marginnote Info: xpos seems to be 303.42781pt,
-(marginnote)             \marginnoterightadjust ignored on input line 930.
+(marginnote)             \marginnoterightadjust ignored on input line 927.
 File: fig/artsgrade.png Graphic file (type bmp)
 <fig/artsgrade.png>
 File: fig/sciencegrade.png Graphic file (type bmp)
 <fig/sciencegrade.png>
-Package marginnote Info: Margin note 21.2 is on absolute page 22
-(marginnote)              on input line 972.
-Package marginnote Info: right page because not two side mode on input line 972.
+Package marginnote Info: Margin note 20.2 is on absolute page 21
+(marginnote)              on input line 969.
+Package marginnote Info: right page because not two side mode on input line 969.
 Package marginnote Info: xpos seems to be 282.97662pt,
-(marginnote)             \marginnoterightadjust ignored on input line 972.
+(marginnote)             \marginnoterightadjust ignored on input line 969.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 988.
+(babel)             in language  on input line 985.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 988.
+(babel)             in language  on input line 985.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 988.
+(babel)             in language  on input line 985.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 988.
+(babel)             in language  on input line 985.
+ [18]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 1014.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 1014.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 1014.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 1014.
  [19]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1017.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1017.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1017.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1017.
- [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1066.
+(babel)             in language  on input line 1063.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1066.
+(babel)             in language  on input line 1063.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1066.
+(babel)             in language  on input line 1063.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1066.
- [21]
+(babel)             in language  on input line 1063.
+ [20]
 File: fig/C3C2qrcode.png Graphic file (type bmp)
 <fig/C3C2qrcode.png>
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1106.
+(babel)             in language  on input line 1103.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1106.
+(babel)             in language  on input line 1103.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1106.
+(babel)             in language  on input line 1103.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1106.
- [22]
+(babel)             in language  on input line 1103.
+ [21]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1107.
+(babel)             in language  on input line 1104.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1107.
+(babel)             in language  on input line 1104.
 File: fig/poetry1.png Graphic file (type bmp)
 <fig/poetry1.png>
 File: fig/peotry2.png Graphic file (type bmp)
 <fig/peotry2.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1109--1124
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1106--1121
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1109--1124
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1121
 
  []
 
 File: fig/c3q2.png Graphic file (type bmp)
 <fig/c3q2.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1126--1137
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1123--1134
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1137
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1134
 
  []
 
-Package marginnote Info: Margin note 25.1 is on absolute page 25
-(marginnote)              on input line 1140.
-Package marginnote Info: right page because not two side mode on input line 1140.
+Package marginnote Info: Margin note 24.1 is on absolute page 24
+(marginnote)              on input line 1137.
+Package marginnote Info: right page because not two side mode on input line 1137.
 Package marginnote Info: xpos seems to be 335.13704pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1140.
+(marginnote)             \marginnoterightadjust ignored on input line 1137.
 
-Overfull \hbox (34.96254pt too wide) in paragraph at lines 1140--1140
+Overfull \hbox (34.96254pt too wide) in paragraph at lines 1137--1137
 \TU/FandolSong-Regular(0)/m/it/10 释\TU/lmr/m/it/10 :[][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][][][][][][] []
  []
 
 
-Overfull \hbox (1.57254pt too wide) in paragraph at lines 1140--1140
+Overfull \hbox (1.57254pt too wide) in paragraph at lines 1137--1137
 [][][][][][][][][][][][][][][] [] [][][][] [] [][][][][][] []
  []
 
 File: fig/c3q3.png Graphic file (type bmp)
 <fig/c3q3.png>
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1145.
+(babel)             in language  on input line 1142.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1145.
+(babel)             in language  on input line 1142.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1145.
+(babel)             in language  on input line 1142.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1145.
-[23]
+(babel)             in language  on input line 1142.
+[22]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1199.
+(babel)             in language  on input line 1196.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1199.
+(babel)             in language  on input line 1196.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 1199.
+(babel)             in language  on input line 1196.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 1199.
- [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1199.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1199.
+(babel)             in language  on input line 1196.
+ [23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1196.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1196.
  (./C3_Notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1199.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1199.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1196.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1196.
 Package rerunfilecheck Info: File `C3_Notes.out' has not changed.
 (rerunfilecheck)             Checksum: FE669026049EE25B106E05B4E682DE3F.
 
@@ -3595,12 +3583,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 45796 strings out of 492970
- 918214 string characters out of 6133938
+ 45790 strings out of 492970
+ 918158 string characters out of 6133938
  1348920 words of memory out of 5000000
- 49022 multiletter control sequences out of 15000+600000
+ 49016 multiletter control sequences out of 15000+600000
  585021 words of font info for 137 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  65i,22n,96p,10436b,2318s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on C3_Notes.pdf (26 pages).
+Output written on C3_Notes.pdf (25 pages).
