@@ -36,6 +36,8 @@
 \usepackage{pythonhighlight}
 %\usepackage{marvosym} % coffeecup 
 
+\usepackage[ruled,vlined]{algorithm2e}
+
 \usepackage{rotating} % for the horizontal page table
 
 \usepackage{tikz}
@@ -95,6 +97,8 @@
   \newpage
   \pagestyle{fancynotes}
 
+\definecolor{franceblue}{RGB}{156, 195, 228}
+\definecolor{medblue}{RGB}{88, 157, 196}
 
 
 \setcounter{part}{2}
@@ -168,7 +172,7 @@
 \definecolor{steelteal}{RGB}{95, 124, 138}
 
 \begin{fullmodel}
-	\begin{tcolorbox}[title={哲学延伸},fonttitle=\large,colframe=steelteal]
+	\begin{tcolorbox}[title={哲学延伸},fonttitle=\large,colframe=medblue]
 		   认识论是哲学研究范畴中比较重要的一枝，视频中Geoffrey提到`how concepts are relate to other concepts' (一个概念与其它概念的联系)，这是目前有关知识的普遍共识。比如描述一朵花，需要高度，大小，颜色，等等一系列的概念堆积。而这些概念的关联就构成了我们的知识。\textbf{后面我们介绍深度学习模型时，你会接触到`卷积'和`池化'等概念}。这些新鲜的名字背后本质上是通过一个个数学模型来模拟概念关联和堆积，从而进行智能判断。深度神经学习本质上是对人的\textbf{生物仿生模拟}，我们在调试模型时需要反向调整参数，这与我们实际生活中的学习如出一辙。比如，你第一次接触滚烫的热水时，会感到疼痛，接受到该信号后，下一次你会\textbf{试探性}得调整动作去接触热水，这就是人类反向调整的过程。
 		   
 		\setlength{\parindent}{5ex}
@@ -185,7 +189,7 @@
 \end{itemize}
 
 \begin{fullmodel}
-	\begin{tcolorbox}[title={打破人工智能的迷思},fonttitle=\large,colframe=steelteal]
+	\begin{tcolorbox}[title={打破人工智能的迷思},fonttitle=\large,colframe=medblue]
 		一段时间以来，有关人工智能,大数据的话题占据了很多网络报刊的头条位置，也使得我们的生活有所喧嚣，很多人也是人云亦云般得吹泡泡。在从大得方向上掌握了，深度神经网络学习模型实际上是对人的生物仿生模拟之后，我们会通过本章的学习，解答以上两个问题。简单讲，一个人的成长需要千锤百炼，人工智能也需要学习，不过人类是通过眼耳鼻喉舌五官来进行感觉输入和经验收集，最终进行意识加工和输出，然而电脑喝得是数据，吐出来的是`牛奶'.有朝一日，人工智能很有可能会`横眉冷对千夫指，俯首甘为孺子牛'。让我们共同期待吧! 
 	\end{tcolorbox}
 \end{fullmodel}
@@ -268,7 +272,6 @@
 	\end{figure}	
 \end{question}
 
-\definecolor{franceblue}{RGB}{70, 136, 241}
 
 \begin{question}{C1-Q5}
 	(颜色填充)下图左边的坐标中定位了红，绿，蓝三个点和一个橙色点\mn{如果同学有颜色识别困难的，可以问下父母或者身边的朋友。}，如果我们将矩阵的纵列(row)代表坐标的$x$轴，将矩阵的横列(columns)代表$y$轴，根据所在的坐标将这三个点定位到右边的矩阵去中。我们使用数字代码1代表红色，2代表绿色，3代表蓝色。
@@ -645,7 +648,7 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 因为机器学习和人工智能需要大量的数据，所以非常有必要对数据结构进行定义和分类\mn{生活中最常见的数据形式应该是Excel表格。}。
 
 \begin{definition}
-	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们统一在一个描述下的多个数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
+	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个描述下的多个数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
 \end{definition}
 \begin{marginfigure}
 	\centering
@@ -854,26 +857,234 @@ print(im_mosaic1[:10, :10, 1])
 \end{align*}	
 \end{example}
 
+\subsubsection{卷积运算(Convolution)}
+
+卷积运算(Convolution)是图形处理中特有的一种运算方式。其目的是\textbf{系统性一次性得}对原始图片进行快速处理。我们之前已经讲解过图形的储存形式，而且在课前预习中的习题中也特别对卷积运算进行了铺垫，接下来我们就更加规范得对这个概念进行学习。
+
+\begin{definition}
+	给定一个长度为$m$的向量$A$和一个长度为$n$的向量$B$, 其中$n > m$:
+	\begin{align*}
+		A & = [a_1, a_2, \cdots, a_m ] \\
+		B & = [b_1, b_2, \cdots, \cdots, a_n]
+	\end{align*}
+	我们称$A$为\textit{参数(核)向量}\mn{kernel vector}，$B$为\textit{数据向量}，其卷积运算(convolution)$*$定义为
+	
+	\begin{algorithm}[H]
+	\SetAlgoLined
+	\caption{Convolution Operation}
+	初始化长度为$n-m+1$的向量$C = [c_1, c_2, \cdots, c_{n-m+1}]$ \;
+	$C = A * B $ \; 其中，每一个元素的计算方法为\;
+	\For {$i \ in \ [1:n-m+1]$}{$c_i = \sum_{k=1}^m a_k b_{k+i-1} = a_1 b_i +  a_2 b_{i+1} +\cdots + a_m b_{i+m-1}$}
+	\end{algorithm}
+\end{definition}
+
+\begin{example}
+	现有参数向量$A=[1, 3, 4]$ 和数据向量$B = [5, 6, 7 , 8 , 9]$,那么
+	\begin{align*}
+		A * B & = [34, 40, 46]\\
+		34 & = 1\times 5 + 3 \times 6 + 4 \times 7 \\
+		40 & = 1 \times 6 + 3 \times 7 + 4 \times 8 
+	\end{align*}
+\end{example}
+
+\begin{definition}
+	给定一个$m \times n$的矩阵$A$，和一个$k \times l$的矩阵$B$，并且$k > m, l > n$, 那么矩阵$A$被叫作\textit{参数(核)矩阵}\mn{kernel matrix}，矩阵$B$被称为\textit{数据矩阵}。那么矩阵$A$和$B$的卷积运算定义为
+	\begin{align*}
+		A * B = \text{移动参数向量对数据向量进行对位求积后求和}
+	\end{align*}
+	运算过程如下图所示(来源:Irhum Shafkat, 2018)\mn{矩阵的卷积有很多种，更多的介绍请参考该网站:\url{https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1}}。
+\end{definition}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{fig/mtconvo}
+	\caption{基本矩阵卷积计算}
+\end{figure}
+
+\begin{remark}
+	矩阵的卷积运算目的是想要通过参数矩阵来对数据矩阵进行进一步的处理。之所以需要这个处理过程是因为
+	\begin{itemize}
+		\item 原始多媒体数据集维数较大，比如图3.4中的猫有$(1400, 1400, 3)$，即$1400 \times 1400 \times 3 = 588000$个数(元素)组成。通过卷积运算后数据集的维数会有所下降，从而节省模型训练时间；
+		\item 原始多媒体数据集的特征不明显，需要通过参数矩阵的卷积运算后来进行优化；
+		\item 卷积在图像识别中的应用原因还有其它的，以后我们会结合具体案例进一步讲解。\mn{卷积运算主要应用在图像识别中，在其它领域，比如金融数据的人工智能模型，则没有被那么广泛得使用。}
+	\end{itemize}
+\end{remark}
+
+\begin{example}
+我们手动计算一种标准的卷积形式，给定参数核矩阵$A$和数据矩阵$B$为
+\begin{align*}
+	A = \begin{bmatrix}
+		1 & -1 \\
+		1 & 2 
+	\end{bmatrix} & & B= \begin{bmatrix}
+		1 & 2 & 1 \\
+		2 & 3 & 6 \\
+		0 & 5 & 7 
+	\end{bmatrix}
+\end{align*}	
+我们演示计算结果矩阵($C = A*B$)的第一个元素\mn{$C=A*B$的最终结果为\begin{align*}
+	C = \begin{bmatrix}
+		5 & 8 \\
+		12 & 14 
+	\end{bmatrix}
+\end{align*} 你会发现$C$中元素最大值是$14$,刚好在$B$的右下角，这是巧合吗?（显示不是，否则我也不发发问了)}
+\begin{align*}
+	C_{11} = 1\times 1 + (-1) \times 2 + 1 \times 2 + 2 \times 3 = 7 
+\end{align*}
+\end{example}
 
 
+\begin{example}
+为帮助同学们理解参数卷积的重要性，我们特别详细分析一个生活常见的具体案例。下面的表格是一个班级内几名同学的不同学科的成绩表，我们来计算不同的参数卷积矩阵可以给出不同的`评估'结果（这个评估结果可以理解成我们机器学习的一个运算结果)。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{fig/artsgrade}
+	\includegraphics[width=\textwidth]{fig/sciencegrade}
+\end{figure}
+其中参数核(kernel)矩阵给定为
+\begin{align*}
+	K = \begin{bmatrix}
+		1 & 0 & $-$1$$ \\
+		1 & 0 & $-$1$$  \\
+		1 & 0 & $-$1$$  
+	\end{bmatrix}
+\end{align*}
+将文科生(arts)和理科生(science)的数据阵进行两次卷积运算:
+\begin{align*}
+	A \Rightarrow \begin{bmatrix}
+		-30 &    0  &   60  &    30 \\
+       -30  &     0  &    60  &    30   \\        
+       -30  &     0  &    60  &   30 \\
+       -30  &    0  &    60  &   30 
+	\end{bmatrix} \Rightarrow \begin{bmatrix}
+		270 & 90 \\
+		270 & 90 
+	\end{bmatrix} & & 	S \Rightarrow \begin{bmatrix}
+	   0 & -30 & 30 & 60 \\
+       0 & -30 &  30 & 60 \\
+        0 & -30 &  30 & 60 \\
+       0 & -30 &  30 &  60
+	\end{bmatrix} \Rightarrow \begin{bmatrix}
+		90 & 270 \\
+		90 & 270 
+	\end{bmatrix}
+\end{align*}
+两个矩阵看起来很相似，只是列向量顺序不同。如果我们将两个矩阵按照此前的顺序进行标注，可以得出下面的表格:\mn{如果你没有觉得数学像变魔术一样把复杂问题简单化的话，我也只能表示要喝一瓶王老吉了。}
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{|l|cc|}
+	\hline 
+		学科 & 文科生(arts) & 理科生(science) \\
+		\hline 
+		文& 270 & 90 \\
+		科& 270 & 90 \\
+		\hline 
+		理& 90 & 270 \\
+		科& 90 & 270 \\
+		\hline 
+	\end{tabular}
+\end{table}
+\end{example}
+
+复杂神经学习模型要比以上的例子复杂的多，但是基本流程却非常相似，具体的计算和演化逻辑也可以说`如出一辙'。我们可以把神经网络深度学习的模型再一次概况为:\textbf{通过对输入端的数据群(大数据)进行标注和整理后，建立一个人工智能构架，并设定目标函数(损失方程),对所建立的构建(或模型)进行反复训练，直到找到符合我们目标函数要求的参数核矩阵。}
+
+\noindent
+下面是本讲内容使用的Python程序，有兴趣的同学可以自己复制后运行和进行改进调试。
+\begin{python}
+# Chapter 3 Lecture 1
+# 课堂讲义
+# @ Michael
+
+# Import essential packages
+# 导入必要扩展
+
+import numpy as np
+from scipy import signal
+
+# vector convolution 向量卷积
+a = np.array([1, 2, 3])
+b = np.array([5, 6, 7, 8, 9])
+np.convolve(a, b, 'valid')  # array([34, 40, 46])
+
+# matrix convolution example 1
+kernela = np.array([[1, -1], [1, 2]])
+datamatrix = np.array([[1, 2, 1], [2, 3, 6], [0, 5, 7]])
+print(signal.convolve2d(datamatrix, kernela, 'valid'))
+
+# matrix convolution example 2
+grade_arts = np.ones([6, 6])
+grade_science = np.ones([6, 6])
+grade_dist1 = [90, 60, 80, 60, 100, 70]
+grade_dist2 = [60, 90, 60, 80, 70, 100]
+for i in range(len(grade_dist1)):
+    grade_arts[:, i] = grade_arts[:, i] * grade_dist1[i]
+for j in range(len(grade_dist2)):
+    grade_science[:, j] = grade_science[:, j] * grade_dist2[j]
+
+print(grade_arts)
+print(grade_science)
+
+kernel_para = np.array([[1, 0, -1], [1, 0, -1], [1, 0, -1]])
+conv_arts = signal.convolve2d(grade_arts, kernel_para, 'valid')
+# array([[-30.,   0.,  60.,  30.],
+#        [-30.,   0.,  60.,  30.],
+#        [-30.,   0.,  60.,  30.],
+#        [-30.,   0.,  60.,  30.]])
+signal.convolve2d(conv_arts, kernel_para, 'valid')
+# array([[270.,  90.],
+#        [270.,  90.]])
 
 
+conv_science = signal.convolve2d(grade_science, kernel_para, 'valid')
+conv_science.shape
+# array([[  0., -30.,  30.,  60.],
+#        [  0., -30.,  30.,  60.],
+#        [  0., -30.,  30.,  60.],
+#        [  0., -30.,  30.,  60.]])
+signal.convolve2d(conv_science, kernel_para, 'valid')
+# array([[ 90., 270.],
+#        [ 90., 270.]])
+\end{python}
 
 
+Bonjour,我们这一节的课堂讲义就到此结束了，下面你要进行课后练习了。这些课后练习并不复杂，只是需要你动脑+动手。
 
+\hfil
 
-
-
-
-
-
-
+\noindent
+\textcolor{purple}{疑难解答}:如果有相关疑问，请扫描下面的二维码，讲你的问题输入，老师会尽快答疑解惑:$\heartsuit$。 \begin{marginfigure}
+	\centering
+	\includegraphics[width=\textwidth]{fig/C3C2qrcode}
+\end{marginfigure}
 
 
 
 
 \newpage
 \subsection{课后练习C3}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
