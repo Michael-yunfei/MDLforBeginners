@@ -82,6 +82,7 @@
 
 
 \numberwithin{equation}{section}
+\numberwithin{figure}{section}
 
 
 \newenvironment{question}[2][Question]{\begin{trivlist}
@@ -639,16 +640,219 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 深度模型的构建的基本单元是一连串的函数组合，这些函数的线性组合构成了我们所称的`神经网络'以及卷积(convolution)的过程。了解这些函数的作用以及卷积的过程对于理解深度学习网络至关重要。所以我们会花费比较多的时间来讲解这些数学概念。
 \end{fullmodel}
 
+\subsubsection{数据结构}
+
+因为机器学习和人工智能需要大量的数据，所以非常有必要对数据结构进行定义和分类\mn{生活中最常见的数据形式应该是Excel表格。}。
+
+\begin{definition}
+	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们统一在一个描述下的多个数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
+\end{definition}
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/dataframeEx}
+\end{marginfigure}
+\begin{remark}
+很显然，如果我只给你一个数，比如6, 我们不能称其为数据，因为其缺乏对其的描述。比如，`年方二八’, 年龄16岁，则可以成为数据。	再比如，2019 不是数据，2019年则是数据。
+\end{remark}
+
+\begin{example}
+数据: 红色-255; 数据集: 颜色: 红255， 绿666， 蓝521; 数据阵:[[颜色:190, 321, 589]; [年份:2019, 2020, 2056]]。右边的表格就是一个数据阵。数据阵(dataframe)是Python和R语言中常用的数据形式。
+\end{example}
+
+\begin{definition}
+	我们把语言文本，网页信息，图片和影音等的复制数据，称为\textit{多媒体数据集}。
+\end{definition}
+
+\begin{example}
+下面这张图片是由 Peggy Collins 创作的马赛克数字图画。这张图片在计算机中的存储形式是具有维度$(1400, 1400, 3)$的数据集构成。其中3，是代表的RGB(红绿蓝)三层底色层，每一个色素层是由一个$1400 \times 1400$的矩阵组成。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg}
+	\caption{Ginger Cat by Peggy Collins (digital artwork)}
+\end{figure}	
+\begin{python}
+print(im_mosaic1[:10, :10, 1])
+# [[246 190 116  51  30  21   0   6  28  42]
+#  [188  88  48  52  40  20   4  12  28  39]
+#  [108  40  37  55  43  27  17  15  24  35]
+#  [ 35  34  41  39  35  32  21  18  21  31]
+#  [ 20  24  25  26  34  26  13  23  23  29]
+#  [ 35  25  24  29  28  19  17  26  25  29]
+#  [ 28  23  24  22  15  17  24  22  23  25]
+#  [ 33  29  18  15  18  17  15  12  18  19]
+#  [ 18  14  13  16  19  19  19  18  15  11]
+#  [  8   6   8  16  23  26  24  21  20  15]]	
+\end{python}
+\end{example}
+
+\begin{definition}
+	我们将多媒体数据集和数据阵组合构成的数据形态成为\textit{数据群}或者\textit{大数据}。数据群或大数据，在业界也被称为\textbf{有标注的数据群}。
+\end{definition}
+
+\begin{example}
+比如，下面这个数据群，就是一个有标注的数据群。\mn{大数据时代，数据的标注准确度和密集度，成为衡量数据群质量的重要指标。国际上，目前美国的数据群质量最高，其次是英国和德国。中国的数据群目前取胜于量，对于质的追求，还需要一定的时间。}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{ccccc}
+	\hline 
+		图片(1400, 1400, 3) & 年份 & 地点 & 备注1 & 备注2 \\
+		\hline 
+		图1 & 2016 & 桥 & 青岛 & 红色 \\
+		图2 & 2020 &  伦敦 & 人 & 女 \\
+		图3 & 2013 & 成都& 熊猫 & 国宝\\
+		\hline 
+	\end{tabular}
+\end{table}
+\end{example}
 
 
+\subsubsection{损失方程(Loss Function)}
+
+人工智能中很多模型，包括神经网络学习模型都需要有标注的数据群。比如我们通过想要训练神经网络学习模型辨别图片中的人物的性别，那么就需要具有\textit{性别标注}的图片数据群。拥有了标注的数据，就可以训练人工智能模型，从而可以调整模型参数，来提升预测准确度。而用来衡量准确度的方程就需要损失方程。
+
+\begin{definition}
+	假设数据群标注过的数据准确可靠，在人工智能模型中，模型在整合输入数据且加工计算后输出的结果与数据群标注的数据差别的方程成为\textit{损失方程(Loss Function)}。
+\end{definition}
+
+\begin{example}
+比如我们想要通过人工智能来判定图片中人类的性别，下面的表格中给出了最为简单的一种损失方程。
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{cccc}
+	\hline 
+		图片(1400, 1400, 3) & 标注(1-男,0-女) & 模型预测 & 差异\\
+		\hline 
+		图1 & 1 & 0 & 1 \\
+		图2 & 0 & 1 & 1 \\
+		图3 & 1 & 1 & 0 \\
+		\hline 
+	\end{tabular}
+\end{table}
+用$\hat{Y}$来代表预测的结果，$Y$来代表标注结果，那么损失方程为:
+\begin{align*}
+	L(Y, \hat{Y}): |Y-\hat{Y}| 
+\end{align*}
+\end{example}
+
+\begin{remark}
+损失方程(Loss function) 有很多设计。设计或者选择损失方程的依据是为了更好得训练人工智能的模型，从而提升预测准确度。后面我们还会逐渐介绍不同的损失方程，但是其一般形式为:
+\begin{align*}
+	L: (Y, \hat{Y}): \ \to \rn 
+\end{align*}	
+\end{remark}
+
+\subsubsection{初始数据群处理}
+
+在具体的人工智能实践中，我们很多时间实际上是花在处理初始数据群上的\mn{Data scientists spend 80\% of their time cleaning data rather than creating insights.}。这是因为初始数据群的整洁程度和能否直接被人工智能模型接受，会影响我们后面对模型的训练和各类模型的调试。因为处理初始数据群非常重要，所以很多公司会聘请专门的数据专家进行数据整理和矫正。希望同学们在具体的操作中，也有数据集群意识。因为本章的神经网络模型处理较多的是图片，所以我们接下来重点介绍图片的多媒体数据集合构成。
 
 
+\subsubsection{向量、矩阵和其相关的运算}
 
+无论是\textit{多媒体数据集}还是\textit{数据阵},除去其标注的信息，具体的数都是储存在矩阵中的。
 
+\begin{definition}
+	\textit{矩阵}（Matrix）是一个按照长方阵列排列的复数或实数集合。对一个矩阵的简单描述可以为 $m \times n$ 的矩阵，即该矩阵有$m$ 行，$n$列. $m \times n$也被称为矩阵的大小。
+\end{definition}
+\begin{example}
+比如，我们有$3 \times 3 $的矩阵$A$ 和$2 \times 3$ 的矩阵$B$。
+\begin{align*}
+	 A = \begin{bmatrix}
+	1 & 3 & 4 \\
+	2 & 5 & 8 \\
+	3 & 9 & 7
+\end{bmatrix}, & & B = \begin{bmatrix}
+	3.2 & 1.9 & 5.7 \\
+	4.1 & 5.8 & 9.3 \\
+\end{bmatrix}
+\end{align*}	
+\end{example}
 
+\begin{definition}
+	矩阵中单独的一行被成为\textit{行向量}(row vector), 单独的一列别成为\textit{列向量}(column vector)。
+\end{definition}
+\begin{example}
+比如在上面的矩阵$A$中，	我们有以下单独的向量:
+\begin{align*}
+	A_{r2} = [2 \ 5 \ 8],  & & A_{c2} = \begin{bmatrix}
+		3 \\
+		5 \\
+		9 
+	\end{bmatrix}
+\end{align*}
+\end{example}
 
+\begin{definition}
+	现有同样大小的$m \times n$的矩阵 $A, B$, 我们定义矩阵的加法($+$)运算为：
+	\begin{align*}
+		A + B = \begin{bmatrix}
+			(a_{11} + b_{11}) & (a_{12}+b_{12}) & \cdots & (a_{1n}+b_{1n}) \\
+			a_{21} + b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+			\vdots & \ddots & & \vdots \\
+			a_{m1} + b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \\
+		\end{bmatrix}
+	\end{align*}
+	其中，$a_{ij}$ 为矩阵$A$中第$i$行第$j$列元素,$b_{ij}$ 为矩阵$B$中第$i$行第$j$列元素。
+\end{definition}
 
+\begin{remark}
+矩阵的加法智能在同样大小的矩阵中进行，即同位元素相加。	
+\end{remark}
 
+矩阵最早的提出是为了解决多项式的求解，比如下面方程组的转换。
+\begin{align*}
+	2x_1 + 3x_2 + 7x_3 & = 9 \\
+	4x_1 + 5x_2 + 8 x_3 & = 10 \\
+\end{align*}
+可以用矩阵的乘法来表示:
+\begin{align*}
+	\begin{bmatrix}
+		2 & 3 & 7 \\
+		4 & 5 & 8 
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 
+	\end{bmatrix} = \begin{bmatrix}
+		 9 \\
+		 10 
+	\end{bmatrix}
+\end{align*}
+
+\begin{definition}
+	现有$m \times n$ 的矩阵A 和 $n \times k$的矩阵$B$, 我们定义矩阵的乘法$\cdot$为
+	\begin{align*}
+		(A \cdot B)_{ij} = \sum_{r=1}^n a_{ir}b_{rj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{in}b_{nj}
+	\end{align*}
+	其中$(A \dot B)_{ij}$是两个矩阵相乘后的第i行第j列元素。
+\end{definition}
+
+\begin{remark}
+取任意$a \times b$ 矩阵A 和$c \times d$ 矩阵 B, 如果$b \neq c$，则两个矩阵不可以相乘。	
+\end{remark}
+
+\begin{example}
+计算下列矩阵的乘法
+\begin{align*}
+	\begin{bmatrix}
+		2 & 3 & 7 \\
+		4 & 5 & 8 
+	\end{bmatrix} \begin{bmatrix}
+		1 \\
+		0 \\
+		-1 
+	\end{bmatrix} = \ ? & & \begin{bmatrix}
+		1 & 3 & 3 \\
+		2 & 8 & 4 \\
+		3 & 9 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		3 & 2 \\
+		1 & 0 \\
+		-1 & 8 
+	\end{bmatrix} = \ ?
+\end{align*}	
+\end{example}
 
 
 

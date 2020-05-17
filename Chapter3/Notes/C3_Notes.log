@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  17 MAY 2020 01:36
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  17 MAY 2020 03:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2702,32 +2702,32 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 ) (./C3_Notes.aux)
 \openout1 = `C3_Notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 91.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 92.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 92.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 91.
+LaTeX Info: Redefining \selectfont on input line 92.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -2776,7 +2776,7 @@ Package marginnote Info: \pdfoutput not 0 or unimportant and
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box108
-Package hyperref Info: Link coloring ON on input line 91.
+Package hyperref Info: Link coloring ON on input line 92.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -2784,9 +2784,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count369
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 92.
+LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \nameref on input line 92.
  (./C3_Notes.out) (./C3_Notes.out)
 \@outlinefile=\write6
 \openout6 = `C3_Notes.out'.
@@ -2795,7 +2795,7 @@ LaTeX Info: Redefining \nameref on input line 91.
 .................................................
 . LaTeX info: "xparse/redefine-command"
 . 
-. Redefining command \Pifont with sig. 'm' on line 91.
+. Redefining command \Pifont with sig. 'm' on line 92.
 .................................................
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
@@ -2836,7 +2836,7 @@ LaTeX Info: Redefining \nameref on input line 91.
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
 \g__fontspec_family_FandolHei-Regular_int=\count371
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 92.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 93.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -2853,50 +2853,50 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 . - 'bold' (bx/n) with NFSS spec.: <->"[FandolHei-Bold.otf]/OT"
 . - 'bold small caps'  (bx/sc) with NFSS spec.: 
 .................................................
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 92.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 92.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 92.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 92.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 92.
+(Font)              <12> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 92.
+(Font)              <8> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 92.
-LaTeX Font Info:    Try loading font information for U+msa on input line 92.
+(Font)              <6> on input line 93.
+LaTeX Font Info:    Try loading font information for U+msa on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 92.
+LaTeX Font Info:    Try loading font information for U+msb on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 92.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 92.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 93.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 92.
+(Font)              <10> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 92.
+(Font)              <7> on input line 93.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 92.
+(Font)              <5> on input line 93.
 
 *************************************************
 * fontspec warning: "script-not-exist"
@@ -2904,12 +2904,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 * Font 'FandolFang-Regular' does not contain script 'CJK'.
 *************************************************
 \g__fontspec_family_FandolFang-Regular_int=\count372
-LaTeX Font Info:    Try loading font information for T1+DejaVuSansMono-TLF on input line 92.
+LaTeX Font Info:    Try loading font information for T1+DejaVuSansMono-TLF on input line 93.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/dejavu/T1DejaVuSansMono-TLF.fd
 File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono-TLF.
 )
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 92.
+(Font)              scaled to size 10.79993pt on input line 93.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2930,127 +2930,127 @@ LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
 
  [1]
 Package marginnote Info: Margin note 3.1 is on absolute page 3
-(marginnote)              on input line 104.
-Package marginnote Info: right page because not two side mode on input line 104.
+(marginnote)              on input line 105.
+Package marginnote Info: right page because not two side mode on input line 105.
 Package marginnote Info: xpos seems to be 30.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 104.
+(marginnote)             \marginnoterightadjust ignored on input line 105.
 
 
 LaTeX Warning: Marginpar on page 1 moved.
 
 Package marginnote Info: Margin note 3.2 is on absolute page 3
-(marginnote)              on input line 117.
-Package marginnote Info: right page because not two side mode on input line 117.
+(marginnote)              on input line 118.
+Package marginnote Info: right page because not two side mode on input line 118.
 Package marginnote Info: xpos seems to be 326.16542pt,
-(marginnote)             \marginnoterightadjust ignored on input line 117.
+(marginnote)             \marginnoterightadjust ignored on input line 118.
 
-Overfull \hbox (3.04573pt too wide) in paragraph at lines 122--141
+Overfull \hbox (3.04573pt too wide) in paragraph at lines 123--142
  [][] 
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 145.
+(hyperref)                than one, level fixed on input line 146.
 
 [1
 
 ]
 Package marginnote Info: Margin note 4.1 is on absolute page 4
-(marginnote)              on input line 156.
-Package marginnote Info: right page because not two side mode on input line 156.
+(marginnote)              on input line 157.
+Package marginnote Info: right page because not two side mode on input line 157.
 Package marginnote Info: xpos seems to be 70.7125pt,
-(marginnote)             \marginnoterightadjust ignored on input line 156.
+(marginnote)             \marginnoterightadjust ignored on input line 157.
 Package marginnote Info: Margin note 4.2 is on absolute page 4
-(marginnote)              on input line 156.
-Package marginnote Info: right page because not two side mode on input line 156.
+(marginnote)              on input line 157.
+Package marginnote Info: right page because not two side mode on input line 157.
 Package marginnote Info: xpos seems to be 71.46661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 156.
+(marginnote)             \marginnoterightadjust ignored on input line 157.
 Package marginnote Info: Margin note 4.3 is on absolute page 4
-(marginnote)              on input line 160.
-Package marginnote Info: right page because not two side mode on input line 160.
+(marginnote)              on input line 161.
+Package marginnote Info: right page because not two side mode on input line 161.
 Package marginnote Info: xpos seems to be 145.0498pt,
-(marginnote)             \marginnoterightadjust ignored on input line 160.
+(marginnote)             \marginnoterightadjust ignored on input line 161.
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 169--177
+Overfull \hbox (149.25pt too wide) in paragraph at lines 170--178
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--177
+Underfull \hbox (badness 10000) in paragraph at lines 170--178
 
  []
 
 [2]
-Overfull \hbox (149.25pt too wide) in paragraph at lines 186--191
+Overfull \hbox (149.25pt too wide) in paragraph at lines 187--192
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--191
+Underfull \hbox (badness 10000) in paragraph at lines 187--192
 
  []
 
 Package marginnote Info: Margin note 5.1 is on absolute page 5
-(marginnote)              on input line 196.
-Package marginnote Info: right page because not two side mode on input line 196.
+(marginnote)              on input line 197.
+Package marginnote Info: right page because not two side mode on input line 197.
 Package marginnote Info: xpos seems to be 152.60558pt,
-(marginnote)             \marginnoterightadjust ignored on input line 196.
+(marginnote)             \marginnoterightadjust ignored on input line 197.
 
-Overfull \hbox (18.39638pt too wide) detected at line 196
+Overfull \hbox (18.39638pt too wide) detected at line 197
 []
  []
 
 [3]
 Package marginnote Info: Margin note 6.1 is on absolute page 6
-(marginnote)              on input line 273.
-Package marginnote Info: right page because not two side mode on input line 273.
+(marginnote)              on input line 274.
+Package marginnote Info: right page because not two side mode on input line 274.
 Package marginnote Info: xpos seems to be 107.86707pt,
-(marginnote)             \marginnoterightadjust ignored on input line 273.
+(marginnote)             \marginnoterightadjust ignored on input line 274.
 
 Underfull \vbox (badness 3417) has occurred while \output is active []
 
  [4]
 Package marginnote Info: Margin note 7.1 is on absolute page 7
-(marginnote)              on input line 315.
-Package marginnote Info: right page because not two side mode on input line 315.
+(marginnote)              on input line 316.
+Package marginnote Info: right page because not two side mode on input line 316.
 Package marginnote Info: xpos seems to be 243.70244pt,
-(marginnote)             \marginnoterightadjust ignored on input line 315.
+(marginnote)             \marginnoterightadjust ignored on input line 316.
 
-Overfull \hbox (9.78511pt too wide) in paragraph at lines 315--315
+Overfull \hbox (9.78511pt too wide) in paragraph at lines 316--316
 \TU/FandolSong-Regular(0)/m/it/10 的[][][][][][]的 代 码 是 \T1/lmr/m/it/10 (70, 136,
  []
 
 Package marginnote Info: Margin note 7.2 is on absolute page 7
-(marginnote)              on input line 349.
-Package marginnote Info: right page because not two side mode on input line 349.
+(marginnote)              on input line 350.
+Package marginnote Info: right page because not two side mode on input line 350.
 Package marginnote Info: xpos seems to be 147.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 349.
+(marginnote)             \marginnoterightadjust ignored on input line 350.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 352.
-LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/sl' in size <10> not available
-(Font)              Font shape `T1/DejaVuSansMono-TLF/m/it' tried instead on input line 353.
-LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/it' will be
 (Font)              scaled to size 8.99994pt on input line 353.
+LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/sl' in size <10> not available
+(Font)              Font shape `T1/DejaVuSansMono-TLF/m/it' tried instead on input line 354.
+LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/it' will be
+(Font)              scaled to size 8.99994pt on input line 354.
 
 
 LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/sl' undefined
-(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 354.
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 355.
 
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/bx/n' in size <10> not available
-(Font)              Font shape `T1/DejaVuSansMono-TLF/b/n' tried instead on input line 360.
+(Font)              Font shape `T1/DejaVuSansMono-TLF/b/n' tried instead on input line 361.
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 360.
+(Font)              scaled to size 8.99994pt on input line 361.
 [5]
 Package marginnote Info: Margin note 8.1 is on absolute page 8
-(marginnote)              on input line 392.
-Package marginnote Info: right page because not two side mode on input line 392.
+(marginnote)              on input line 393.
+Package marginnote Info: right page because not two side mode on input line 393.
 Package marginnote Info: xpos seems to be 148.92485pt,
-(marginnote)             \marginnoterightadjust ignored on input line 392.
+(marginnote)             \marginnoterightadjust ignored on input line 393.
 
-Overfull \hbox (5.80833pt too wide) in paragraph at lines 392--392
+Overfull \hbox (5.80833pt too wide) in paragraph at lines 393--393
 | $[]$ \T1/lmr/m/it/10 Python \TU/FandolSong-Regular(0)/m/it/10 的 主 要 对 象 单 元 有\T1/lmr/m/it/10 :int,
  []
 
@@ -3059,27 +3059,27 @@ Underfull \vbox (badness 1308) has occurred while \output is active []
 
  [6]
 Package marginnote Info: Margin note 9.1 is on absolute page 9
-(marginnote)              on input line 433.
-Package marginnote Info: right page because not two side mode on input line 433.
+(marginnote)              on input line 434.
+Package marginnote Info: right page because not two side mode on input line 434.
 Package marginnote Info: xpos seems to be 170.45438pt,
-(marginnote)             \marginnoterightadjust ignored on input line 433.
+(marginnote)             \marginnoterightadjust ignored on input line 434.
 File: fig/relu.png Graphic file (type bmp)
 <fig/relu.png>
 
-Overfull \hbox (11.41658pt too wide) in paragraph at lines 433--433
+Overfull \hbox (11.41658pt too wide) in paragraph at lines 434--434
 \T1/lmr/m/it/10 Javascript\TU/FandolSong-Regular(0)/m/it/10 ，|  比 如 \T1/lmr/m/it/10 D3.js \TU/FandolSong-Regular(0)/m/it/10 和 \T1/lmr/m/it/10 Chart.js\TU/FandolSong-Regular(0)/m/it/10 。|
  []
 
 File: fig/sigmoid.png Graphic file (type bmp)
 <fig/sigmoid.png>
 Package marginnote Info: Margin note 9.2 is on absolute page 10
-(marginnote)              on input line 478.
-Package marginnote Info: right page because not two side mode on input line 478.
+(marginnote)              on input line 479.
+Package marginnote Info: right page because not two side mode on input line 479.
 Package marginnote Info: xpos seems to be 170.16121pt,
-(marginnote)             \marginnoterightadjust ignored on input line 478.
+(marginnote)             \marginnoterightadjust ignored on input line 479.
 
 LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/bx/it' undefined
-(Font)              using `TU/FandolSong-Regular(0)/bx/n' instead on input line 478.
+(Font)              using `TU/FandolSong-Regular(0)/bx/n' instead on input line 479.
 
 [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3089,19 +3089,19 @@ File: fig/C3C1qrcode.png Graphic file (type bmp)
 <fig/C3C1qrcode.png>
  [9]
 Package marginnote Info: Margin note 12.1 is on absolute page 12
-(marginnote)              on input line 575.
-Package marginnote Info: right page because not two side mode on input line 575.
+(marginnote)              on input line 576.
+Package marginnote Info: right page because not two side mode on input line 576.
 Package marginnote Info: xpos seems to be 112.0664pt,
-(marginnote)             \marginnoterightadjust ignored on input line 575.
+(marginnote)             \marginnoterightadjust ignored on input line 576.
 File: fig/epismeflow.png Graphic file (type bmp)
 <fig/epismeflow.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 585--604
+Overfull \hbox (149.25pt too wide) in paragraph at lines 586--605
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--604
+Underfull \hbox (badness 10000) in paragraph at lines 586--605
 
  []
 
@@ -3109,35 +3109,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 585--604
 File: fig/deepmindflow.png Graphic file (type bmp)
 <fig/deepmindflow.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 632--641
+Overfull \hbox (149.25pt too wide) in paragraph at lines 633--642
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 632--641
+Underfull \hbox (badness 10000) in paragraph at lines 633--642
 
  []
 
-[11] [12] [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 682.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 682.
+[11]
+Package marginnote Info: Margin note 14.1 is on absolute page 14
+(marginnote)              on input line 645.
+Package marginnote Info: right page because not two side mode on input line 645.
+Package marginnote Info: xpos seems to be 111.71661pt,
+(marginnote)             \marginnoterightadjust ignored on input line 645.
+File: fig/dataframeEx.png Graphic file (type bmp)
+<fig/dataframeEx.png>
+ [12]
+File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg>
+Package marginnote Info: Margin note 15.1 is on absolute page 16
+(marginnote)              on input line 693.
+Package marginnote Info: right page because not two side mode on input line 693.
+Package marginnote Info: xpos seems to be 369.63358pt,
+(marginnote)             \marginnoterightadjust ignored on input line 693.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Package marginnote Info: Margin note 16.1 is on absolute page 16
+(marginnote)              on input line 748.
+Package marginnote Info: right page because not two side mode on input line 748.
+Package marginnote Info: xpos seems to be 51.71661pt,
+(marginnote)             \marginnoterightadjust ignored on input line 748.
+ [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15] [16] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 886.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 886.
  (./C3_Notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 682.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 682.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 886.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 886.
 Package rerunfilecheck Info: File `C3_Notes.out' has not changed.
-(rerunfilecheck)             Checksum: 871304C60E6D987A5AF2F2381046C29B.
+(rerunfilecheck)             Checksum: FB4F1629F97CA0C0E939928691FFD210.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 44625 strings out of 492970
- 897957 string characters out of 6133938
- 1318689 words of memory out of 5000000
- 47893 multiletter control sequences out of 15000+600000
+ 44678 strings out of 492970
+ 899660 string characters out of 6133938
+ 1318761 words of memory out of 5000000
+ 47942 multiletter control sequences out of 15000+600000
  673942 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 65i,16n,96p,10436b,2286s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,17n,96p,10436b,2286s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on C3_Notes.pdf (15 pages).
+Output written on C3_Notes.pdf (19 pages).

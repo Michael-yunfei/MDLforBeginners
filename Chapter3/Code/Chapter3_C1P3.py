@@ -65,6 +65,7 @@ plt.savefig(
     '/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png',
     figsize=(6, 9), dpi=156)
 
+
 # pin down the red color
 print(im_rgbmosaic[500:520, 600:620, 0])
 print(im_rgbmosaic[500:520, 600:620, 1])
