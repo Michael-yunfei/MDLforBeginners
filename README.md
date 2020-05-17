@@ -1,8 +1,6 @@
 # MDLforBeginners
 
-<img src="https://github.com/Michael-yunfei/MDLforBeginners/blob/master/Chapter3/Code/Images/Mosaic1.png" width="100" height="100">
-
-![](https://github.com/Michael-yunfei/MDLforBeginners/blob/master/Chapter3/Code/Images/Mosaic1.png | width=50)
+<img src="https://github.com/Michael-yunfei/MDLforBeginners/blob/master/Chapter3/Code/Images/Mosaic1.png" width="216" height="216">
 
 This repository is built for teaching beginners machine learning and deep learning. The topics covered in this course are quite standard, which should include the follows provisionally:
 
