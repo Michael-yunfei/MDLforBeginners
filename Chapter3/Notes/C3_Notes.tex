@@ -22,7 +22,7 @@
 \usepackage{float}
 \usepackage{appendix}
 \usepackage{url}
-\usepackage[english]{babel}
+\usepackage[english, russian]{babel}
 \usepackage{adjustbox}
 \usepackage{textgreek}
 \usepackage{NotesTeX}
@@ -1059,16 +1059,74 @@ Bonjour,我们这一节的课堂讲义就到此结束了，下面你要进行课
 \end{marginfigure}
 
 
-
-
 \newpage
 \subsection{课后练习C3}
 
+\begin{fullmodel}
+\begin{question}{思考题C3-Q1}
+	Michael是一名研修植物学的大学生，他一直梦想只用通过手机拍照后，计算机就可以自动配图和文字，对他所拍的植物进行一份文档生成，而不是他亲自去采集植物，阅读资料，并且撰写有关植物学的报告。解决该类问题除了图像处理之外，还需要自然语言的处理。你认为他的梦想会在未来会实现吗？实际上，Michael爱好诗歌，他喜欢写短行诗后配上图片发到朋友圈上，下面是他发的一条朋友圈。请问你可以训练计算机写诗吗？
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{fig/poetry1}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.45\textwidth}
+			\includegraphics[width=0.99\textwidth]{fig/peotry2}
+		\end{subfigure}
+	\end{figure}
+\end{question}	
+\end{fullmodel}
 
 
+\begin{fullmodel}
+\begin{question}{设计题 C3-Q2}
+	下面的表格中有九个描述，根据这九个描述，将你的数据构成一个$9 \times 9$的矩阵。然而设计一个损失方程(Loss function)，然后计算你跟班里的同学谁最\textit{相像}。其中性别代码1指男性,0指女性。所有的数据均采用公有制单位，比如身高176cm,在矩阵中填176即可，视力1.5等
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{fig/c3q2}
+	\end{figure}
+\end{question}
+\noindent
+提示：损失方程最简单就是，将矩阵的每个元素相减，然后求和。当然你也可以根据自己的喜好，对每个描述进行有比重的衡量。	根据你设计的损失方程，使用Python计算你与其它至少一位同学的相像值。
+\end{fullmodel}
 
 
+\begin{question}{作图题 C3-Q3}
+	该题目具有承上启下的作用，虽然很简单，但是所蕴含的道理`法力无边'。给定方程$f(x) = -x^2+ 6x-2$, 下面是其图像，在这个图像中$x=2, x = 4, x =5$三个点上，画三条切线\mn{英文好的同学，可以阅读老师编写针对该问题的深入解释:\url{https://github.com/Michael-yunfei/MachineLearning/blob/master/GraidentDescent/Gradient.pdf}}。
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{fig/c3q3}
+	\end{figure}
+\end{question}
 
+
+\begin{question}{计算题 C3-Q4}
+	完成下列矩阵计算，请先手动计算，然后用Python计算。给定矩阵
+	\begin{align*}
+		A = \begin{bmatrix}
+			3.2 & 1.7 \\
+			5.1 & 8.9 
+		\end{bmatrix}; \ \ \ B = \begin{bmatrix}
+			0.9 & -1 \\
+			 -1 & 0.1 
+		\end{bmatrix}; \ \ \ C = \begin{bmatrix}
+			2 & 3 & 9 \\
+			7 & 8 & 6 \\
+			1 & 0 & 5 
+		\end{bmatrix}
+	\end{align*}
+	求矩阵的加法和卷积如下
+	\begin{align*}
+		A + B & = \ \ ? \\
+		B * C &= \ \ ? \\
+		B * A & = 
+	\end{align*}
+\end{question}
+
+
+\noindent
+khorosho(俄语,很好)!下节见。
 
 
 
