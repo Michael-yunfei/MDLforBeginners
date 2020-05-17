@@ -1,6 +1,6 @@
 # MDLforBeginners
 
-![](https://github.com/Michael-yunfei/MachineLearning/blob/master/mlogo.jpg)
+![](https://github.com/Michael-yunfei/MDLforBeginners/blob/master/Chapter3/Code/Images/Mosaic1.png)
 
 This repository is built for teaching beginners machine learning and deep learning. The topics covered in this course are quite standard, which should include the follows provisionally:
 
