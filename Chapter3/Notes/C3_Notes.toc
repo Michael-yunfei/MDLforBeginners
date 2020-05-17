@@ -10,4 +10,4 @@
 \contentsline {subsubsection}{\numberline {3.2.6}初始数据群处理}{15}{subsubsection.3.2.6}
 \contentsline {subsubsection}{\numberline {3.2.7}向量、矩阵和其相关的运算}{16}{subsubsection.3.2.7}
 \contentsline {subsubsection}{\numberline {3.2.8}卷积运算(Convolution)}{17}{subsubsection.3.2.8}
-\contentsline {subsection}{\numberline {3.3}课后练习C3}{22}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}课后练习C3}{23}{subsection.3.3}

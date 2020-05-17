@@ -648,7 +648,7 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 因为机器学习和人工智能需要大量的数据，所以非常有必要对数据结构进行定义和分类\mn{生活中最常见的数据形式应该是Excel表格。}。
 
 \begin{definition}
-	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个描述下的多个数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
+	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个描述下的数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
 \end{definition}
 \begin{marginfigure}
 	\centering
@@ -663,7 +663,7 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 \end{example}
 
 \begin{definition}
-	我们把语言文本，网页信息，图片和影音等的复制数据，称为\textit{多媒体数据集}。
+	我们把语言文本，网页信息，图片和影音等的复合数据，称为\textit{多媒体数据集}。
 \end{definition}
 
 \begin{example}
@@ -715,7 +715,7 @@ print(im_mosaic1[:10, :10, 1])
 人工智能中很多模型，包括神经网络学习模型都需要有标注的数据群。比如我们通过想要训练神经网络学习模型辨别图片中的人物的性别，那么就需要具有\textit{性别标注}的图片数据群。拥有了标注的数据，就可以训练人工智能模型，从而可以调整模型参数，来提升预测准确度。而用来衡量准确度的方程就需要损失方程。
 
 \begin{definition}
-	假设数据群标注过的数据准确可靠，在人工智能模型中，模型在整合输入数据且加工计算后输出的结果与数据群标注的数据差别的方程成为\textit{损失方程(Loss Function)}。
+	假设数据群标注过的数据准确可靠，在人工智能模型中，模型在整合输入数据且加工计算后输出的结果与数据群标注的数据差别的方程称为\textit{损失方程(Loss Function)}。
 \end{definition}
 
 \begin{example}
@@ -800,7 +800,7 @@ print(im_mosaic1[:10, :10, 1])
 \end{definition}
 
 \begin{remark}
-矩阵的加法智能在同样大小的矩阵中进行，即同位元素相加。	
+矩阵的加法只能在同样大小的矩阵中进行，即同位元素相加。	
 \end{remark}
 
 矩阵最早的提出是为了解决多项式的求解，比如下面方程组的转换。
@@ -924,8 +924,8 @@ print(im_mosaic1[:10, :10, 1])
 \end{align*}	
 我们演示计算结果矩阵($C = A*B$)的第一个元素\mn{$C=A*B$的最终结果为\begin{align*}
 	C = \begin{bmatrix}
-		5 & 8 \\
-		12 & 14 
+		7 & 16 \\
+		9 & 16
 	\end{bmatrix}
 \end{align*} 你会发现$C$中元素最大值是$14$,刚好在$B$的右下角，这是巧合吗?（显示不是，否则我也不发发问了)}
 \begin{align*}
@@ -952,18 +952,18 @@ print(im_mosaic1[:10, :10, 1])
 将文科生(arts)和理科生(science)的数据阵进行两次卷积运算:
 \begin{align*}
 	A \Rightarrow \begin{bmatrix}
-		-30 &    0  &   60  &    30 \\
-       -30  &     0  &    60  &    30   \\        
-       -30  &     0  &    60  &   30 \\
-       -30  &    0  &    60  &   30 
+		30 &    0  &   -60  &    -30 \\
+       30  &     0  &    -60  &    -30   \\        
+       30  &     0  &    -60  &   -30 \\
+       30  &    0  &    -60  &   -30 
 	\end{bmatrix} \Rightarrow \begin{bmatrix}
 		270 & 90 \\
 		270 & 90 
 	\end{bmatrix} & & 	S \Rightarrow \begin{bmatrix}
-	   0 & -30 & 30 & 60 \\
-       0 & -30 &  30 & 60 \\
-        0 & -30 &  30 & 60 \\
-       0 & -30 &  30 &  60
+	   0 & 30 & -30 & -60 \\
+       0 & 30 &  -30 & -60 \\
+        0 & 30 &  -30 & -60 \\
+       0 & 30 &  -30 &  -60
 	\end{bmatrix} \Rightarrow \begin{bmatrix}
 		90 & 270 \\
 		90 & 270 
@@ -975,7 +975,7 @@ print(im_mosaic1[:10, :10, 1])
 	\centering
 	\begin{tabular}{|l|cc|}
 	\hline 
-		学科 & 文科生(arts) & 理科生(science) \\
+		学科/成绩集成 & 文科生(arts) & 理科生(science) \\
 		\hline 
 		文& 270 & 90 \\
 		科& 270 & 90 \\
@@ -1010,7 +1010,31 @@ np.convolve(a, b, 'valid')  # array([34, 40, 46])
 # matrix convolution example 1
 kernela = np.array([[1, -1], [1, 2]])
 datamatrix = np.array([[1, 2, 1], [2, 3, 6], [0, 5, 7]])
-print(signal.convolve2d(datamatrix, kernela, 'valid'))
+print(signal.convolve2d(kernela, datamatrix, 'valid'))
+# 注意该方程中的卷积方式，与我们定义的有所不同
+
+
+def matrixConv(kenl, dtm):
+    # Assume size of kenel is less than datamatrix
+    # 假设参数核矩阵小于数据矩阵
+    m = np.shape(kenl)[0]
+    n = np.shape(kenl)[1]
+    k = np.shape(dtm)[0]
+    l = np.shape(dtm)[1]
+    resltmtx = np.zeros([k-m+1, l-n+1])
+    for i in range(resltmtx.shape[0]):
+        for j in range(resltmtx.shape[1]):
+            temp = 0
+            for u in range(m):
+                for p in range(n):
+                    temp += kenl[u, p] * dtm[u+i, p+j]
+                    resltmtx[i, j] = temp
+    return(resltmtx)
+
+
+# test the function
+matrixConv(kernela, datamatrix)
+
 
 # matrix convolution example 2
 grade_arts = np.ones([6, 6])
@@ -1035,6 +1059,16 @@ signal.convolve2d(conv_arts, kernel_para, 'valid')
 # array([[270.,  90.],
 #        [270.,  90.]])
 
+# use self-wrote function
+conv_arts2 = matrixConv(kernel_para, grade_arts)
+# array([[ 30.,   0., -60., -30.],
+#        [ 30.,   0., -60., -30.],
+#        [ 30.,   0., -60., -30.],
+#        [ 30.,   0., -60., -30.]])
+matrixConv(kernel_para, conv_arts2)
+# array([[270.,  90.],
+#        [270.,  90.]])
+
 
 conv_science = signal.convolve2d(grade_science, kernel_para, 'valid')
 conv_science.shape
@@ -1043,6 +1077,16 @@ conv_science.shape
 #        [  0., -30.,  30.,  60.],
 #        [  0., -30.,  30.,  60.]])
 signal.convolve2d(conv_science, kernel_para, 'valid')
+# array([[ 90., 270.],
+#        [ 90., 270.]])
+
+#use self-wrote function
+conv_science2 = matrixConv(kernel_para, grade_science)
+# array([[  0.,  30., -30., -60.],
+#        [  0.,  30., -30., -60.],
+#        [  0.,  30., -30., -60.],
+#        [  0.,  30., -30., -60.]])
+matrixConv(kernel_para, conv_science2)
 # array([[ 90., 270.],
 #        [ 90., 270.]])
 \end{python}

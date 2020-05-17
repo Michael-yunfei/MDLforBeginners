@@ -10,7 +10,7 @@ This repository is built for teaching beginners machine learning and deep learni
 * Support Vector Machines (SVM)
 * Standard Neutral Networks
 * Convolutional Neural Network (CNN)
-* Recurrent Neutral Network (RNN)
+* Recurrent Neural Network (RNN)
 
 Since this is an ongoing project, I might change the teaching content based on the feedback provided by future students. After finishing this course, students are expected to:
 
