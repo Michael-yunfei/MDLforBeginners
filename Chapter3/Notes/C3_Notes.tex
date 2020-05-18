@@ -22,7 +22,7 @@
 \usepackage{float}
 \usepackage{appendix}
 \usepackage{url}
-\usepackage[english, russian]{babel}
+\usepackage[english]{babel}
 \usepackage{adjustbox}
 \usepackage{textgreek}
 \usepackage{NotesTeX}
@@ -57,7 +57,7 @@
 \newcommand{\fn}{\mathbb{F}}
 \newcommand{\nn}{\mathbb{N}}
 
-
+\numberwithin{figure}{section}
 
 \usepackage{tcolorbox} % package for making colorful box
 
@@ -84,7 +84,7 @@
 
 
 \numberwithin{equation}{section}
-\numberwithin{figure}{section}
+
 
 
 \newenvironment{question}[2][Question]{\begin{trivlist}
@@ -111,7 +111,7 @@
 
 我们将会在接下来的三周里沉浸在神经网络模型中，如果同学们紧跟老师的节奏，按照要求完成\textbf{课前预习，课上笔记，及课后练习}这三个环节，我可以向你们保证，三周之后你们（每一位同学)完全可以:
 \begin{itemize}
-	\item 理解为什么人工智能在神经网络\sn{Neutral Network}出现后具有了广泛得应用价值;
+	\item 理解为什么人工智能在神经网络\sn{Neural Network}出现后具有了广泛得应用价值;
 	\item 掌握神经网络的本质所在，并且了解模型背后的思想精髓所在;
 	\item 能够用Python透过向量\sn{Vector}和矩阵\sn{Matrix}进行编写20行左右的小程序，从而以此去理解神经网络的模型设计逻辑;
 	\item 能够使用Python中人工智能学习平台,如TensorFlow来进行神经网络的训练和调试，从而可以独立自主得对大量的图片数据进行分析。
@@ -479,7 +479,7 @@ plt.axvline(x=0, color=(243/255, 66/255, 53/255), linestyle='--')
 \end{python}
 \noindent
 \textcolor{blue}{三色图结构}:
-下面Python编程是对图片的数字化解构，这一部分程序的运行我们在\textbf{编程练习课中会进一步讲解},因此预习该部分时，稍微浏览即可，无需深入探究。另外，课堂中我们还会进一步探究图片的存储结构和颜色结构，所以请`稍安勿躁'。\mn{计算机图形学已经成为一门独立的学科，而且是一个很庞大的产业。比如苹果的创始人之一Steve Jobs(乔布斯)最初设立苹果公司的初衷就是想要一款可以显示精美字体的计算机，而不是他认为很`丑陋’的windows。如果经常浏览国外网站的同学可能会注意在网页审美设计上，我们还有很大的进步空间。比如浙大的官网，就让人觉得该校的网页设计专业可能不会太好，否则设计的网站不会如此的让人怀疑自己是否具有`信息密集恐怖症'。\textbf{特别提醒}:我们在Python环境下进行图片处理时，优选jpg格式,尽量避免使用png格式。具体的原因和不同情况下的转换，我们会进一步讲解。不过如此的传统也有好处，就是你会发现中国很多的网页设计都像是`头条’设计，一个方框内放一排排的文字再陪一张图片(喝一瓶娃哈哈，解解渴吧)。}
+下面Python编程是对图片的数字化解构，这一部分程序的运行我们在\textbf{编程练习课中会进一步讲解},因此预习该部分时，稍微浏览即可，无需深入探究。另外，课堂中我们还会进一步探究图片的存储结构和颜色结构，所以请`稍安勿躁'。\mn{计算机图形学已经成为一门独立的学科，而且是一个很庞大的产业。比如苹果的创始人之一Steve Jobs(乔布斯)最初设立苹果公司的初衷就是想要一款可以显示精美字体的计算机，而不是他认为很`丑陋’的windows。如果经常浏览国外网站的同学可能会注意在网页审美设计上，我们还有很大的进步空间。比如浙大的官网，就让人觉得该校的网页设计专业可能不会太好，否则设计的网站不会如此的让人怀疑自己是否具有`信息密集恐怖症'。不过如此的传统也有好处，就是你会发现中国很多的网页设计都像是`头条’设计，一个方框内放一排排的文字再陪一张图片(喝一瓶娃哈哈，解解渴吧)。\textbf{特别提醒}:我们在Python环境下进行图片处理时，优选jpg格式,尽量避免使用png格式。具体的原因和不同情况下的转换，我们会进一步讲解。}
 \begin{python}
 # Chapter 3 Pre-lecture Exercise
 # 第三章课前练习
@@ -924,7 +924,7 @@ print(im_mosaic1[:10, :10, 1])
 		7 & 16 \\
 		9 & 16
 	\end{bmatrix}
-\end{align*} 你会发现$C$中元素最大值是$14$,刚好在$B$的右下角，这是巧合吗?（显示不是，否则我也不发发问了)}
+\end{align*} 你会发现$C$中元素最大值是$16$,刚好在$B$的右下角，这是巧合吗?（显示不是，否则我也不发发问了)}
 \begin{align*}
 	C_{11} = 1\times 1 + (-1) \times 2 + 1 \times 2 + 2 \times 3 = 7 
 \end{align*}
@@ -972,13 +972,13 @@ print(im_mosaic1[:10, :10, 1])
 	\centering
 	\begin{tabular}{|l|cc|}
 	\hline 
-		学科/成绩集成 & 文科生(arts) & 理科生(science) \\
+		学科/成绩集成 & 文科 & 理科 \\
 		\hline 
-		文& 270 & 90 \\
-		科& 270 & 90 \\
+		文科生& 270 & 90 \\
+		& 270 & 90 \\
 		\hline 
-		理& 90 & 270 \\
-		科& 90 & 270 \\
+		理科生& 90 & 270 \\
+		& 90 & 270 \\
 		\hline 
 	\end{tabular}
 \end{table}

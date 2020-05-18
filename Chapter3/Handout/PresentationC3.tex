@@ -201,7 +201,7 @@
 		\node at (3.5,-1.5) {$2^3$};
 	\end{tikzpicture}
 	\end{figure}	
-	给定三个空位所能包含的信息单元总数为:$2+2^2+2^3 = 14$。 我知道十进制是满10进一个位，二进制则是满2进一个空位。
+	给定三个空位所能包含的信息单元总数为:$2+2^2+2^3 = 14$。 我们知道十进制是满10进一个位，二进制则是满2进一个空位。
 	\begin{lstlisting}
 comper(32, 2)  # 8589934590
 comper(64, 2)  # 36893488147419103230
@@ -233,10 +233,21 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 
 \begin{frame}{课前预习题目浅析}
 排列组合题目(捆绑法): 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{fig/permatrix}
-\end{figure}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.96\textwidth]{fig/covfun}
+	\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.99\textwidth]{fig/permatrix}
+	\end{figure}	
+	\end{column}
+\end{columns}
+
 给定参数核矩阵$\mathbb{A}$, 大小为$m \times n$, 数据矩阵$\mathbb{B}$,大小为$K \times L$, 其中$K >m, L> n$, 我们可以得到的结果矩阵大小为$(K-m+1) \times (L-n+1)$。
 \end{frame}
 
@@ -304,6 +315,50 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 	\end{figure}
 \end{frame}
 
+\begin{frame}{人工智能取代人?}
+	\begin{itemize}
+		\item 需求端(demand): 我要，我要，我就要 
+		\item 供求端(supply): 我能，我能，我很能 
+	\end{itemize}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{fig/circketinsect}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+			\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{fig/fashionevolv}
+	\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{读点历史没坏处}
+	\begin{itemize}
+		\item 需求端(demand): 我要，我要，我就要 (1949-1979）
+		\item 供求端(supply): 我能，我能，我很能 (1979-2009)
+		\item 70\% 服务业(13亿工程师和全民皆兵的区别? e.g. 二战前的德国)
+		\item 文官治国(所以军队是得配个政委的)
+	\end{itemize}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{fig/circketinsect}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+			\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{fig/fashionevolv}
+	\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
 \begin{frame}{人工智能的思维方式}
 
 传统的问题解决方式和人工智能问题解决方式最大的不同体现在以下两个方面:
@@ -321,6 +376,15 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 	\includegraphics[width=0.99\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png}
 \end{figure}
 \end{frame}
+
+\begin{frame}{人工智能的思维方式}
+机器学习(人工智能): \textbf{通过对输入端的数据群(大数据)进行标注和整理后，建立一个人工智能构架，并设定目标函数(损失方程),对所建立的构建(或模型)进行反复训练，直到找到符合我们目标函数要求的参数核矩阵。}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png}
+\end{figure}
+\end{frame}
+
 
 \section{数据结构}
 
@@ -573,7 +637,9 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 	\end{align*}
 	运算过程如下图所示(来源:Irhum Shafkat, 2018)。
 \end{definition}
-矩阵的卷积有很多种，更多的介绍请参考该网站:\url{https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1}。
+矩阵的卷积有很多种，更多的介绍请参考该网站:
+
+\url{https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1}。
 \end{frame}
 
 \begin{frame}{矩阵卷积(Matrix Convolution)}
@@ -673,13 +739,13 @@ $C=A*B$的最终结果为\begin{align*}
 	\centering
 	\begin{tabular}{|l|cc|}
 	\hline 
-		学科/成绩集成 & 文科生(arts) & 理科生(science) \\
+		学生/成绩集成 & 文科成绩 & 理科成绩 \\
 		\hline 
-		文& 270 & 90 \\
-		科& 270 & 90 \\
+		文科生& 270 & 90 \\
+		& 270 & 90 \\
 		\hline 
-		理& 90 & 270 \\
-		科& 90 & 270 \\
+		理科生& 90 & 270 \\
+		& 90 & 270 \\
 		\hline 
 	\end{tabular}
 \end{table}

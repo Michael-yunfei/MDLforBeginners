@@ -1,4 +1,4 @@
-\babel@toc {russian}{}
+\babel@toc {english}{}
 \contentsline {part}{第三章:神经网络模型初探}{1}{part*.2}
 \contentsline {subsection}{\numberline {3.1}课前预习C1}{2}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}课堂讲义C2}{10}{subsection.3.2}
