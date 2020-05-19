@@ -16,6 +16,7 @@
 \usepackage{wasysym}
 \usepackage{amsthm} % for theorem definition style
 \usepackage{rotating} % for the horizontal page table
+\usepackage{pgfplots} % plot functions 
 
 % \usepackage{enumitem} % never use this package for beamer
 
@@ -123,7 +124,7 @@
 \begin{itemize}
 \setlength\itemsep{1em}
 	\item 辅导教义的第三章为本节课的讲解内容(教材44-56页)
-	\item 辅导教义的第三章为下周教授的内容(教材第3章余下内容)
+	\item 辅导教义的第四章为下周教授的内容(教材第3章余下内容)
 \end{itemize}
 
 \hfil
@@ -252,12 +253,16 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 \end{frame}
 
 \begin{frame}{三色图结构}
+任何颜色都可以有红绿蓝(R, G, B)三色来调和构成:
 \begin{columns}
-	\begin{column}{0.25\textwidth}
+	\begin{column}{0.35\textwidth}
 		\begin{itemize}
-			\item \footnotesize{任何颜色都可以有红绿蓝(R, G, B)三色来调和构成}
-			\item \footnotesize{图像维度 $(1104, 1600, 3)$}
-			\item 注意右图的坐标
+			\item \underline{图像维度} 
+			\item \footnotesize{$(1104, 1600, 3)$}
+			\item \underline{注意右图的坐标}
+			\item 为什么彩虹只有七色？
+			\item 数字游戏:
+			\item C(3, 2) = 6 + 3 = 9 = 7+2 
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.65\textwidth}
@@ -277,10 +282,10 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 \end{frame}
 
 \begin{frame}{三色图结构}
+红-255, 绿-255, 蓝-255; 数值大小表示颜色`浓度’。
 \begin{columns}
 	\begin{column}{0.35\textwidth}
 		\begin{itemize}
-			\item \footnotesize{红-255, 绿-255, 蓝-255}
 			\item \footnotesize{图像维度 $(1104, 1600, 3)$}
 			\item $(500:520, 600:620, 0)$
 			\item $(500:520, 600:620, 1)$
@@ -376,6 +381,41 @@ comper(64, 4)  # 453709822561251284617832809909024281940
 	\includegraphics[width=0.99\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png}
 \end{figure}
 \end{frame}
+
+\begin{frame}{深度神经网络模型}
+	概念的关联(神经网络): 构加 + 参数
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{fig/StdNN}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{人工智能思维方式:数据石油}
+	为什么是深度神经网络；为什么数据是未来的石油？
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/dataoil}
+		\caption{数据量和模型表现关系(Andrew, NG, 2018)}
+	\end{figure}
+\end{frame}
+
+%		\begin{tikzpicture}
+%\begin{axis}[
+%  ticks = none,
+%  samples=100,
+%  ymax=3,
+%  axis x line=bottom,axis y line=left,xlabel={数据量}, ylabel={模型表现}
+%]
+%\addplot[cyan,domain=0.001:30, line width=0.35mm,
+%restrict y to domain=0:16] {log2(x+1)};
+%\addplot[red!70!black,domain=-2:1.4] {exp(x)};
+%
+%\node[pin={90:$f(x)=\lvert\log x\rvert$},inner sep=0pt] 
+%  at (axis cs:{2,log10(2)}) {};
+%\node[pin={0:$f(x)=e^{x}$},inner sep=0pt] 
+%  at (axis cs:{1,exp(1)}) {};
+%\end{axis}
+%\end{tikzpicture}
 
 \begin{frame}{人工智能的思维方式}
 机器学习(人工智能): \textbf{通过对输入端的数据群(大数据)进行标注和整理后，建立一个人工智能构架，并设定目标函数(损失方程),对所建立的构建(或模型)进行反复训练，直到找到符合我们目标函数要求的参数核矩阵。}
@@ -776,11 +816,34 @@ $C=A*B$的最终结果为\begin{align*}
 
 
 
-
 \begin{frame}[allowframebreaks]{Reference}
   \bibliography{p3.bib}
   \bibliographystyle{apalike}
   I will add reference list later, in which only two websites should be listed. 
+\end{frame}
+
+
+\begin{frame}{My Vision (我的愿景)}
+
+markets can remain irrational longer than you can remain solvent
+
+\hfill - \textit{John Maynard Keynes}
+
+Only when the tide goes out do you discover who's been swimming naked
+
+\hfill - \textit{Warren Buffett }
+
+人工智能教育:
+\hfil
+
+\begin{itemize}
+\setlength\itemsep{1em}
+	\item 教材 + 习题 + 案例 (Latex, markdown, HTML5, data visualisation, etc.) 
+	\item 风口浪尖上的线上转线下(codecademy, 淘宝)
+	\item 数学教育革新(计算机和编程的全面引入)
+	\item International Summer School 
+	\item 如果我成为一名父母
+\end{itemize}
 \end{frame}
 
 
