@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  19 MAY 2020 07:23
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  14 JUL 2020 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1802,13 +1802,13 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9> not available
 
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <9> not available
 (Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 274.
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/rgbmosaic.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/rgbmosaic.png>
 [9
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/catmosaic.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/catmosaic.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/catmosaic.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/catmosaic.png>
 
 Overfull \vbox (17.59184pt too high) detected at line 282
  []
@@ -1816,8 +1816,8 @@ Overfull \vbox (17.59184pt too high) detected at line 282
 [10
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/rgbmosaic.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/rgbmosaic.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/rgbmosaic.png>
  [11
 
 ]
@@ -1830,8 +1830,8 @@ Overfull \vbox (0.82607pt too high) detected at line 311
 [12
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/epismeflow.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/epismeflow.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/epismeflow.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/epismeflow.png>
  [13
 
 ]
@@ -1851,8 +1851,8 @@ File: fig/fashionevolv.png Graphic file (type bmp)
 ] [16
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png>
  [17
 
 ]
@@ -1870,8 +1870,8 @@ Overfull \vbox (1.87617pt too high) detected at line 400
 [19
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png>
  [20
 
 ]
@@ -1879,15 +1879,15 @@ File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.p
 LaTeX Font Warning: Font shape `TU/FandolHei-Regular(0)/m/it' undefined
 (Font)              using `TU/FandolHei-Regular(0)/m/n' instead on input line 444.
 
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/dataframeEx.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/dataframeEx.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/dataframeEx.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/dataframeEx.png>
 [21
 
 ] [22
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/deepmindflow.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png>
  [23
 
 ] [24
@@ -1918,8 +1918,8 @@ Overfull \hbox (55.51775pt too wide) in paragraph at lines 683--683
 [34
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/mtconvo.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/mtconvo.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/mtconvo.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/mtconvo.png>
  [35
 
 ] [36
@@ -1927,10 +1927,10 @@ File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/mtconvo.png Gr
 ] [37
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/artsgrade.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/artsgrade.png>
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/sciencegrade.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/sciencegrade.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/artsgrade.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/artsgrade.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/sciencegrade.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/sciencegrade.png>
  [38
 
 ]
@@ -1943,10 +1943,10 @@ Overfull \hbox (0.55283pt too wide) detected at line 773
 ] [40
 
 ]
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/C3C1qrcode.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/C3C1qrcode.png>
-File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/C3C2qrcode.png Graphic file (type bmp)
-</Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/C3C2qrcode.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C1qrcode.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C1qrcode.png>
+File: /Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C2qrcode.png Graphic file (type bmp)
+</Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C2qrcode.png>
  [41
 
 ] (/Users/Michael/Documents/MDLforBeginners/Chapter3/Handout/.texpadtmp/PresentationC3.bbl
@@ -1985,8 +1985,8 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  49452 strings out of 492970
- 1141732 string characters out of 6133938
- 1365639 words of memory out of 5000000
+ 1141455 string characters out of 6133938
+ 1365640 words of memory out of 5000000
  52594 multiletter control sequences out of 15000+600000
  546426 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

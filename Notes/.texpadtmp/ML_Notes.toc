@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {part}{第一章: 何谓机器学习}{1}{part*.2}
+\contentsline {subsection}{\numberline {1.1}课前预习C1}{2}{subsection.1.1}
+\contentsline {part}{第二章: 简单分类-察异辨花}{3}{part*.4}
+\contentsline {part}{第三章:神经网络模型初探}{4}{part*.5}
+\contentsline {subsection}{\numberline {3.2}课前预习C1}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}课堂讲义C2}{13}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}学习过程的一般性原理}{13}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}传统问题解决方式 VS. 人工智能问题解决方式}{14}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}神经网络模型机制}{15}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}数据结构}{15}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}损失方程(Loss Function)}{17}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}初始数据群处理}{17}{subsubsection.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.7}向量、矩阵和其相关的运算}{18}{subsubsection.3.3.7}
+\contentsline {subsubsection}{\numberline {3.3.8}卷积运算(Convolution)}{19}{subsubsection.3.3.8}
+\contentsline {subsection}{\numberline {3.4}课后练习C3}{25}{subsection.3.4}

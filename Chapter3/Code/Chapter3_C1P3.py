@@ -41,6 +41,9 @@ for i, ax in zip(range(3), ax):
 im_mosaic1 = mtmg.imread(
     '/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg')
 plt.imshow(im_mosaic1)
+plt.savefig(
+    '/Users/Michael/Documents/MDLforBeginners/Chapter3/Notes/fig/catmosaic.png',
+    figsize=(9, 6), dpi=156)
 im_mosaic1.shape  # (1034, 1562, 4)
 print(im_mosaic1[:10, :10, 1])
 plt.imshow(im_mosaic1[:, :, 0])

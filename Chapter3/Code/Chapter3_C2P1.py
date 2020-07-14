@@ -26,8 +26,8 @@ def matrixConv(kenl, dtm):
     m = np.shape(kenl)[0]
     n = np.shape(kenl)[1]
     k = np.shape(dtm)[0]
-    l = np.shape(dtm)[1]
-    resltmtx = np.zeros([k-m+1, l-n+1])
+    h = np.shape(dtm)[1]
+    resltmtx = np.zeros([k-m+1, h-n+1])
     for i in range(resltmtx.shape[0]):
         for j in range(resltmtx.shape[1]):
             temp = 0
@@ -86,7 +86,7 @@ signal.convolve2d(conv_science, kernel_para, 'valid')
 # array([[ 90., 270.],
 #        [ 90., 270.]])
 
-#use self-wrote function
+# use self-wrote function
 conv_science2 = matrixConv(kernel_para, grade_science)
 # array([[  0.,  30., -30., -60.],
 #        [  0.,  30., -30., -60.],
