@@ -1,4 +1,4 @@
-# Chapter 3 Pre-lecture Exercise
+# Chapter 3 C1 Exercise
 # 第三章课前练习
 # @ Michael
 

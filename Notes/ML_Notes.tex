@@ -278,34 +278,538 @@
 \end{marginfigure}
 
 
-
+\begin{tcolorbox}[colback=white]
 在正式进入本章的讲解之前，老师也想参与一下课前预习中C1-Q5的游戏设计题目。下面是老师选择的一个简单方程:
+\begin{align*}
+	f(x) = 2x - 1 
+\end{align*}
+根据该方程，我们可以得到以下表格
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccccccccccc}
+		\hline 
+		x & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+		$f(x)$ & -1 & 1 & 3 &  5 &  7 &  9 & 11 &  13 & 15 & ? \\
+		\hline 
+	\end{tabular}
+\end{table}
+老师有选取了一个较为复杂的方程：
 \begin{align*}
 	f(x) = x^2 + 2x - 3 
 \end{align*}
 根据该方程，我们可以得到以下表格
-\begin{table}
+\begin{table}[H]
 	\centering
-	\begin{tabular}
+	\begin{tabular}{ccccccccccc}
 		\hline 
 		x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
-		$f(x)$ & 
+		$f(x)$ & 0 & 5 &  12 &  21 &  32 & 45 &  60 & 77 & 96 \\
+		\hline 
+	\end{tabular}
+\end{table}
+\end{tcolorbox}
+
+\begin{fullmodel}
+现在，我们上述第一个表格中$x = 0, 1, 2, \cdots, 8$, 以及$f(x)=-1, 1, 3， \cdots, 15$作为原始数据输入到一个简单的神经网络模型中，但是并不告诉计算机我们的方程公式，来看一下根据\textbf{已知的$x$和$f(x)$}， 计算机能否预测$f(x=9)$。下面是一个简单的神经网络模型的运行结果。
+\begin{python}
+import tensorflow as tf
+from tensorflow import keras
+
+
+def Learn_model(y_new):
+    xs = np.array(range(0, 9), dtype=float)
+    ys = np.array([-1.0, 1.0, 3.0, 5.0, 7.0, 9.0, 11.0, 13.0, 15.0], dtype=float)
+    model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
+    model.compile(optimizer='sgd', loss='mean_squared_error')
+    model.fit(xs, ys, epochs=100)
+    return model.predict(y_new)[0]
+
+
+prediction = Learn_model([9.0])
+print(prediction)  # 16.47 (70.97 for the second function)
+\end{python} 	
+我们看到简单的神经网络模型给出的预测值是 16.47 。虽然与我们的计算值 17 ，有一定差距，但是考虑到我们只给出了9个匹配数据组，模型(训练次数为100次)便可以预测出与真值相差不大的结果，这已经可以显示机器学习的魅力所在了。
+\end{fullmodel}
+
+\subsection{课堂讲义C2}
+
+我们这一章的主题是：\textbf{何谓机器学习}，所以学习重点便在于领会机器学习的框架。机器学习与传统的问题解决方法的最大不同，可以用下面这张图表(来源:Laurence Moroney)来形容。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\textwidth]{fig/C1MLbigpct}
+	\caption{机器学习解决问题的方法}
+\end{figure}
+
+在实际生活中，不同领域的专家会构建非常复杂的模型来解决不同的问题。但是传统的解决问题的思路都可以概括为：
+\begin{itemize}
+	\item 认识问题
+	\item 对相关问题进行一般抽象，并且建立相关数理模型
+	\item 根据模型编写程序
+	\item 对程序进行测试后推广应用
+\end{itemize}
+比如船体工程师在对甲板的承压测试时，会考虑甲板的质料，外部化学环境，已经物理力学的一般定理，然后编写甲板的压力承受程序。根据已经写好的程序，当甲板受力过大时，就会发出警报。
+
+但是机器学习的模型解决问题的方法则非常不同，总体可以概括为:
+\begin{itemize}
+	\item 收集大量数据(数据中包含了一定的规律)\mn{希望后面同学们能够理解为什么数据会变得越来越重要，或者能够体会机器学习模型下支撑的人工智能产业需要消耗大量数据的原因。}
+	\item 将不同数据与去对应的结果一并输入
+	\item 然后机器学习的模型会经过一定训练后学习数据背后的规律(或范式)
+	\item 根据其学习到的这些规律来进行预测
+\end{itemize}
+
+\begin{fullmodel}
+\begin{tcolorbox}[title=章节重点]
+	我们这一章会围绕图1.1来深入得了解机器学习的理论大框架，并且帮助同学们建立\textbf{人工智能思维}，所以希望同学们认真学习。去领会人工智能思维时，这一章会有下面三个小节:
+	\begin{itemize}
+		\item 为什么需要机器学习模型以及神经网络模型
+		\item 机器学习解决问题的方法
+		\item 人工智能思维原素
+	\end{itemize}
+注：我们还没有介绍任何具体的机器学习和神经网络模型，同学们会动第二章开始逐渐学习不同的模型。虽然只有在学习这些模型之后，才能更深入得领会人工智能思维，但是通过本章的学习，即使在没有了解任何机器学习或者神经网络模型前，你仍然可以体会何谓人工智能和机器学习。
+\end{tcolorbox}
+\end{fullmodel}
+
+
+\subsubsection{为什么需要机器学习模型}
+
+\begin{definition}
+	\textbf{人工智能}指的是计算机(或者其它机器)在人的指导下可以具备与人类某一项智力相匹配的能力。比如，在人的指导和帮助下，计算机可以对不同的物体进行识别，在很多情况下计算机因为在电力的帮助下，其工作时长和工作效率会远超于人类。
+\end{definition}
+
+\begin{definition}
+	\textbf{机器学习}\mn{由于人工智能领域发展迅速，从业者有时会把人工智能和机器学习相等同，在我们的学习过程中，人工智能指向的是一种能力和思维方式，而机器学习则更侧重在我们现在定义下的一门学科。}指的是计算机根据一定的\textit{算法}在有\textit{数据}的支持下完成\textit{某一规律}的学习，且对其所学习到规律进行自动化调整。
+\end{definition}
+
+\begin{remark}
+在计算机科学和数学科学中，\textit{算法}指的是为计算机解决某一问题时所罗列得有严格规范的指令代码。	由于计算机只能读取其所认可的数据，所以我们将其所学习到的\textit{规律}称为\textit{规律参数}，这些规律参数可以一串数组，也可以有文本标记的数组。
+\end{remark}
+
+因为机器学习需要大量的数据，所以非常有必要对数据结构进行定义和分类\mn{生活中最常见的数据形式应该是Excel表格。}。
+
+\begin{definition}
+	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个描述下的数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
+\end{definition}
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/dataframeEx}
+\end{marginfigure}
+\begin{remark}
+很显然，如果我只给你一个数，比如6, 我们不能称其为数据，因为其缺乏对其的描述。比如，`年方二八’, 年龄16岁，则可以成为数据。	再比如，2019 不是数据，2019年则是数据。
+\end{remark}
+
+\begin{example}
+数据: 红色-255; 数据集: 颜色: 红255， 绿666， 蓝521; 数据阵:[[颜色:190, 321, 589]; [年份:2019, 2020, 2056]]。右边的表格就是一个数据阵。数据阵(dataframe)是Python和R语言中常用的数据形式。
+\end{example}
+
+\begin{definition}
+	我们把语言文本，网页信息，图片和影音等的复合数据，称为\textit{多媒体数据集}。
+\end{definition}
+
+\begin{example}
+下面这张图片是由 Peggy Collins 创作的马赛克数字图画。这张图片在计算机中的存储形式是具有维度$(1400, 1400, 3)$的数据集构成。其中3，是代表的RGB(红绿蓝)三层底色层，每一个色素层是由一个$1400 \times 1400$的矩阵组成。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg}
+	\caption{Ginger Cat by Peggy Collins (digital artwork)}
+\end{figure}	
+\begin{python}
+print(im_mosaic1[:10, :10, 1])
+# [[246 190 116  51  30  21   0   6  28  42]
+#  [188  88  48  52  40  20   4  12  28  39]
+#  [108  40  37  55  43  27  17  15  24  35]
+#  [ 35  34  41  39  35  32  21  18  21  31]
+#  [ 20  24  25  26  34  26  13  23  23  29]
+#  [ 35  25  24  29  28  19  17  26  25  29]
+#  [ 28  23  24  22  15  17  24  22  23  25]
+#  [ 33  29  18  15  18  17  15  12  18  19]
+#  [ 18  14  13  16  19  19  19  18  15  11]
+#  [  8   6   8  16  23  26  24  21  20  15]]	
+\end{python}
+\end{example}
+
+\begin{definition}
+	我们将多媒体数据集和数据阵组合构成的数据形态成为\textit{数据群}或者\textit{大数据}。数据群或大数据，在业界也被称为\textbf{有标注的数据群}。
+\end{definition}
+
+\begin{example}
+比如，下面这个表格是一个数据群的片段截取：\mn{大数据时代，数据的标注准确度和密集度，成为衡量数据群质量的重要指标。国际上，目前美国的数据群质量最高，其次是英国和德国。中国的数据群目前取胜于量，对于质的追求，还需要一定的时间。}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{ccccc}
+	\hline 
+		图片(1400, 1400, 3) & 年份 & 地点 & 备注1 & 备注2 \\
+		\hline 
+		图1 & 2016 & 桥 & 青岛 & 红色 \\
+		图2 & 2020 &  伦敦 & 人 & 女 \\
+		图3 & 2013 & 成都& 熊猫 & 国宝\\
+		\hline 
+	\end{tabular}
+\end{table}
+\end{example}
+
+\begin{fullmodel}
+\begin{tcolorbox}[title={掌握基本术语后的`飞翔’}]
+	在知道了什么是人工智能，机器学习以及相关的数据术语后，我们接下来就可以仔细探讨\underline{为什么需要机器学习模型了}。在开始之前，希望提醒同学们再回顾下相关的概念:
+	\begin{itemize}
+		\item 什么是机器学习？(最好再读一遍定义)
+		\item 什么是数据？（数和数据的区别是什么)
+		\item 什么是算法？
+	\end{itemize}
+\end{tcolorbox}
+\end{fullmodel}
+
+在课前预习中，我要求同学们解答一个二元方程组。我想同学们从初中开始就已经熟练掌握了这些问题。那么非常棒，只要你能解答二元方程组，那么我可以说你已经是半个机器学习专家了，因为虽然机器学习的模型可以很复杂，但是归根结底是一个代数方程问题。下面，我们就来解答一个较为难一点的方程组：
+\begin{align*}
+	& 56x + 8 y = 36 \\
+	& 32 x + 4 y + z = 20.5 \\
+	& 48 x + 3y + z = 29.8 
+\end{align*}
+
+经过的简单的计算你很快就可以得出：
+\begin{align*}
+	x = 0.6, y = 0.3, z = 0.1 
+\end{align*}
+
+\begin{example}
+请问，如果我只给你一个方程：
+\begin{align*}
+	56x + 8y = 36 
+\end{align*}	
+你可以求出\textit{具体的}$x$和$y$值吗？实际上，如果只有一个方程的话，我们可以用无穷个解，比如$x=2, y = -9.5$。你可以用Python在进行快速计算。
+\begin{python}
+def c1c2fun1(x):
+    """
+    解方程 56x + 8y = 36
+    输入: x
+    输出: y
+    """
+    y = (36-56*x)/8
+
+    return y
+    
+
+print(c1c2fun1(np.array(range(0, 8))))
+# [ 4.5 -2.5  -9.5 -16.5 -23.5 -30.5 -37.5 -44.5]
+\end{python}
+\end{example}
+
+\begin{example}
+如果，我只给你两个方程, 你可以求解$x, y, z$ 吗？
+\begin{align*}
+	& 56x + 8 y = 36 \\
+	& 32 x + 4 y + z = 20.5 
+\end{align*}
+我们知道，三个未知数需要三个方程组，很显然我们不能得到具体的解。(但是可以有无数解)
+\end{example}
+
+\begin{example}
+现在我给你三个方程，但是第四个是由第二个两边同时乘以$2$得出的 $2 \times ( 32x + 4y + z) = 20.5 \times 2$
+现在四个方程为:
+\begin{align*}
+	& 56x + 8 y = 36 \\
+	& 32 x + 4 y + z = 20.5 \\
+	& 64x + 8y + 2z = 41 
+\end{align*}
+你可以求解吗?。那下面这四个呢？
+\begin{align*}
+	& 56x + 8 y = 36 \\
+	& 32 x + 4 y + z = 20.5 \\
+	& 48 x + 3y + z = 29.8  \\
+	& 59 x + 10y + z = 38.5
+\end{align*}
+\end{example}
+
+我想同学们，肯定很轻松得就可以得出以下的规律:
+\begin{itemize}
+	\item 方程个数等于或大于未知变量个数时可能有具体解，也可能无具体解，取决于独立方程的个数。
+	\item 方程个数小于未知变量个数时可以有无数的组合解
+\end{itemize}
+
+
+现在我们就把上面的方程组问题规范化，并且转换下表达形式。首先，我们将其表现矩阵和向量相乘的方式:
+\begin{align*}
+	\begin{bmatrix}
+		56 & 8 & 0 \\
+		32 & 4 & 1 \\
+		48 & 3 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		x \\
+		y \\
+		z 
+	\end{bmatrix} = \begin{bmatrix}
+		36 \\
+		20.5 \\
+		29.8 
+	\end{bmatrix}
+\end{align*}
+其次我们也可以把这个方程组，表现为表格\mn{如果有同学不习惯新的术语，那么每次你在提到表格时，我们会默认其为数据阵。}形式，也就是我们所定义过的\textit{数据阵}形式:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccc}
+	\hline 
+		x & y & z & \\
+		\hline 
+		56 & 8 & 0 & 36 \\
+		32 & 4 & 1 & 20.5 \\
+		48 & 3 & 1 & 29.8 \\
+		\hline 
 	\end{tabular}
 \end{table}
 
+以上方程组或数据阵实际上一个现实生活中的案例截取。该案例描述得是不同学生学习状态和其成绩的统计，如下图显示。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/C1C2grade}
+	\caption{学生学习状态和成绩统计}
+\end{figure}
+
+假设我们现在想调查，学习时间、练习题目数据和考前睡眠对成绩的影响，那么我们可以把上面的问题抽象为一个数学问题，表现为下面的表格。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/C1C2gradeMath}
+	\caption{具体问题抽象数学化}
+\end{figure}
+那么通过解方程的方式，我们可以得出:
+\begin{itemize}
+	\item $x = 0.6$, 即学习时间对成绩的影响比重约为60\%;
+	\item $y = 0.3$, 即练习题目的数量对成绩的影响比重约30\%;
+	\item $z= 0.1$, 即考前睡眠对成绩的影响比重约10\%。
+\end{itemize}
+
+\begin{fullmodel}
+现实生活中有很多问题，都可以上述方法来进行解答。比如下面这个数据阵,是从一个$414\times7$的数据阵中截取的一部分，该数据阵描述的是台北市房屋价格与其位置和周边环境的关系(数据来源:Prof. I-Cheng Yeh)。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.86\textwidth]{fig/C1C2RealEst}
+	\caption{台北市房屋价格与周边环境关系数据阵}
+\end{figure}
+
+在我们解方程之前，我们先将部分数据进行可视化，从而可以更直观的观察这些影响因子与房屋价格之间的关系。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{fig/C1C2TbRealEst}
+	\caption{台北市房屋价格与周边环境关系的可视化}
+\end{figure}
+\end{fullmodel}
+
+下面，我们仍然利用`解方程'的思路去调查这些影响因子对台北市房价的影响比重。简单的计算可以得出:
+\begin{itemize}
+	\item 房屋年龄影响因子数为$-0.269$, 可以理解为房屋年龄每增加一年，房价下降$0.269$万新台币每坪;
+	\item 地铁距离的影响因子数为$4.26$, 可以理解为地铁距离每增加1000米房价下降约$4.26$万新台币每坪;
+	\item 便利店数量：1.163
+	\item 维度: 2.38 (台北人买北不买南)
+	\item 经度: -7.8 (买西不买东)
+\end{itemize}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title={从线性回归到机器学习}]
+		在上面的几个例子中，我们都用到了`解方程'的思路。实际上，在统计学中，该方法被叫作\textbf{线性回归}, 即假定不同影响因子与其所作用的结果之间存在线性的关系，比如:
+		\begin{align*}
+			36x + 18y + 0.3 z + \cdots -3w - 0.5 r = \text{结果} 
+		\end{align*}
+		假定这些影响因子与其所作用的结果存在线性关系后，我们就可以利用`解方程'的思路在求解这些影响因子, 限定条件为：信息量大于影响因子(独立方程个数大于未知数)。
+		
+		但是在现实生活中，很多规律或者事物之间的逻辑关系，并不是简单得线性关系。另外很多规律或者事物之间的逻辑关系，并不能通过数学公式或者模型来表达。因此，这就需要我们借助更加复杂的机器学习模型，和神经网络模型。
+		
+		所以我们需要机器学习的原因为:
+		\begin{itemize}
+			\item 所研究的问题中存在的规律非线性，即不能简单的概括为类似于$36x + 18y + 0.3 z + \cdots -3w - 0.5 r = \text{结果} $这样的公式；
+			\item 所研究的问题中存在的规律不仅非线性，而且不能用简单得数学公式去概括，因为
+			\begin{itemize}
+			\item 这些公式要么非常复杂，不可以通过编程实现
+			\item 或者根本就不存在统一的数学公式组或公式群去描述这些规律
+			\end{itemize}
+		\end{itemize}
+	\end{tcolorbox}
+\end{fullmodel}
+
+那么了解了何谓机器学习之后，我们将会:
+\begin{itemize}
+	\item 在第二章，介绍如何通过机器学习解决所研究的问题存在的规律非线性\mn{线性指的是只存在相乘和相加关系，因为乘法实际也是加法，比如$5\times3 = 5+5+5$，所以只有相乘和相加时，我们可以把所有的因素`排成一条线'累加。}。
+	\item 在第三章和第四章，介绍所研究的问题根本就不存在统一的公式时，神经网络模型(深度学习)如何应对。
+\end{itemize}
+
+\subsubsection{机器学习解决问题的方法}
+
+因为很多问题不能通过简单得解方程(线性模型)方式来解决，或者很多问题背后的规律根本就不存在`简明'得数学公式或者数学公式及其复杂不能被编程实现，那么就需要我们探索新的解决问题的思路。
+
+在本章的介绍中，我们在图1.1中展示了，机器学习解决问题的方法是：输入结果和数据，然后通过相关模型来学习背后的规律或者范式。那么机器学习和更加复杂的神经网络模型是如何来学习这些规律的呢？如果用一句话来概括的话，我们可以说:\textbf{机器学习(包括神经网络模型)是通过有结果导向的数据来学习数据背后的规律的}。具体的流程可以概括为下面的流程图。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/C1C2MLMechanism}
+	\caption{机器学习框架流程图}
+\end{figure}
+
+我们再重温下机器学习的定义：
+\begin{remark}
+\textbf{机器学习}指的是计算机根据一定的算法在有数据的支持下完成某一规律的学习，并且对所学习到的规律进行自动化调整。	
+\end{remark}
+
+在定义中，
+\begin{itemize}
+	\item 算法即包括\textit{具体的构架}，也包括优化过程中的算法；
+	\item 有数据支持意味着，除了有初始数据输入之外，还得有相对应的结果来支持模型进行结果衡量；
+	\item 对某一规律的学习，指的是对\textit{规律参数}的计算
+\end{itemize}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=冰冻三尺非一日之寒]
+		在大体了解了机器学习解决问题的方法后，我们需要通过学习不同的模型和进行大量练习来深入理解其框架流程。因此，在第一章中我们只是希望同学们有个大的概念，后续过程中再`一砖一瓦'来丰富这个框架和流程。希望同学们在学习后面不同的模型和具体的应用时，可以时常回到第一章来进一步领会图1.7的框架和概念。
+	\end{tcolorbox}
+\end{fullmodel}
+
+\subsection{人工智能思维原素}
+
+在本章的最后一个小节中，我们特别提醒同学们，在以后的学习过程中，注意积累以下的素养。这些素养可以说是人工智能思维的基本原素，他们包括:
+\begin{itemize}
+	\item 数据思维，比如每次你做练习时，思考下，这个数据是什么结构，是如何标注的，维数是怎么样的，等等；
+	\item 计算机思维，比如每次接触不同模型时，思考计算机是如何程序化计算得等等；
+	\item 机器学习思维，比如思考整个机器学习模型时如何构建和训练，以及预测的。
+\end{itemize}
+
+以下是本章中使用到的Python代码，供有兴趣的同学参考。注意其中涉及\texttt{TensorFlow}部分的代码不要过多得去研究。在高中阶段我们暂时不会讲解。
+\begin{python}
+# Chapter 1 C1 C2 Code
+# 第一章
+# @ Michael
 
 
-\newpage
-\subsection{课堂讲义C2}
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn import preprocessing
+import tensorflow as tf
+from tensorflow import keras
 
 
+# set the working direction
+os.getcwd()
+os.chdir('/Users/Michael/Documents/MDLforBeginners/Chapter1/Code')
 
-\newpage
+# define a simple function(定义一个方程)
+def fx(x):
+    """
+    A simple function for calcuating:
+        f(x) = x^2 + 2x - 3
+    Input: x - 1 by n vector
+    Output: return f(x) 1 by n vector
+    """
+
+    y = np.power(x, 2) + 2 * x - 3
+
+    return y
+
+
+# Test the function(测试方程)
+x = np.array(range(1, 10))
+print(fx(x))
+
+
+# A simple nueral network model for learning the function fx
+# Reference: Laurence Moroney
+def Learn_model(y_new):
+    xs = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0], dtype=float)
+    ys = np.array([0.0, 5.0, 12.0, 21.0, 32.0, 45.0, 60.0, 77.0], dtype=float)
+    model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
+    model.compile(optimizer='sgd', loss='mean_squared_error')
+    model.fit(xs, ys, epochs=800)
+    return model.predict(y_new)[0]
+
+
+prediction = Learn_model([9.0])
+print(prediction)
+
+
+def c1c2fun1(x):
+    """
+    解方程 56x + 8y = 36
+    输入: x
+    输出: y
+    """
+    y = (36-56*x)/8
+
+    return y
+
+
+print(c1c2fun1(np.array(range(0, 8))))
+# [ 4.5 -2.5  -9.5 -16.5 -23.5 -30.5 -37.5 -44.5]
+
+
+# Linear regression for predicting house price
+# read the dataset
+tb_real_estate = pd.read_excel('Real estate valuation data set.xlsx')
+tb_real_estate.shape
+tb_real_estate.head()
+tb_real_estate.columns
+# Index(['No', 'X1 transaction date', 'X2 house age',
+#        'X3 distance to the nearest MRT station',
+#        'X4 number of convenience stores', 'X5 latitude', 'X6 longitude',
+#        'Y house price of unit area'],
+#       dtype='object')
+
+# Data visualization
+fig, axes = plt.subplots(2, 2, figsize=(12, 12), sharey=True)  # share y
+sns.scatterplot(x=tb_real_estate['X2 house age'],
+                y=tb_real_estate.iloc[:, 7],
+                ax=axes[0, 0])
+sns.scatterplot(x=tb_real_estate.iloc[:, 3],
+                y=tb_real_estate.iloc[:, 7], ax=axes[0, 1])
+sns.scatterplot(x=tb_real_estate.iloc[:, 4],
+                y=tb_real_estate.iloc[:, 7], ax=axes[1, 0])
+sns.scatterplot(x=tb_real_estate.iloc[:, 5],
+                y=tb_real_estate.iloc[:, 7], ax=axes[1, 1])
+fig.savefig('taibeiRealEst.png', dpi=800, bbox_inches='tight')
+
+# run regression
+tb_X = tb_real_estate.iloc[:, 2:7]
+tb_Y = tb_real_estate.iloc[:, 7:8]
+
+tb_reg = LinearRegression()
+tb_reg.fit(tb_X, tb_Y)
+tb_reg.coef_
+# array([[-2.68916833e-01, -4.25908898e-03,  1.16302048e+00,
+#          2.37767191e+02, -7.80545273e+00]])
+tb_reg.intercept_
+
+# notice that it does not make sense for normalizing the distance!
+tb_x_norm = preprocessing.normalize(tb_X)
+tb_norm_reg = LinearRegression()
+tb_norm_reg.fit(tb_x_norm, tb_Y)
+tb_norm_reg.coef_
+# array([[-6.71038947e+01,  7.82866997e+01,  1.79603302e+02,
+#          8.48265938e+04, -1.73503097e+04]])
+# the second coefficient should be negative
+#
+\end{python}
+
 \subsection{课后练习C3}
 
+本章的课后练习着重让同学们去探索机器学习在不同场景中的应用，不涉及具体的计算。
+
+\begin{question}{C3-Q1}
+	刘清宇同学很喜欢听音乐，他的手机里存放了大约有200首他多年筛选下来的歌曲。但是他觉得还是不够听，可是每次想要去搜寻符合他的审美乐趣的歌曲时都很花费时间，请问你可以想一个方法来帮助刘清宇同学来推荐符合他的审美乐趣的歌曲吗？
+\end{question}
+
+
+\begin{question}{C3-Q2}
+	请同学们到网络上搜索一个机器学习的应用场景，然而思考它是如何按照图1.7中的框架流程来结局在你选在的应用场景中解决具体问题的。
+\end{question}
+
+
+\noindent
+\textcolor{purple}{疑难解答}:如果有相关疑问，请扫描下面的二维码，将你的问题输入，老师会尽快答疑解惑:$\heartsuit$。 \begin{marginfigure}
+	\centering
+	\includegraphics[width=\textwidth]{fig/C1C3qrcode}
+\end{marginfigure}
+
 
 
 \newpage
+\setcounter{section}{2}
 \part*{第二章: 简单分类-察异辨花}
 
 
@@ -355,6 +859,7 @@
 
 
 \setcounter{section}{3}
+\setcounter{subsection}{0}
 \subsection{课前预习C1}
 
 本次C1依然两部分组成:
@@ -779,6 +1284,7 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 
 
 \newpage
+
 \subsection{课堂讲义C2}
 
 从这一小章节\mn{课堂讲义里的内容是你应该重点学习的内容，学期末的考核所包含的知识点，都涵盖在课堂讲义中，所以你要做到`熟读百遍，而有备无患'。}开始，我们开始进一步学习神经网络模型。按时完成C1的同学，或许已经对人工智能的广泛应用和蓬勃发展已经有了一定的了解。那么接下来，我们就开始系统学习或者说系统训练你们的`人工智能’思维。\textbf{因为这是高中课程，所以我的授课重点是训练你用人工智能解决问题的思维方式}， 在此基础上教授你相应的编程工具。本章节的学习重点有:
