@@ -18,6 +18,7 @@ from tensorflow import keras
 os.getcwd()
 os.chdir('/Users/Michael/Documents/MDLforBeginners/Chapter1/Code')
 
+
 # define a simple function(定义一个方程)
 def fx(x):
     """

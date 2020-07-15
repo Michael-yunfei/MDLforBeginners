@@ -2,21 +2,21 @@
 
 <img src="https://github.com/Michael-yunfei/MDLforBeginners/blob/master/Chapter3/Code/Images/Mosaic1.png" width="316" height="216">
 
-This repository is built for teaching beginners machine learning and deep learning. The topics covered in this course are quite standard, which should include the follows provisionally:
+This repository is built for teaching beginners machine learning and deep learning. The topics covered in this course are quite standard, which should include the followings provisionally:
 
 * Linear Methods for Regression
 * Linear Methods for Classification
 * Model Assessment and Selection
 * Support Vector Machines (SVM)
-* Standard Neutral Networks
-* Convolutional Neural Network (CNN)
-* Recurrent Neural Network (RNN)
+* Standard Neural Networks
+* Convolutional Neural Networks (CNN)
+* Recurrent Neural Networks (RNN)
 
 Since this is an ongoing project, I might change the teaching content based on the feedback provided by future students. After finishing this course, students are expected to:
 
-* have a big picture on machine learning;
-* understand key models in machine learning;
-* know how to build a machine learning model based on problems they wish to tackle.
+* having a big picture on machine learning;
+* understanding key models in machine learning;
+* knowing how to build a machine learning model based on problems they wish to tackle.
 
 
 该仓库是为教授初学者人工智能而建。目前拟定的题目包括:
