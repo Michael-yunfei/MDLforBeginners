@@ -4,19 +4,22 @@
 \contentsline {subsection}{\numberline {1.2}课堂讲义C2}{5}{subsection.1.2}
 \contentsline {subsubsection}{\numberline {1.2.1}为什么需要机器学习模型}{6}{subsubsection.1.2.1}
 \contentsline {subsubsection}{\numberline {1.2.2}机器学习解决问题的方法}{13}{subsubsection.1.2.2}
-\contentsline {subsection}{\numberline {1.3}人工智能思维原素}{14}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}课后练习C3}{16}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.2.3}人工智能思维原素}{14}{subsubsection.1.2.3}
+\contentsline {subsection}{\numberline {1.3}课后练习C3}{16}{subsection.1.3}
 \contentsline {part}{第二章: 简单分类-察异辨花}{18}{part*.22}
-\contentsline {part}{第三章:神经网络模型初探}{19}{part*.23}
-\contentsline {subsection}{\numberline {3.1}课前预习C1}{20}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{28}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{28}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{29}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{30}{subsubsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.4}数据结构}{30}{subsubsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.5}损失方程(Loss Function)}{32}{subsubsection.3.2.5}
-\contentsline {subsubsection}{\numberline {3.2.6}初始数据群处理}{32}{subsubsection.3.2.6}
-\contentsline {subsubsection}{\numberline {3.2.7}向量、矩阵和其相关的运算}{33}{subsubsection.3.2.7}
-\contentsline {subsubsection}{\numberline {3.2.8}卷积运算(Convolution)}{34}{subsubsection.3.2.8}
-\contentsline {subsection}{\numberline {3.3}课后练习C3}{40}{subsection.3.3}
-\contentsline {part}{第四章:神经网络模型详解}{42}{part*.46}
+\contentsline {subsection}{\numberline {2.4}课前预习C1}{18}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}课堂讲义C2}{22}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}什么是分类}{22}{subsubsection.2.5.1}
+\contentsline {part}{第三章:神经网络模型初探}{25}{part*.30}
+\contentsline {subsection}{\numberline {3.1}课前预习C1}{25}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{34}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{34}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{35}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{36}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}数据结构}{36}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}损失方程(Loss Function)}{38}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}初始数据群处理}{38}{subsubsection.3.2.6}
+\contentsline {subsubsection}{\numberline {3.2.7}向量、矩阵和其相关的运算}{39}{subsubsection.3.2.7}
+\contentsline {subsubsection}{\numberline {3.2.8}卷积运算(Convolution)}{40}{subsubsection.3.2.8}
+\contentsline {subsection}{\numberline {3.3}课后练习C3}{46}{subsection.3.3}
+\contentsline {part}{第四章:神经网络模型详解}{48}{part*.52}
