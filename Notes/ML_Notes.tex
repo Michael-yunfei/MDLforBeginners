@@ -1047,7 +1047,7 @@ B' &  169 & 4 & 9 \\
 下面我们看一个具体的案例，下图中分别显示了不同性别的身高(height)和体重(weight)	。
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{fig/BMI}
+	\includegraphics[width=0.8\textwidth]{fig/C2C2BMI}
 \end{figure}
 \end{example}
 
@@ -1058,26 +1058,440 @@ B' &  169 & 4 & 9 \\
 	\item 分类二: 体重大于70公斤的人
 \end{itemize}
 但是仅仅凭这些信息，你是无法分辨这些人的性别的。如果我们将这些数据进行3D可视化的话，那么分类就会变得更容易。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/C2C2bmi3d}
+\end{figure}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=总结: 只有可分类的才可以分类]
+		这个总结的标题听起来像一句`废话'，但是它的正确性是毋庸置疑的，也就是说:
+		\begin{itemize}
+			\item 想要分类必须找出不同的属性
+			\item 一旦有不同的属性那么事物自然就属于不同的类别
+			\item 所以说只有可分类的才可以分类
+		\end{itemize}
+	\end{tcolorbox}
+\end{fullmodel}
+
+在我们结束这一小节前，我们特别强调下，二分法和多类分法。二分法顾名思义，就是只有两种分法，比如男女和黑白，多类分法即有两种以上的类别，比如红橙黄绿青蓝紫，马牛羊猪等。现实生活中有很多二分法问题，也有很多多类分法问题。但是需要强调的是: \textit{多类分法都可以转换成二分法}比如蓝色和非蓝色，马和非马\mn{虽然老师很喜欢探讨哲学问题，但是请不要提问: 白马非马}等。
 
 
+\subsubsection{什么线性分类}
+
+在给出严谨的数学定义前，我们来再来解几个方程组\mn{这一小节中我们会借助安德森鸢尾花数据阵来进行学习，所以让我们再熟悉一下这个数据阵。}。
+
+\begin{align*}
+		3a + 1.4b + 0.2c & = 0 \\
+	3.2a + 4.5b + 1.5 c & = 1 \\
+	2.7a + 5.1b + 1.9c & = 2 
+\end{align*}
+求解该方程组，可以得出以下近似解:
+\begin{align*}
+	a = 1.1, b = -3.7, c = 9.4 
+\end{align*}
+
+\begin{table}[H]
+		\centering
+		\begin{tabular}{lcccc}
+		\hline 
+			属种 & 代码 & 花萼宽度(a=1.1) &花瓣长度(b=-3.7) & 花瓣宽度(c=9.) \\
+			\hline 
+			山鸢尾 & 0 & 3 &  1.4 & 0.2 \\
+			变色鸢尾 & 1 & 3.2 & 4.5  & 1.5 \\
+			维吉尼亚鸢尾 & 2 & 2.7 &  5.1 & 1.9  \\
+			\hline  
+		\end{tabular}
+\end{table}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=自然界中的线性规律]
+		就像我们在第一章节图1.4给出的比重一样，我们可以理解大自然在不同的鸢尾花进化时，特意的分配了下面的比重(参数):
+		\begin{itemize}
+			\item 花萼宽度(1.1)
+			\item 花瓣长度(-3.7)
+			\item 花瓣宽度(9.4)
+		\end{itemize}
+		那么根据这些比重(参数)大自然来进行不同鸢尾花的分类和进化。所以你如果问牛顿什么是自然界的话，他肯定会告诉你一切都是数学(或者爱因斯坦会说:我不相信上帝在掷骰子)。
+	\end{tcolorbox}
+\end{fullmodel}
+
+\begin{example}
+下面我们就用我们解方程的参数去分类\mn{希望你现在可以相信老师说的：只要你会算1+1=2和解方程组，你就可以学懂机器学习的模型，只需要一步一脚印。}，看以下我们分类的准确度是多少？	下面是我们的算法:
+\begin{enumerate}
+	\item 用我们计算得出的比重(参数): a=1.1, b = -3.7, c = 9，来乘以每个数据串，比如某鸢尾花的数据串为 花萼宽度5.2， 花瓣长度1.7， 花瓣宽度0.3，那么$5.2 \times 1.1 - 1.7 \times 3.7 + 0.3 \times 9 = 2.13$，2.13 更接近$2$, 所以判定为维吉尼亚鸢尾。
+	\item 然后按照这个方法将所有的数据都计算一遍，我们的准确率是25.33\%。
+\end{enumerate}
+虽然准确率非常低，但是考虑到你手动解了一个方程组就能达到25\%的准确率，所以我们应该还是很满意的。
+\end{example}
+
+好了解了这个简单得算法后，我们就开始正式进入机器学习的第一个模型介绍: 线性分类器。
+
+\begin{definition}
+	我们把可以表现为下列形式的方程，称为\textit{线性方程}:
+	\begin{align*}
+		a_1 x_1 + a_2 x_2 + \cdots + a_n x_n + b = 0
+	\end{align*}
+	其中$x_1, x_2, \cdots, x_n$ 为变量, $a_1, a_2, \cdots, a_n$ 为系数。
+\end{definition}
+
+\begin{remark}
+在机器学习领域，变量可以理解为不同的数据(因为数据总是在变化), 而系数$a_1, a_2, \cdots, a_n$则是我们在机器学习中的参数。比如我们反复使用的鸢尾花例子中，我们解方程的得出的$a=1.1, b=-3.7, c = 9$,就是线性方程中的系数，而相关的数据就是变量。更加直观的表现:
+\begin{align*}
+	3a + 1.4b + 0.2 c & = 0 \\
+	x_1 a + x_2 b + x_3 c & = 0 
+\end{align*}
+\textit{因为现实生活中有很多例子和数据，我们为了方便描述，将数据成为变量，将规律参数成为系数。}
+\end{remark}
+
+\begin{example}
+假定我们的变量为$x_1, x_2$ (即两组相关数据，比如$x_1$收集后可以是$3.6, 19, \cdots$, $x_2 = -3, 0.6, \cdots$), 他们具有下面的关系:
+\begin{align*}
+	& \frac{1}{2} x_1 - x_2 + 2 = 0 \\
+	 \Leftrightarrow \ &  x_2 = \frac{1}{2} x_1 + 2 \\
+	  \Leftrightarrow \ & \frac{1}{2} x_1 - x_2 = -2 \\
+	  \Leftrightarrow \ & a_1 x_1 - a_2 x_2 = -2, \ \ a_1 = \frac{1}{2}, a_2 = -1 
+\end{align*}	
+\end{example}
+
+\begin{remark}
+现实生活中，有些关系可以表现为线性关系，有些关系不可以表现为线性关系，比如,
+\begin{align*}
+	a_1 x_1^2 + a_2 \sin (x_2) + a_3 e^{x_3} + b  = 0 
+\end{align*}	
+当$x_1, x_2, x_3$之间的关系为非线性是，我们可以对其进行线性转换\mn{线性转换在数学和工程中是个大课题，如果你可以进行巧妙的进行线性转换，你可以去我们国家航天局工作了。你进入大学后，会学习一个泰勒公式，其为最基本的线性转换概念，我们在后面的章节中会简单介绍。}。那么最`粗暴'，但是可能也使用最多的线性转换是通过`赋值’（或者变幻参数来完成)，比如:
+\begin{align*}
+	x'_1 = x_1^2; \ \ \ x'_2 = \sin (x_2); \ \ \ x'_3 = e^{x_3}
+\end{align*}
+那么新的关系就变成了线性: 
+\begin{align*}
+	a_1 x'_1 + a_2 x'_2 + a_3 x'_3 = 0 
+\end{align*}
+\end{remark}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{fig/C2C2linear}
+\end{figure}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=简单的变量替换可以成为线性转换吗？]
+		有的同学可能会觉得我们在上面的例子中通过替换$x'_2 = \sin(x_2)$变量，并不是线性转换，因为只是换了个表达公式，其实这里面暗含着一种计算思维:
+		\begin{itemize}
+			\item 我们很多机器学习的模型都假定了其线性的关系，也就是整个模型中，如果关系是线性:$a_1 x_1 + a_2 x_2 + a_3 x_3 + b =0$, 计算机会很快识别，如果里面有$a_1 x_1^2 + a_2 \sin(x_2) + a_3 x_3 + b =0$, 计算机会`不知所措'。
+			\item 所以解决这个问题的方法是，我们分步骤: \begin{enumerate}[(i)]
+				\item 第一步，先完成$x'_1 = \sin(x_1)$的计算(当然是借助电脑，而非手算或者珠算)
+				\item 第二步，将$x'_1$输入到我们机器学习的模型中。
+			\end{enumerate}
+		\end{itemize}
+		这集中体现了计算机思维: 模式化，流程化，同时也非常死板。但是恰恰是因为计算机的限定性，带来其高度准确性和运算速度。
+	\end{tcolorbox}
+\end{fullmodel}
 
 
+\subsubsection{矩阵和向量运算}
+
+了解了线性方程后，我们现在开始介绍向量和向量运算。整个向量运算仍然是依托于解方程，比如下面的方程组:
+\begin{align*}
+	\begin{cases}
+		2a + 3b & = 6 \\
+		-3a + 7b & = 9 
+	\end{cases} \ \ \ \Leftrightarrow \ \ \ \begin{bmatrix}
+		2 & 3 \\
+		-3 & 7
+	\end{bmatrix} \begin{bmatrix}
+		a \\
+		b
+	\end{bmatrix} = \begin{bmatrix}
+		6 \\
+		9 
+	\end{bmatrix}
+\end{align*}
+
+其中，我们把
+\begin{align*}
+	\begin{bmatrix}
+		2 & 3 \\
+		-3 & 7 
+	\end{bmatrix}
+\end{align*}
+成为一个矩阵，下面是相关定义。
 
 
+\begin{definition}
+	\textit{矩阵}（Matrix）是一个按照长方阵列排列的复数或实数集合。对一个矩阵的简单描述可以为 $m \times n$ 的矩阵，即该矩阵有$m$ 行，$n$列. $m \times n$也被称为矩阵的大小。
+\end{definition}
+\begin{example}
+比如，我们有$3 \times 3 $的矩阵$A$ 和$2 \times 3$ 的矩阵$B$。
+\begin{align*}
+	 A = \begin{bmatrix}
+	1 & 3 & 4 \\
+	2 & 5 & 8 \\
+	3 & 9 & 7
+\end{bmatrix}, & & B = \begin{bmatrix}
+	3.2 & 1.9 & 5.7 \\
+	4.1 & 5.8 & 9.3 \\
+\end{bmatrix}
+\end{align*}	
+\end{example}
+
+\begin{definition}
+	矩阵中单独的一行被成为\textit{行向量}(row vector), 单独的一列别成为\textit{列向量}(column vector)。
+\end{definition}
+\begin{example}
+比如在上面的矩阵$A$中，	我们有以下单独的向量:
+\begin{align*}
+	A_{r2} = [2 \ 5 \ 8],  & & A_{c2} = \begin{bmatrix}
+		3 \\
+		5 \\
+		9 
+	\end{bmatrix}
+\end{align*}
+\end{example}
+
+\begin{definition}
+	现有同样大小的$m \times n$的矩阵 $A, B$, 我们定义矩阵的加法($+$)运算为：
+	\begin{align*}
+		A + B = \begin{bmatrix}
+			(a_{11} + b_{11}) & (a_{12}+b_{12}) & \cdots & (a_{1n}+b_{1n}) \\
+			a_{21} + b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+			\vdots & \ddots & & \vdots \\
+			a_{m1} + b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \\
+		\end{bmatrix}
+	\end{align*}
+	其中，$a_{ij}$ 为矩阵$A$中第$i$行第$j$列元素,$b_{ij}$ 为矩阵$B$中第$i$行第$j$列元素。
+\end{definition}
+
+\begin{remark}
+矩阵的加法只能在同样大小的矩阵中进行，即同位元素相加。	
+\end{remark}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=变量和系数的对应关系]
+		矩阵和向量的运算，是根植于方程中变量与系数(规律参数)的对应关系来的。我们这一小节中重点学习向量运算，下一章中开始学习矩阵运算。比如，下面的方程可以转为向量相乘:
+		\begin{align*}
+			2a + 3b + c = 3 \ \ \Leftrightarrow \ \ \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b \\
+				c
+			\end{bmatrix} = [3] 
+		\end{align*}
+		因为变量和系数，必须相对应，所以下面的运算一个是不合法的，另外个是不合法的:
+		\begin{align*}
+			\begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b 
+			\end{bmatrix} & & \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b \\
+				c
+			\end{bmatrix} & & \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b \\
+				c 
+			\end{bmatrix}
+		\end{align*}
+	\end{tcolorbox}
+\end{fullmodel}
+
+\begin{definition}
+	已知两个长度相同的向量$a=[a_1, a_2, \cdots, a_n]$ 和$X = [x_1, x_2, \cdots, x_n]$, 那么向量的相乘，也并被成为点积(dot product)定义为:
+\begin{align*}
+		 X \cdot a & = \begin{bmatrix}
+		x_1 & x_2 & \cdots & x_n
+	\end{bmatrix} \begin{bmatrix}
+		a_1 \\
+		a_2 \\
+		\vdots \\
+		a_n
+	\end{bmatrix} \\
+	 a \cdot X & = \begin{bmatrix}
+		a_1 & a_2 & \cdots & a_n
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		\vdots \\
+		x_n
+	\end{bmatrix}\\
+	& =  \sum_{i=1}^n a_i x_i = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n 
+\end{align*}
+\end{definition}
+
+\begin{remark}
+向量的点积是从方程运算延伸而来，很大程度上是为了帮助我们来描述方程。但是有意思的是，向量的运算在几何表现上有很有趣的性质。	
+\end{remark}
+
+\begin{definition}
+	当已知向量的长度小于等于$3$时，比如$x = [1, 3]$, 我们可以将其在三维或者二维的图形中表现出来，而且我们将坐标系中的原点$(0, 0, 0)$作为原点，将向量的坐标点作为终点，那么其在坐标中所画出的线，我们称之为\textit{矢量}。矢量可以简单理解为向量的几何表现。比如，下面向量在二维坐标中的展示:
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-3,-3) grid (3,3);
+  \draw[<->] (-3,0)--(3,0) node[right]{$x$};
+  \draw[<->] (0,-3)--(0,3) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{$\boldsymbol{u=[2, 1]}$};
+  \draw[line width=1pt,red,-stealth](0,0)--(-1,2) node[anchor=north east]{$\boldsymbol{v=[-1, 2]}$};
+  \draw[line width=1pt,brown, -stealth](0,0)--(-2, -3) node[anchor=north east]{$\boldsymbol{w=[-2, -3]}$};
+\end{tikzpicture}
+\end{figure}
+\end{definition}
+
+\begin{definition}
+	当两个向量的点积运算结果为$0$时，我们称这两个向量\textit{正交}，或者互为正交向量，数学表示为:
+	\begin{align*}
+		 X \cdot a = <X, a> = 0 \ \ \Leftrightarrow \ \ \sum_{i=1}^n a_i x_i = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = 0 
+	\end{align*}
+\end{definition}
+\begin{remark}
+两个向量正交时，在几何上表现为垂直(perpendicular)，比如
+\begin{align*}
+	u \cdot v = \begin{bmatrix}
+		2 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		-1 \\
+		2
+	\end{bmatrix} = -2 + 2 = 0 & &  z \cdot x = \begin{bmatrix}
+		0 & 0 & 1
+	\end{bmatrix} \begin{bmatrix}
+		1 \\
+		0 \\
+		0
+	\end{bmatrix} = 0 
+\end{align*}	
+其中$u, v$的垂直可以下图中显示，$z, x$的垂直很容易了解，因为$z$实际上三维图中$Z$轴的一条线，而$x$则是三维图中$X$轴上的一条线。
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-3,-3) grid (3,3);
+  \draw[<->] (-3,0)--(3,0) node[right]{$x$};
+  \draw[<->] (0,-3)--(0,3) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{$\boldsymbol{u=[2, 1]}$};
+  \draw[line width=1pt,red,-stealth](0,0)--(-1,2) node[anchor=north east]{$\boldsymbol{v=[-1, 2]}$};
+  \draw[line width=1pt,brown, -stealth](0,0)--(1, -2) node[right]{$\boldsymbol{w=[1, -2]}$};
+\end{tikzpicture}
+\end{figure}
+注意$w\cdot u=0$, 他们在几何上垂直，在代数上正交。
+\end{remark}
+
+\begin{example}
+下面，我们来进行几个简单的点积运算, 为了帮助同学们了解点积的几何意义，我们固定一个向量$v$:
+\begin{align*}
+	 w = [-1, \ 2] 
+\end{align*}	
+然后让下面的几个向量依次与$v$进行点积:
+\begin{align*}
+	x_1 = [4, \ 2] & & a = [2, \ -1] & & b  = [1, \ 2] \\
+x_2 = [-4, \ -2] & & c = [-1, \ -3] & & d = [-3, \ 2 ]
+\end{align*}
+结算可以得出以下结果:
+\begin{align*}
+	w\cdot x_1  =0 & & w \cdot  a = -4  & & w \cdot b  =  3 \\
+w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
+\end{example}
+
+如果你观察上面的结果，你会发现比较明显的规律，这个规律在表格中和图形中会表现的非常清楚。
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|ccc}
+	\hline 
+		与$w$点积 & $< 0$ & $=0$ & $ > 0 $ \\
+		\hline 
+		& a & $x_1$ & b \\
+		& c & $x_2$ & d \\
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-5,-4) grid (5,4);
+  \draw[<->] (-5,0)--(5,0) node[right]{$x$};
+  \draw[<->] (0,-4)--(0,4) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(4,2) node[anchor=south west]{$\boldsymbol{x_1=[4, 2]}$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(-4,-2) node[anchor=north east]{$\boldsymbol{x_1=[-4, -2]}$};
+  \draw[line width=1pt,red, -stealth](0,0)--(-1, 2) node[above]{$\boldsymbol{w=[-1, 2]}$};
+  \draw[line width=1pt, dashed, -stealth](0,0)--(2, -1) node[below]{$\boldsymbol{a=[2, -1]}$};
+   \draw[line width=1pt, dashed, -stealth](0,0)--(-1, -3) node[below]{$\boldsymbol{c=[-1, -3]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(1, 2) node[anchor=south west]{$\boldsymbol{b=[1, 2]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(-3, 2) node[anchor=north east]{$\boldsymbol{d=[-3, 2]}$};
+\end{tikzpicture}
+\caption{向量正交的可视化}
+\end{figure}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=向量点积的几何性质]
+	你会发现，当向量$a, b, c, d$与$w$的开角小于90度时，其点积大于$0$，当其开角大于90度时，其点积小于$0$，这是因为代数点积也可以通过以下公式来表现 $$W \cdot X = ||W|| ||X|| \cos \theta $$
+	其中$||W||$和$||X||$分别为向量的长度且均为正值，这里我们先不做介绍，但是从初中我们就知道下面的关系:
+	$$\cos \theta  \begin{cases}
+		> 0 &  0 \leq \theta < \pi/2 \\
+		= 0 & \theta = \pi/2 \\
+		< 9 &  \pi 2 < \theta \leq \pi 
+	\end{cases}$$
+	\end{tcolorbox}
+\end{fullmodel}
+
+\subsubsection{感知器线性分类}
+
+从现在开始，我们可以正式介绍感知器(perceptron)的线性分类了。感知器线性分类的核心要素是: \textbf{假设可分类对象中存在一个分界面}(separting hyperplanes)\mn{希望你现在可以明白我们为什么在之前重复讲: 只有可分类的才可以分类}。
 
 
+\begin{definition}
+	假设自然界中可分类对象具有一定属性，且属性个数大于$1$，当其属性的特征变量($X$)与其属性的规律参数($\beta$)存在下列线性关系时:
+	\begin{align*}
+		X \cdot \beta + c  =0 ; \ \ \ \Leftrightarrow \ \ \ x_1\beta_1 + x_2 \beta_2 + \cdots + x_n \beta_n + c = 0
+	\end{align*}
+	(其中$n$为分类对象的属性个数)，我们将其称为\textit{可线性分类}。因为该公式的点积为零，所以我们将其转换为下列的格式:
+	\begin{align*}
+		\begin{bmatrix}
+			X & 1
+		\end{bmatrix} \begin{bmatrix}
+			\beta \\
+			c
+		\end{bmatrix} = x \cdot w = 0 
+	\end{align*}
+	我们将向量$w$和$x$组成的分界面以及正交矢量(在二维中，就是一条线和其垂直线)称为\textit{感知器}(percepton),其中$w$就是我们需要计算的规律参数，而$x$则是由我们采集的数据组成的特征向量。感知器分类一个\textbf{二分}过程，分类过程如下:
+	\begin{align*}
+		y = \begin{cases}
+			+1 & x \cdot w > 0 \\
+			-1 & x \cdot w < 0
+		\end{cases}
+	\end{align*}
+	其中$y$是我们在进行分类是需要标注的结果。
+\end{definition}
 
+\begin{example}
+比如在图2.8中，规律参数为$w = [-1, 2]$, $a, b, c, d, x_1, x_2$ 是我们采集的数据，其中$x_1$ 和$x_2$ 如果在我们采集的数据中不存在时，我们也可以构造一个(因为我们假设了这么一条线的存在)。
+\end{example}
 
+在明白了感知器线性分类的原理后，我们就来看一下如何去计算规律参数。在计算机的帮助下，有一种很`简单粗暴’的方式来寻找规律参数，也就是通过不断尝试的方法来找到规律参数的向量使得我们的预测准确度可以达到较为满意的程度。我们依然用安德森鸢尾花的例子来讲解。因为感知分类器一种\textbf{二分过程},所以我们把我们的数据集稍作处理。处理过程表现为下面的两个表格。
 
-
-
-
-
-
-
-
-
-
+\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{lccccc}
+		\hline 
+		\hline 
+		& & \multicolumn{4}{c}{\textbf{属性}} \\
+		\cline{3-6}
+			种类 & 标注代码 & 花萼长度 & 花萼宽度(a=1.1) &花瓣长度(b=-3.7) & 花瓣宽度(c=9.) \\
+			\hline 
+			山鸢尾 & 0 & 4.6 &  3 &  1.4 & 0.2 \\
+			变色鸢尾 & 1 & 6.2 &  3.2 & 4.5  & 1.5 \\
+			维吉尼亚鸢尾 & 2 & 5.9 &  2.7 &  5.1 & 1.9  \\ 
+			$\vdots$ & $\vdots$ & \multicolumn{4}{c}{$\vdots$} \\
+			\hline 
+			& y & \multicolumn{4}{c}{$X = (150, 4)$} \\
+			\hline  
+		\end{tabular}
+\end{table}
 
 
 

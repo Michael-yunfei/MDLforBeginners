@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  17 JUL 2020 19:02
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  18 JUL 2020 15:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -3223,319 +3223,425 @@ Package marginnote Info: Margin note 25.1 is on absolute page 25
 Package marginnote Info: right page because not two side mode on input line 1025.
 Package marginnote Info: xpos seems to be 400.27397pt,
 (marginnote)             \marginnoterightadjust ignored on input line 1025.
-File: fig/BMI.png Graphic file (type bmp)
-<fig/BMI.png>
- [23] [24]
+File: fig/C2C2BMI.png Graphic file (type bmp)
+<fig/C2C2BMI.png>
+ [23]
+File: fig/C2C2bmi3d.png Graphic file (type bmp)
+<fig/C2C2bmi3d.png>
+
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1066--1076
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1076
+
+ []
+
+Package marginnote Info: Margin note 26.1 is on absolute page 26
+(marginnote)              on input line 1077.
+Package marginnote Info: right page because not two side mode on input line 1077.
+Package marginnote Info: xpos seems to be 195.71661pt,
+(marginnote)             \marginnoterightadjust ignored on input line 1077.
+Package marginnote Info: Margin note 26.2 is on absolute page 26
+(marginnote)              on input line 1082.
+Package marginnote Info: right page because not two side mode on input line 1082.
+Package marginnote Info: xpos seems to be 315.71661pt,
+(marginnote)             \marginnoterightadjust ignored on input line 1082.
+
+Overfull \hbox (34.14299pt too wide) in paragraph at lines 1096--1105
+ [][] 
+ []
+
+[24]
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1107--1118
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1107--1118
+
+ []
+
 Package marginnote Info: Margin note 27.1 is on absolute page 27
-(marginnote)              on input line 1101.
-Package marginnote Info: right page because not two side mode on input line 1101.
+(marginnote)              on input line 1120.
+Package marginnote Info: right page because not two side mode on input line 1120.
+Package marginnote Info: xpos seems to be 301.9685pt,
+(marginnote)             \marginnoterightadjust ignored on input line 1120.
+[25]
+Package marginnote Info: Margin note 28.1 is on absolute page 28
+(marginnote)              on input line 1162.
+Package marginnote Info: right page because not two side mode on input line 1162.
+Package marginnote Info: xpos seems to be 377.7103pt,
+(marginnote)             \marginnoterightadjust ignored on input line 1162.
+File: fig/C2C2linear.png Graphic file (type bmp)
+<fig/C2C2linear.png>
+
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1176--1189
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1189
+
+ []
+
+[26] [27]
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1268--1303
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1303
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1429--1440
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1440
+
+ []
+
+Package marginnote Info: Margin note 33.1 is on absolute page 34
+(marginnote)              on input line 1443.
+Package marginnote Info: right page because not two side mode on input line 1443.
+Package marginnote Info: xpos seems to be 105.38634pt,
+(marginnote)             \marginnoterightadjust ignored on input line 1443.
+
+Underfull \vbox (badness 1552) has occurred while \output is active []
+
+ [31]
+Overfull \hbox (118.14299pt too wide) in paragraph at lines 1479--1494
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32] [33]
+Package marginnote Info: Margin note 36.1 is on absolute page 36
+(marginnote)              on input line 1515.
+Package marginnote Info: right page because not two side mode on input line 1515.
 Package marginnote Info: xpos seems to be 30.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1101.
+(marginnote)             \marginnoterightadjust ignored on input line 1515.
 
 
-LaTeX Warning: Marginpar on page 25 moved.
+LaTeX Warning: Marginpar on page 34 moved.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1117.
+(hyperref)                than one, level fixed on input line 1531.
 
-Package marginnote Info: Margin note 27.2 is on absolute page 27
-(marginnote)              on input line 1128.
-Package marginnote Info: right page because not two side mode on input line 1128.
+Package marginnote Info: Margin note 36.2 is on absolute page 36
+(marginnote)              on input line 1542.
+Package marginnote Info: right page because not two side mode on input line 1542.
 Package marginnote Info: xpos seems to be 74.9625pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1128.
-Package marginnote Info: Margin note 27.3 is on absolute page 27
-(marginnote)              on input line 1128.
-Package marginnote Info: right page because not two side mode on input line 1128.
+(marginnote)             \marginnoterightadjust ignored on input line 1542.
+Package marginnote Info: Margin note 36.3 is on absolute page 36
+(marginnote)              on input line 1542.
+Package marginnote Info: right page because not two side mode on input line 1542.
 Package marginnote Info: xpos seems to be 88.453pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1128.
-Package marginnote Info: Margin note 27.4 is on absolute page 27
-(marginnote)              on input line 1132.
-Package marginnote Info: right page because not two side mode on input line 1132.
+(marginnote)             \marginnoterightadjust ignored on input line 1542.
+Package marginnote Info: Margin note 36.4 is on absolute page 36
+(marginnote)              on input line 1546.
+Package marginnote Info: right page because not two side mode on input line 1546.
 Package marginnote Info: xpos seems to be 149.2998pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1132.
-[25]
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1141--1149
+(marginnote)             \marginnoterightadjust ignored on input line 1546.
+[34]
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1555--1563
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1149
+Underfull \hbox (badness 10000) in paragraph at lines 1555--1563
 
  []
 
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1158--1163
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1572--1577
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1158--1163
+Underfull \hbox (badness 10000) in paragraph at lines 1572--1577
 
  []
 
 
 Underfull \vbox (badness 2376) has occurred while \output is active []
 
- [26]
-Package marginnote Info: Margin note 29.1 is on absolute page 29
-(marginnote)              on input line 1168.
-Package marginnote Info: right page because not two side mode on input line 1168.
+ [35]
+Package marginnote Info: Margin note 38.1 is on absolute page 38
+(marginnote)              on input line 1582.
+Package marginnote Info: right page because not two side mode on input line 1582.
 Package marginnote Info: xpos seems to be 156.99458pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1168.
+(marginnote)             \marginnoterightadjust ignored on input line 1582.
 
-Overfull \hbox (18.39638pt too wide) detected at line 1168
+Overfull \hbox (18.39638pt too wide) detected at line 1582
 []
  []
 
 
 Underfull \vbox (badness 2951) has occurred while \output is active []
 
- [27]
-Package marginnote Info: Margin note 30.1 is on absolute page 30
-(marginnote)              on input line 1244.
-Package marginnote Info: right page because not two side mode on input line 1244.
+ [36]
+Package marginnote Info: Margin note 39.1 is on absolute page 39
+(marginnote)              on input line 1658.
+Package marginnote Info: right page because not two side mode on input line 1658.
 Package marginnote Info: xpos seems to be 111.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1244.
-Package marginnote Info: Margin note 30.2 is on absolute page 31
-(marginnote)              on input line 1286.
-Package marginnote Info: right page because not two side mode on input line 1286.
+(marginnote)             \marginnoterightadjust ignored on input line 1658.
+Package marginnote Info: Margin note 39.2 is on absolute page 40
+(marginnote)              on input line 1700.
+Package marginnote Info: right page because not two side mode on input line 1700.
 Package marginnote Info: xpos seems to be 243.70244pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1286.
+(marginnote)             \marginnoterightadjust ignored on input line 1700.
 
-Overfull \hbox (9.78511pt too wide) in paragraph at lines 1286--1286
+Overfull \hbox (9.78511pt too wide) in paragraph at lines 1700--1700
 \TU/FandolSong-Regular(0)/m/it/10 的[][][][][][]的 代 码 是 \T1/lmr/m/it/10 (70, 136,
  []
 
-[28]
-Package marginnote Info: Margin note 31.1 is on absolute page 31
-(marginnote)              on input line 1320.
-Package marginnote Info: right page because not two side mode on input line 1320.
+[37]
+Package marginnote Info: Margin note 40.1 is on absolute page 40
+(marginnote)              on input line 1734.
+Package marginnote Info: right page because not two side mode on input line 1734.
 Package marginnote Info: xpos seems to be 147.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1320.
- [29]
-Package marginnote Info: Margin note 32.1 is on absolute page 32
-(marginnote)              on input line 1363.
-Package marginnote Info: right page because not two side mode on input line 1363.
+(marginnote)             \marginnoterightadjust ignored on input line 1734.
+ [38]
+Package marginnote Info: Margin note 41.1 is on absolute page 41
+(marginnote)              on input line 1777.
+Package marginnote Info: right page because not two side mode on input line 1777.
 Package marginnote Info: xpos seems to be 148.92485pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1363.
+(marginnote)             \marginnoterightadjust ignored on input line 1777.
 
-Overfull \hbox (5.80833pt too wide) in paragraph at lines 1363--1363
+Overfull \hbox (5.80833pt too wide) in paragraph at lines 1777--1777
 | $[]$ \T1/lmr/m/it/10 Python \TU/FandolSong-Regular(0)/m/it/10 的 主 要 对 象 单 元 有\T1/lmr/m/it/10 :int,
  []
 
-Package marginnote Info: Margin note 32.2 is on absolute page 32
-(marginnote)              on input line 1404.
-Package marginnote Info: right page because not two side mode on input line 1404.
+Package marginnote Info: Margin note 41.2 is on absolute page 41
+(marginnote)              on input line 1818.
+Package marginnote Info: right page because not two side mode on input line 1818.
 Package marginnote Info: xpos seems to be 170.45438pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1404.
+(marginnote)             \marginnoterightadjust ignored on input line 1818.
 File: fig/relu.png Graphic file (type bmp)
 <fig/relu.png>
 
-Overfull \hbox (11.41658pt too wide) in paragraph at lines 1404--1404
+Overfull \hbox (11.41658pt too wide) in paragraph at lines 1818--1818
 \T1/lmr/m/it/10 Javascript\TU/FandolSong-Regular(0)/m/it/10 ，|  比 如 \T1/lmr/m/it/10 D3.js \TU/FandolSong-Regular(0)/m/it/10 和 \T1/lmr/m/it/10 Chart.js\TU/FandolSong-Regular(0)/m/it/10 。|
  []
 
 File: fig/sigmoid.png Graphic file (type bmp)
 <fig/sigmoid.png>
-[30]
-Package marginnote Info: Margin note 33.1 is on absolute page 33
-(marginnote)              on input line 1449.
-Package marginnote Info: right page because not two side mode on input line 1449.
+[39]
+Package marginnote Info: Margin note 42.1 is on absolute page 42
+(marginnote)              on input line 1863.
+Package marginnote Info: right page because not two side mode on input line 1863.
 Package marginnote Info: xpos seems to be 170.16121pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1449.
+(marginnote)             \marginnoterightadjust ignored on input line 1863.
 
 
 LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/bx/it' undefined
-(Font)              using `TU/FandolSong-Regular(0)/bx/n' instead on input line 1449.
+(Font)              using `TU/FandolSong-Regular(0)/bx/n' instead on input line 1863.
 
-[31]
+[40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
+ [41]
 File: fig/C3C1qrcode.png Graphic file (type bmp)
 <fig/C3C1qrcode.png>
- [33]
+ [42]
 File: fig/epismeflow.png Graphic file (type bmp)
 <fig/epismeflow.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1554--1573
+Overfull \hbox (149.25pt too wide) in paragraph at lines 1968--1987
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1554--1573
+Underfull \hbox (badness 10000) in paragraph at lines 1968--1987
 
  []
 
-[34]
+[43]
 File: fig/deepmindflow.png Graphic file (type bmp)
 <fig/deepmindflow.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 1601--1610
+Overfull \hbox (149.25pt too wide) in paragraph at lines 2015--2024
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1601--1610
+Underfull \hbox (badness 10000) in paragraph at lines 2015--2024
 
  []
 
-[35]
-Package marginnote Info: Margin note 38.1 is on absolute page 38
-(marginnote)              on input line 1613.
-Package marginnote Info: right page because not two side mode on input line 1613.
+[44]
+Package marginnote Info: Margin note 47.1 is on absolute page 47
+(marginnote)              on input line 2027.
+Package marginnote Info: right page because not two side mode on input line 2027.
 Package marginnote Info: xpos seems to be 111.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1613.
+(marginnote)             \marginnoterightadjust ignored on input line 2027.
 File: fig/dataframeEx.png Graphic file (type bmp)
 <fig/dataframeEx.png>
- [36]
+ [45]
 File: /Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg Graphic file (type bmp)
 </Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg>
-Package marginnote Info: Margin note 39.1 is on absolute page 40
-(marginnote)              on input line 1661.
-Package marginnote Info: right page because not two side mode on input line 1661.
+Package marginnote Info: Margin note 48.1 is on absolute page 49
+(marginnote)              on input line 2075.
+Package marginnote Info: right page because not two side mode on input line 2075.
 Package marginnote Info: xpos seems to be 369.63358pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1661.
+(marginnote)             \marginnoterightadjust ignored on input line 2075.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
-Package marginnote Info: Margin note 40.1 is on absolute page 40
-(marginnote)              on input line 1716.
-Package marginnote Info: right page because not two side mode on input line 1716.
+ [46]
+Package marginnote Info: Margin note 49.1 is on absolute page 49
+(marginnote)              on input line 2130.
+Package marginnote Info: right page because not two side mode on input line 2130.
 Package marginnote Info: xpos seems to be 51.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1716.
- [38]
+(marginnote)             \marginnoterightadjust ignored on input line 2130.
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
-Package marginnote Info: Margin note 42.1 is on absolute page 42
-(marginnote)              on input line 1835.
-Package marginnote Info: right page because not two side mode on input line 1835.
+ [48]
+Package marginnote Info: Margin note 51.1 is on absolute page 51
+(marginnote)              on input line 2249.
+Package marginnote Info: right page because not two side mode on input line 2249.
 Package marginnote Info: xpos seems to be 185.2101pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1835.
- [40]
-Package marginnote Info: Margin note 43.1 is on absolute page 43
-(marginnote)              on input line 1856.
-Package marginnote Info: right page because not two side mode on input line 1856.
+(marginnote)             \marginnoterightadjust ignored on input line 2249.
+ [49]
+Package marginnote Info: Margin note 52.1 is on absolute page 52
+(marginnote)              on input line 2270.
+Package marginnote Info: right page because not two side mode on input line 2270.
 Package marginnote Info: xpos seems to be 319.4155pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1856.
-Package marginnote Info: Margin note 43.2 is on absolute page 43
-(marginnote)              on input line 1860.
-Package marginnote Info: right page because not two side mode on input line 1860.
+(marginnote)             \marginnoterightadjust ignored on input line 2270.
+Package marginnote Info: Margin note 52.2 is on absolute page 52
+(marginnote)              on input line 2274.
+Package marginnote Info: right page because not two side mode on input line 2274.
 Package marginnote Info: xpos seems to be 293.12996pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1860.
+(marginnote)             \marginnoterightadjust ignored on input line 2274.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1860--1860
+Underfull \hbox (badness 10000) in paragraph at lines 2274--2274
 \T1/DejaVuSansMono-TLF/m/it/10 / / towardsdatascience . com /
  []
 
 
-Overfull \hbox (234.1746pt too wide) in paragraph at lines 1860--1860
+Overfull \hbox (234.1746pt too wide) in paragraph at lines 2274--2274
 \T1/DejaVuSansMono-TLF/m/it/10 intuitively-[]understanding-[]convolutions-[]for-[]deep-[]learning-[]1f6f42faee1$[][] 
  []
 
 File: fig/mtconvo.png Graphic file (type bmp)
 <fig/mtconvo.png>
-Package marginnote Info: Margin note 43.3 is on absolute page 44
-(marginnote)              on input line 1874.
-Package marginnote Info: right page because not two side mode on input line 1874.
+Package marginnote Info: Margin note 52.3 is on absolute page 53
+(marginnote)              on input line 2288.
+Package marginnote Info: right page because not two side mode on input line 2288.
 Package marginnote Info: xpos seems to be 165.71661pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1874.
-[41]
-Package marginnote Info: Margin note 44.1 is on absolute page 44
-(marginnote)              on input line 1895.
-Package marginnote Info: right page because not two side mode on input line 1895.
+(marginnote)             \marginnoterightadjust ignored on input line 2288.
+[50]
+Package marginnote Info: Margin note 53.1 is on absolute page 53
+(marginnote)              on input line 2309.
+Package marginnote Info: right page because not two side mode on input line 2309.
 Package marginnote Info: xpos seems to be 303.43568pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1895.
+(marginnote)             \marginnoterightadjust ignored on input line 2309.
 File: fig/artsgrade.png Graphic file (type bmp)
 <fig/artsgrade.png>
 File: fig/sciencegrade.png Graphic file (type bmp)
 <fig/sciencegrade.png>
-Package marginnote Info: Margin note 44.2 is on absolute page 45
-(marginnote)              on input line 1937.
-Package marginnote Info: right page because not two side mode on input line 1937.
+Package marginnote Info: Margin note 53.2 is on absolute page 54
+(marginnote)              on input line 2351.
+Package marginnote Info: right page because not two side mode on input line 2351.
 Package marginnote Info: xpos seems to be 282.9806pt,
-(marginnote)             \marginnoterightadjust ignored on input line 1937.
+(marginnote)             \marginnoterightadjust ignored on input line 2351.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42] [43]
+ [51] [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]
+ [53]
 File: fig/C3C2qrcode.png Graphic file (type bmp)
 <fig/C3C2qrcode.png>
- [45]
+ [54]
 File: fig/poetry1.png Graphic file (type bmp)
 <fig/poetry1.png>
 File: fig/peotry2.png Graphic file (type bmp)
 <fig/peotry2.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 2074--2089
+Overfull \hbox (149.25pt too wide) in paragraph at lines 2488--2503
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2074--2089
+Underfull \hbox (badness 10000) in paragraph at lines 2488--2503
 
  []
 
 File: fig/c3q2.png Graphic file (type bmp)
 <fig/c3q2.png>
 
-Overfull \hbox (149.25pt too wide) in paragraph at lines 2091--2102
+Overfull \hbox (149.25pt too wide) in paragraph at lines 2505--2516
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2091--2102
+Underfull \hbox (badness 10000) in paragraph at lines 2505--2516
 
  []
 
-Package marginnote Info: Margin note 48.1 is on absolute page 48
-(marginnote)              on input line 2105.
-Package marginnote Info: right page because not two side mode on input line 2105.
+Package marginnote Info: Margin note 57.1 is on absolute page 57
+(marginnote)              on input line 2519.
+Package marginnote Info: right page because not two side mode on input line 2519.
 Package marginnote Info: xpos seems to be 335.15025pt,
-(marginnote)             \marginnoterightadjust ignored on input line 2105.
+(marginnote)             \marginnoterightadjust ignored on input line 2519.
 
-Overfull \hbox (60.50023pt too wide) in paragraph at lines 2105--2105
+Overfull \hbox (60.50023pt too wide) in paragraph at lines 2519--2519
 \TU/FandolSong-Regular(0)/m/it/10 释\T1/lmr/m/it/10 :[][]$\T1/DejaVuSansMono-TLF/m/it/10 https : / / github . com / Michael-[]yunfei /
  []
 
 
-Overfull \hbox (14.42046pt too wide) in paragraph at lines 2105--2105
+Overfull \hbox (14.42046pt too wide) in paragraph at lines 2519--2519
 \T1/DejaVuSansMono-TLF/m/it/10 MachineLearning / blob / master /
  []
 
 
-Overfull \hbox (14.47356pt too wide) in paragraph at lines 2105--2105
+Overfull \hbox (14.47356pt too wide) in paragraph at lines 2519--2519
 \T1/DejaVuSansMono-TLF/m/it/10 GraidentDescent / Gradient . pdf$[][] 
  []
 
 File: fig/c3q3.png Graphic file (type bmp)
 <fig/c3q3.png>
-[46] [47] [48]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2165.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2165.
+[55] [56] [57]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2579.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2579.
  (./ML_Notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2165.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2579.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2579.
 Package rerunfilecheck Info: File `ML_Notes.out' has not changed.
-(rerunfilecheck)             Checksum: 1C510BE946467C35340BD1074DB61873.
+(rerunfilecheck)             Checksum: 6460433D8D791E03F7329EC25C285856.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 45955 strings out of 492970
- 921862 string characters out of 6133938
- 1346665 words of memory out of 5000000
- 49189 multiletter control sequences out of 15000+600000
+ 46053 strings out of 492970
+ 925457 string characters out of 6133938
+ 1347555 words of memory out of 5000000
+ 49285 multiletter control sequences out of 15000+600000
  673958 words of font info for 144 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  65i,22n,96p,10436b,1988s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ML_Notes.pdf (50 pages).
+Output written on ML_Notes.pdf (59 pages).
