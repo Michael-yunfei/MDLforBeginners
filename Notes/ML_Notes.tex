@@ -1473,6 +1473,7 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 
 在明白了感知器线性分类的原理后，我们就来看一下如何去计算规律参数。在计算机的帮助下，有一种很`简单粗暴’的方式来寻找规律参数，也就是通过不断尝试的方法来找到规律参数的向量使得我们的预测准确度可以达到较为满意的程度。我们依然用安德森鸢尾花的例子来讲解。因为感知分类器一种\textbf{二分过程},所以我们把我们的数据集稍作处理。处理过程表现为下面的两个表格。
 
+\begin{fullmodel}
 \begin{table}[H]
 		\centering
 		\renewcommand{\arraystretch}{1.2}
@@ -1481,7 +1482,7 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 		\hline 
 		& & \multicolumn{4}{c}{\textbf{属性}} \\
 		\cline{3-6}
-			种类 & 标注代码 & 花萼长度 & 花萼宽度(a=1.1) &花瓣长度(b=-3.7) & 花瓣宽度(c=9.) \\
+			种类 & 标注代码 & 花萼长度($w_1$) & 花萼宽度($w_2$) &花瓣长度($w_3$) & 花瓣宽度($w_4$) \\
 			\hline 
 			山鸢尾 & 0 & 4.6 &  3 &  1.4 & 0.2 \\
 			变色鸢尾 & 1 & 6.2 &  3.2 & 4.5  & 1.5 \\
@@ -1491,7 +1492,53 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 			& y & \multicolumn{4}{c}{$X = (150, 4)$} \\
 			\hline  
 		\end{tabular}
+		\caption{安德森鸢尾花原始数据阵}
 \end{table}
+
+
+\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{lccccc}
+		\hline 
+		\hline 
+		& & \multicolumn{4}{c}{\textbf{属性}} \\
+		\cline{3-6}
+			种类 & 标注代码 & 花萼长度($w_1$) & 花萼宽度($w_2$) &花瓣长度($w_3$) & 花瓣宽度($w_4$) \\
+			\hline 
+			山鸢尾 & 1 & 4.6 &  3 &  1.4 & 0.2 \\
+			非山鸢尾 & -1 & 6.2 &  3.2 & 4.5  & 1.5 \\
+			非山鸢尾 & -1 & 5.9 &  2.7 &  5.1 & 1.9  \\ 
+			$\vdots$ & $\vdots$ & \multicolumn{4}{c}{$\vdots$} \\
+			\hline 
+			& y & \multicolumn{4}{c}{$X = (150, 4)$} \\
+			\hline  
+		\end{tabular}
+		\caption{安德森鸢尾花二分标注数据阵}
+\end{table}
+\end{fullmodel}
+
+现在我们用三种方法来进行求解规律参数向量$w$，这三种方法分别为:
+\begin{itemize}
+	\item 简单的解方程方法
+	\item 多次解方程求均值的方法
+	\item 设定测量公式和损失函数\mn{测量公式: cost function; 损失函数: loss function}，通过优化求解$w$。
+\end{itemize}
+
+为了对比以上三种方法，哪一个预测效果好，我们选取安德森鸢尾花数据阵中的随机取70\%的数据，即$105$个数据样本来训练不同的方法(注意在我们的演示过程中，体会使用数据的多少对预测准确度的提升影响，以及算法的优劣)，余下的30\%我们用来测试结果。下面是我们测试的结果:
+\begin{itemize}
+	\item 简单的解方程实际只用了四个数据串 - 准确率71\%
+	\item 多次解方程求均值我们假设会解10个方程组(也就是40个数据串)，然后求均值 - 准确率大于 90\%
+	\item 损失函数下的优化会使用全部的105个数据串 - 准确率接近100\%
+\end{itemize}
+
+
+
+
+
+
+
+
 
 
 

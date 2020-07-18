@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import datasets
 from sklearn import preprocessing
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Perceptron
 
 
 # set the working direction
@@ -30,20 +32,6 @@ wine.target
 wine.feature_names.append('Wine')
 wine_df = pd.DataFrame(np.column_stack((wine.data, wine.target)),
                        columns=wine.feature_names)
-# ['alcohol',
-#  'malic_acid',
-#  'ash',
-#  'alcalinity_of_ash',
-#  'magnesium',
-#  'total_phenols',
-#  'flavanoids',
-#  'nonflavanoid_phenols',
-#  'proanthocyanins',
-#  'color_intensity',
-#  'hue',
-#  'od280/od315_of_diluted_wines',
-#  'proline', 'Wine']
-
 
 fig = px.scatter_3d(wine_df, x='alcohol', y='malic_acid', z='color_intensity',
                     color='Wine')
@@ -138,6 +126,71 @@ for i in range(iris_df2_pred.shape[0]):
 iris_check = np.sum(iris_df2_pred_cat.astype(int).ravel() == iris_df2.category)
 print(iris_check/iris_df2.shape[0])
 
+
+# Section 2 Linear classification
+# relabel the target
+iris_binary_target = np.zeros(iris.target.shape)
+for i in range(iris.target.shape[0]):
+    if iris.target[i] == 0:
+        iris_binary_target[i] = 1
+    else:
+        iris_binary_target[i] = -1
+
+iris_binary_target
+
+np.random.seed(16)  # set random seed
+iris_xtrain, iris_xtest, \
+ iris_ytrain, iris_ytest = train_test_split(iris.data,
+                                            iris_binary_target,
+                                            test_size=0.3)
+# select four equations
+iris_4equations = np.random.randint(105, size=4)
+iris_4eq_values = iris_xtrain[iris_4equations, :]
+iris_4eq_w = np.linalg.inv(iris_4eq_values) @ \
+ iris_ytrain[iris_4equations].reshape((4, 1))
+
+# print out the coefficients
+print(iris_4eq_w)
+
+# predict
+iris_4eq_pred = iris_xtest @ iris_4eq_w
+iris_4eq_pred2 = np.zeros(iris_4eq_pred.shape)
+for i in range(iris_4eq_pred.shape[0]):
+    if iris_4eq_pred[i] > 0:
+        iris_4eq_pred2[i] = 1
+    else:
+        iris_4eq_pred2[i] = -1
+
+# check the accuracy
+np.sum(iris_4eq_pred2.ravel() == iris_ytest)/iris_ytest.shape[0]
+# 71.1% percent, quite impressive
+
+# select 40 equations, and calculate coefficients for each 4 equations
+# and then calcualte the averate of w
+iris_40equations = np.random.randint(105, size=40)
+iris_40eq_values = iris_xtrain[iris_40equations, :]
+iris_40eq_w = np.linalg.inv(iris_40eq_values.T @ iris_40eq_values) @ \
+ iris_40eq_values.T @ iris_ytrain[iris_40equations].reshape((40, 1))
+
+# predict
+iris_40eq_pred = iris_xtest @ iris_40eq_w
+iris_40eq_pred2 = np.zeros(iris_40eq_pred.shape)
+for i in range(iris_40eq_pred.shape[0]):
+    if iris_40eq_pred[i] > 0:
+        iris_40eq_pred2[i] = 1
+    else:
+        iris_40eq_pred2[i] = -1
+
+# check the accuracy
+np.sum(iris_40eq_pred2.ravel() == iris_ytest)/iris_ytest.shape[0]
+# 100 %, very surpised
+
+# Perceptron Method
+iris_percep = Perceptron(tol=1e-3)
+iris_percep.fit(iris_xtrain, iris_ytrain)
+iris_percept_pred = iris_percep.predict(iris_xtest)
+np.sum(iris_percept_pred == iris_ytest)/iris_ytest.shape[0]
+# 100% too, dataset is very small.
 
 
 
