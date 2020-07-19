@@ -35,6 +35,7 @@
 \usepackage[scaled=0.9]{DejaVuSansMono}
 \usepackage{pythonhighlight}
 %\usepackage{marvosym} % coffeecup 
+\usepackage{bbm} % indicator function
 
 \usepackage[ruled,vlined]{algorithm2e}
 
@@ -48,6 +49,7 @@
 \usepackage{setspace}
 % python highlight package
 \usepackage{pifont} % checkmark package 
+\usepackage{bbm} % indicatory 
 
 \newcommand{\zn}{\mathbb{Z}}
 \newcommand{\cn}{\mathbb{C}}
@@ -1457,14 +1459,14 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 			c
 		\end{bmatrix} = x \cdot w = 0 
 	\end{align*}
-	我们将向量$w$和$x$组成的分界面以及正交矢量(在二维中，就是一条线和其垂直线)称为\textit{感知器}(percepton),其中$w$就是我们需要计算的规律参数，而$x$则是由我们采集的数据组成的特征向量。感知器分类一个\textbf{二分}过程，分类过程如下:
+	我们将向量$w$和$x$组成的分界面以及正交矢量(在二维中，就是一条线和其垂直线)称为\textit{感知器}(percepton),其中$w$就是我们需要计算的规律参数，而$x$则是由我们采集的数据组成的特征变量。感知器分类一个\textbf{二分}过程，分类过程如下:
 	\begin{align*}
-		y = \begin{cases}
+		\hat{y} = \begin{cases}
 			+1 & x \cdot w > 0 \\
 			-1 & x \cdot w < 0
 		\end{cases}
 	\end{align*}
-	其中$y$是我们在进行分类是需要标注的结果。
+	其中$\hat{y}$是我们在进行分类是需要标注的结果。
 \end{definition}
 
 \begin{example}
@@ -1532,8 +1534,140 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 	\item 损失函数下的优化会使用全部的105个数据串 - 准确率接近100\%
 \end{itemize}
 
+\subsubsection{优化和损失函数}
 
+\begin{definition}
+	假设数据阵标注过的数据准确可靠，在机器学习模型中，模型在根据学习到参数规律对特征变量(统计的数据)计算后输出的结果与数据阵\mn{注意是`数据阵'，所以是衡量的是模型在整个数据阵下的表现}标注的数据差别的函数统称为\textit{损失函数(Loss Function)}。
+\end{definition}
 
+\begin{remark}
+在机器学习领域，不同的模型配有不同的损失函数，后面我们接触到不同的模型后，再逐一介绍。但是同学们要明白，损失函数的目的是为了衡量我们模型的预测准确度。	
+\end{remark}
+
+\begin{definition}
+	给定机器学习模型，对单个数据串的预测准确度的衡量的方程，被成为测量公式(cost function)，例如，$x_1$为一个数据串，$w$是我们的训练得出的规律参数，$\hat{y}_1$为我们预测的结果，$y_1$为数据串标注的结果，那么我们的测量公式(cost function) 为:
+	\begin{align*}
+		y_1 - \hat{y}_1 = y_1 - x_1 \cdot w 
+	\end{align*}
+	实际上，损失函数就是对测量公式的求和:
+	\begin{align*}
+		L = \sum_{i=1}^m y_i - \hat{y}_i 
+	\end{align*}
+	其中$L$为损失函数。
+\end{definition}
+
+\begin{definition}
+	在数学和计算机科学中，优化指的是在一定限定条件下(也可以没有限定条件)对目标函数的最优求解。其最优值的获取取决于目标函数的设定，有时最优值可以是最大值，有时也可以时最小值。比如，
+	\begin{align*}
+		\text{求最大值}_x \ f(x) = -x^2+2x + 1 
+	\end{align*}
+	我无限定条件优化问题；比如，
+		\begin{align*}
+		& \text{求最大值}_x \ f(x) = -x^2+2x + 1  \\
+		& \text{限定}: \ x \leq 0 
+	\end{align*}
+	为有限定条件的优化问题；其中$f(x)$为我们的目标函数。
+\end{definition}
+
+高中阶段，我们已经学习了如何求最大值，比如要求$f(x) = -x^2 + 2x + 1$的最大值，我们只需要让其一阶导数等于0，并且验证其二街导数是否为负值:
+\begin{align*}
+	f(x) & = -x^2 + 2x + 1 \\
+	f'(x) & = -2x + 2 = 0 \\
+	f''(x) & = -2 < 0 
+\end{align*}
+根据以上结果，当$x=1$时，$f(x)$有最大值，且最大值为$f(x=1) = 2$。如果我们该目标函数进行图像绘制的话，其最大值的位置会一目了然。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/C2C2optimizaE1}
+\end{figure}
+
+那么我们现在就把感知线性分类的模型通过数学进行描述：
+\begin{itemize}
+	\item 假设可分类对象为\textit{线性分类}，且分类过程为\textbf{二分过程}，那么$w$就是我们需要计算的规律参数，而$x$则是由我们采集的数据组成的特征变量，分类过程表示为如下:
+	\begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w > 0 \\
+			-1 & x \cdot w < 0
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$是我们在进行分类是需要标注的结果。
+	\item 为了衡量模型的表现，将衡量方程和损失函数设定为:
+	\begin{align*}
+		c_i & = \max  \{ 0, - y_i \times \hat{y}_i \} \\
+		  & = \max \{ 0, -y_i \times (x_i \cdot w) \}  \\
+		L & = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, -y_i \times (x_i \cdot w) \} 
+	\end{align*}
+	\item 设定了损失函数$L$后，我们通过优化算法来\underline{最小化}$L$来求解$w$，常用的优化算法为梯度下降法(Gradient Descent)。
+\end{itemize}
+
+\begin{fullmodel}
+	\begin{tcolorbox}[title=理解损失函数]
+		我们来详细解释下在感知分类中所定义的损失函数，以及为什么我们需要其最小化。再重复一下，$y_i$为标注的结果，$\hat{y}_i$为模型预测的结果，我们看一下具体的计算:
+		\begin{align*}
+				-(y_i \times \hat{y}_i) = \begin{cases}
+					-1 & \text{如果$y_i = 1, \hat{y_i} = 1$, 预测正确} \\
+					-1 & \text{如果$y_i = -1, \hat{y_i} = -1$, 预测正确} \\
+					1 & \text{如果$y_i = 1, \hat{y}_i  -1$, 预测错误} \\
+					1 & \text{如果$y_i = -1, \hat{y}_i = 1$,预测错误} 
+				\end{cases}
+		\end{align*}
+		那么由此得出的测量方程(cost function)为:
+		\begin{align*}
+				c_i = \max \{ 0, -(y_i \times \hat{y}_i) \}  = \begin{cases}
+					0 & \text{如果$y_i = 1, \hat{y_i} = 1$, 预测正确} \\
+					0 & \text{如果$y_i = -1, \hat{y_i} = -1$, 预测正确} \\
+					1 & \text{如果$y_i = 1, \hat{y}_i  -1$, 预测错误} \\
+					1 & \text{如果$y_i = -1, \hat{y}_i = 1$,预测错误} 
+				\end{cases}
+		\end{align*}
+		那么最终的损失函数为,
+		\begin{align*}
+			L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - (y_i \times \hat{y}_i) \} = \sum_{i=1}^m \mathbbm{1} [ \text{预测错误}] 
+		\end{align*}
+		因为损失函数统计的是预测错误的情况，所以我们希望最小化该损失函数，因为当预测错误的情况越少时，准确率越高，模型表现越好:
+		\begin{align*}
+			\min_{w}  L = \sum_{i=1}^m c_i & = \sum_{i=1}^m \max \{ 0, - (y_i \times \hat{y}_i) \} \\
+			&  = \sum_{i=1}^m \mathbbm{1} [ \text{预测错误}]  \\
+			& = \sum_{i=1}^m \max \{ 0, -y_i \times (x_i \cdot w) \}
+		\end{align*}
+	\end{tcolorbox}
+\end{fullmodel}
+
+\subsubsection{梯度下降法(Gradient Descent)}
+
+考虑到很多机器学习模型中都会使用\textit{梯度下降法(Gradient Descent)}来求解规律参数$w$，我们在这一小节，重点分析下什么是梯度下降法。理解该方法的核心，需要从本质上去理解导数\mn{古语:天不生仲尼，万古如长夜。这句话，也可以表述为:天不生牛顿，万古如长夜。}。另外，对于还没有接触过导数的同学，也不要担心，我们会通过作图的方式去理解导数，有关一些具体的求导公式，你们会在高中数学中逐渐学习。在我们人工智能的课程上，老师只要求你们从直观上把握导数作为变化率的概念。
+
+\begin{definition}
+	设有定义域和取值在实数域中的函数$y=f(x)$。若$f(x)$在点$x_0$的某个邻域内有定义，则当自变量$x$在$x_0$处取得增量$\Delta x$时，$y$相应地取得增量$\Delta y = f(x_0 + \Delta x) - f(x_0)$；当$\Delta y$与$\Delta x$之比在$\Delta x \to 0$时极限存在，则称函数$y=f(x)$在点$x_0$处可导，并称这个函数在$x_0$点处的\textit{导数},记为$f'(x_0)$,即：
+	\begin{align*}
+		f'(x_0) = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+对以上定义，对于高中生来说，不需要太在意细节，我们需要重点了解其变化率的意涵。	
+\end{remark}
+\begin{example}
+我们还是通过下面的例子来理解导数变化率的概念:
+\begin{align*}
+	f(x) & = -x^2 + 2x + 3 \\
+	f'(x) & = -2x + 2 \\
+	|f'(x) | & = |-2x + 2| 
+\end{align*}	
+\end{example}
+\begin{fullmodel}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/C2C2derivativeE1}	
+		\end{subfigure}
+		\begin{subfigure}[b]{0.46\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/C2C2derivativeE2}	
+		\end{subfigure}
+	\end{figure}
+\end{fullmodel}
 
 
 
@@ -2069,71 +2203,6 @@ plt.imshow(im_rgbmosaic[800:820, 830:850, :])
 深度模型的构建的基本单元是一连串的函数组合，这些函数的线性组合构成了我们所称的`神经网络'以及卷积(convolution)的过程。了解这些函数的作用以及卷积的过程对于理解深度学习网络至关重要。所以我们会花费比较多的时间来讲解这些数学概念。
 \end{fullmodel}
 
-\subsubsection{数据结构}
-
-因为机器学习和人工智能需要大量的数据，所以非常有必要对数据结构进行定义和分类\mn{生活中最常见的数据形式应该是Excel表格。}。
-
-\begin{definition}
-	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个描述下的数列，称为\text{数据集}; 有多个数据集构成的一系列数据，称为\textit{数据阵}。
-\end{definition}
-\begin{marginfigure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{fig/dataframeEx}
-\end{marginfigure}
-\begin{remark}
-很显然，如果我只给你一个数，比如6, 我们不能称其为数据，因为其缺乏对其的描述。比如，`年方二八’, 年龄16岁，则可以成为数据。	再比如，2019 不是数据，2019年则是数据。
-\end{remark}
-
-\begin{example}
-数据: 红色-255; 数据集: 颜色: 红255， 绿666， 蓝521; 数据阵:[[颜色:190, 321, 589]; [年份:2019, 2020, 2056]]。右边的表格就是一个数据阵。数据阵(dataframe)是Python和R语言中常用的数据形式。
-\end{example}
-
-\begin{definition}
-	我们把语言文本，网页信息，图片和影音等的复合数据，称为\textit{多媒体数据集}。
-\end{definition}
-
-\begin{example}
-下面这张图片是由 Peggy Collins 创作的马赛克数字图画。这张图片在计算机中的存储形式是具有维度$(1400, 1400, 3)$的数据集构成。其中3，是代表的RGB(红绿蓝)三层底色层，每一个色素层是由一个$1400 \times 1400$的矩阵组成。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Chapter3/Code/Images/Mosaic1.jpg}
-	\caption{Ginger Cat by Peggy Collins (digital artwork)}
-\end{figure}	
-\begin{python}
-print(im_mosaic1[:10, :10, 1])
-# [[246 190 116  51  30  21   0   6  28  42]
-#  [188  88  48  52  40  20   4  12  28  39]
-#  [108  40  37  55  43  27  17  15  24  35]
-#  [ 35  34  41  39  35  32  21  18  21  31]
-#  [ 20  24  25  26  34  26  13  23  23  29]
-#  [ 35  25  24  29  28  19  17  26  25  29]
-#  [ 28  23  24  22  15  17  24  22  23  25]
-#  [ 33  29  18  15  18  17  15  12  18  19]
-#  [ 18  14  13  16  19  19  19  18  15  11]
-#  [  8   6   8  16  23  26  24  21  20  15]]	
-\end{python}
-\end{example}
-
-\begin{definition}
-	我们将多媒体数据集和数据阵组合构成的数据形态成为\textit{数据群}或者\textit{大数据}。数据群或大数据，在业界也被称为\textbf{有标注的数据群}。
-\end{definition}
-
-\begin{example}
-比如，下面这个数据群，就是一个有标注的数据群。\mn{大数据时代，数据的标注准确度和密集度，成为衡量数据群质量的重要指标。国际上，目前美国的数据群质量最高，其次是英国和德国。中国的数据群目前取胜于量，对于质的追求，还需要一定的时间。}
-\begin{table}[H]
-	\centering
-	\renewcommand{\arraystretch}{1.5}
-	\begin{tabular}{ccccc}
-	\hline 
-		图片(1400, 1400, 3) & 年份 & 地点 & 备注1 & 备注2 \\
-		\hline 
-		图1 & 2016 & 桥 & 青岛 & 红色 \\
-		图2 & 2020 &  伦敦 & 人 & 女 \\
-		图3 & 2013 & 成都& 熊猫 & 国宝\\
-		\hline 
-	\end{tabular}
-\end{table}
-\end{example}
 
 
 \subsubsection{损失方程(Loss Function)}

@@ -13,16 +13,17 @@
 \contentsline {subsubsection}{\numberline {2.5.2}什么线性分类}{24}{subsubsection.2.5.2}
 \contentsline {subsubsection}{\numberline {2.5.3}矩阵和向量运算}{27}{subsubsection.2.5.3}
 \contentsline {subsubsection}{\numberline {2.5.4}感知器线性分类}{32}{subsubsection.2.5.4}
-\contentsline {part}{第三章:神经网络模型初探}{34}{part*.39}
-\contentsline {subsection}{\numberline {3.1}课前预习C1}{34}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{43}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{43}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{44}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{45}{subsubsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.4}数据结构}{45}{subsubsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.5}损失方程(Loss Function)}{47}{subsubsection.3.2.5}
-\contentsline {subsubsection}{\numberline {3.2.6}初始数据群处理}{47}{subsubsection.3.2.6}
-\contentsline {subsubsection}{\numberline {3.2.7}向量、矩阵和其相关的运算}{48}{subsubsection.3.2.7}
-\contentsline {subsubsection}{\numberline {3.2.8}卷积运算(Convolution)}{49}{subsubsection.3.2.8}
-\contentsline {subsection}{\numberline {3.3}课后练习C3}{55}{subsection.3.3}
-\contentsline {part}{第四章:神经网络模型详解}{57}{part*.61}
+\contentsline {subsubsection}{\numberline {2.5.5}优化和损失函数}{34}{subsubsection.2.5.5}
+\contentsline {subsubsection}{\numberline {2.5.6}梯度下降法(Gradient Descent)}{36}{subsubsection.2.5.6}
+\contentsline {part}{第三章:神经网络模型初探}{38}{part*.41}
+\contentsline {subsection}{\numberline {3.1}课前预习C1}{38}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{47}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{47}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{48}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{49}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}损失方程(Loss Function)}{49}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}初始数据群处理}{50}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}向量、矩阵和其相关的运算}{50}{subsubsection.3.2.6}
+\contentsline {subsubsection}{\numberline {3.2.7}卷积运算(Convolution)}{52}{subsubsection.3.2.7}
+\contentsline {subsection}{\numberline {3.3}课后练习C3}{58}{subsection.3.3}
+\contentsline {part}{第四章:神经网络模型详解}{60}{part*.60}
