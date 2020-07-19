@@ -15,15 +15,15 @@
 \contentsline {subsubsection}{\numberline {2.5.4}感知器线性分类}{32}{subsubsection.2.5.4}
 \contentsline {subsubsection}{\numberline {2.5.5}优化和损失函数}{34}{subsubsection.2.5.5}
 \contentsline {subsubsection}{\numberline {2.5.6}梯度下降法(Gradient Descent)}{36}{subsubsection.2.5.6}
-\contentsline {part}{第三章:神经网络模型初探}{38}{part*.41}
-\contentsline {subsection}{\numberline {3.1}课前预习C1}{38}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{47}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{47}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{48}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{49}{subsubsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.4}损失方程(Loss Function)}{49}{subsubsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.5}初始数据群处理}{50}{subsubsection.3.2.5}
-\contentsline {subsubsection}{\numberline {3.2.6}向量、矩阵和其相关的运算}{50}{subsubsection.3.2.6}
-\contentsline {subsubsection}{\numberline {3.2.7}卷积运算(Convolution)}{52}{subsubsection.3.2.7}
-\contentsline {subsection}{\numberline {3.3}课后练习C3}{58}{subsection.3.3}
-\contentsline {part}{第四章:神经网络模型详解}{60}{part*.60}
+\contentsline {part}{第三章:神经网络模型初探}{41}{part*.44}
+\contentsline {subsection}{\numberline {3.1}课前预习C1}{41}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}课堂讲义C2}{50}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}学习过程的一般性原理}{50}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}传统问题解决方式 VS. 人工智能问题解决方式}{51}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}神经网络模型机制}{52}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}损失方程(Loss Function)}{52}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}初始数据群处理}{53}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}向量、矩阵和其相关的运算}{53}{subsubsection.3.2.6}
+\contentsline {subsubsection}{\numberline {3.2.7}卷积运算(Convolution)}{55}{subsubsection.3.2.7}
+\contentsline {subsection}{\numberline {3.3}课后练习C3}{61}{subsection.3.3}
+\contentsline {part}{第四章:神经网络模型详解}{63}{part*.63}
