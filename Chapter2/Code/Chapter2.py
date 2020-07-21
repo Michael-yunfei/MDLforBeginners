@@ -212,7 +212,7 @@ for i in range(20):
     fx_values1.append(conv_fx(fw))
 
 
-fw=3
+fw = 3
 fw_values2 = [3]
 fx_values2 = [-4]
 for i in range(20):
@@ -225,6 +225,7 @@ conv_d = {'weight1': fw_values1, 'derivative1': fx_values1,
 conv_df = pd.DataFrame(conv_d)
 print(conv_df.to_latex(index=False))
 
+
 # show the convergence again
 # f(x) = x^2 - 2x - 3
 # f'(x) = 2x-2
@@ -232,6 +233,7 @@ def conv_fx2(x):
     y = 2*x - 2
 
     return y
+
 
 fw = 0
 fw_values3 = [0]
@@ -242,8 +244,7 @@ for i in range(20):
     fw_values3.append(fw)
     fx_values3.append(conv_fx(fw))
 
-
-fw=3
+fw = 3
 fw_values4 = [3]
 fx_values4 = [-4]
 for i in range(20):
@@ -252,7 +253,7 @@ for i in range(20):
     fx_values4.append(conv_fx(fw))
 
 conv_d2 = {'weight1': fw_values3, 'derivative1': fx_values3,
-          'weight2': fw_values4, 'derivatives2': fx_values4}
+           'weight2': fw_values4, 'derivatives2': fx_values4}
 conv_df2 = pd.DataFrame(conv_d2)
 print(conv_df2.to_latex(index=False))
 

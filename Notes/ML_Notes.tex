@@ -1782,21 +1782,214 @@ w \cdot x_2 = 0 & & w \cdot c = -5  & & w \cdot d  = 7 \end{align*}
 \begin{fullmodel}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.86\textwidth]{fig/C2C2GradientDes}
+		\includegraphics[width=0.8\textwidth]{fig/C2C2GradientDes}
 		\caption{梯度下降法(Gradient Descent)详解}
 	\end{figure}
 \end{fullmodel}
 
 
+\subsubsection{感知器分类法的算法}
+
+在理解了什么是损失函数和梯度下降法后，我们来学习感知器分类的具体算法。这个算法的核心要点为:
+\begin{itemize}
+	\item 假设分类问题可线性分类，即符合下列分类过程 \begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w > 0 \\
+			-1 & x \cdot w < 0
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$为我们再分类过程中需要标注的结果，$x$为$1\times n$的向量，表示分类对象有$n$个属性，$w$长度为$1 \times n$，表示为分类属性的规律参数。注意我们如果把点积写成矩阵的相乘的话应该是$x w^T$。
+	\item 我们设定的损失函数为 \begin{align*}
+		L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - y_i \times (x_i \cdot w) \} 
+	\end{align*}
+	\item 损失函数的导数为:$\frac{\partial L}{\partial w} = \{ 0, -y_i \times x_i \}$, 等同于
+	\begin{align*}
+		\frac{\partial L}{\partial w} & = - y_i \times x_i; \ \ \ \text{当$x_i \cdot w < 0$时} \\
+		\frac{\partial L}{\partial w} & = 0; \ \ \ \ \ \ \ \ \ \ \text{当$x_i \cdot w > 0$时}
+	\end{align*}
+	\item 根据梯度下降法的公式(求最小值),我们对规律参数的更新公式为: \begin{align*}
+		w_{t+1} & = w_{t} - \alpha \frac{\partial L}{\partial w} \\
+		& = w_{t} + \alpha (y_i \times x_i) \tag{向量更新公式2.1}
+	\end{align*}
+\end{itemize}
+
+在公式(2.1)中，我们的表达式为向量，假设我们的数据阵中有两个属性和一个自变量$b$，那么我们的算法就变为: 
+\begin{itemize}
+	\item 假设分类问题可线性分类，即符合下列分类过程 \begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x^{[1]} a_1 + x^{[2]} a_2 + b > 0 \\
+			-1 & x^{[1]} a_1 + x^{[2]} a_2 + b < 0
+		\end{cases}
+	\end{align*}
+	\item 我们设定的损失函数为 \begin{align*}
+		L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - y_i \times (x^{[1]}_i a_1 + x^{[2]}_i a_2 + b_i) \} 
+	\end{align*}
+	\item 损失函数的导数为:$\frac{\partial L}{\partial a_1} = \{ 0, -y_i \times x_i^{[1]} \}$, 等同于
+	\begin{align*}
+		\frac{\partial L}{\partial w} & = - y_i \times x_i^{[1]}; \ \ \ \text{当$x^{[1]} a_1 + x^{[2]} a_2 + b > 0$时} \\
+		\frac{\partial L}{\partial w} & = 0; \ \ \ \ \ \ \ \ \ \ \text{当$x^{[1]} a_1 + x^{[2]} a_2 + b < 0$时}
+	\end{align*}
+	\item 根据梯度下降法的公式(求最小值),我们对规律参数的更新公式为: \begin{align*}
+		a_{1, t+1} & = a_{1, t} - \alpha \frac{\partial L}{\partial a_1} \\
+		& = a_{1, t} + \alpha (y_i \times x_i^{[1]})
+	\end{align*}
+	\item 相应得对于其它的参数的更新公式为: 
+	\begin{align*}
+		a_{2, t+1} & = a_{2, t} + \alpha (y_i \times x_i^{[2]}) \\
+		b_{t+1} & = b_{t}  + \alpha y_i
+	\end{align*}
+\end{itemize}
 
 
+\begin{fullmodel}
+	\begin{tcolorbox}[title=有关感知线性分类算法的几个问题]
+		这里我们特别提醒同学们在使用感知线性分类模型时需要注意的几个问题: 
+		\begin{itemize}
+			\item 当可分类对象存在线性分类规律时，该模型和算法给出的规律参数并不唯一，即存在多个集合解；
+			\item 根据你数据阵的大小以及学习参数(learning rate)的选择不同，以上算法的运行时间会非常长
+			\item 当可分类对象不存在线性分类时，该算法可能会陷入`无限循环'且仍无解的情况。
+		\end{itemize}
+	\end{tcolorbox}
+\end{fullmodel}
 
 
+\subsubsection{支持向量机(Support Vector Machine)}
 
+在学习完了感知器分类的线性分类后，接下来我们介绍支持向量机\mn{support vector machine}模型，在神经网络模型出现之前，支持向量机是最常用的分类模型之一，因为其除了可以进行线性分类之外，还可以进行\textbf{非分线性}分类。
 
+\begin{definition}
+假设自然界中可分类对象具有一定属性，且属性个数大于$1$，当其属性的特征变量($X$)与其属性的规律参数($\beta$)\underline{不能用}下列线性关系表达时:
+	\begin{align*}
+		X \cdot \beta + c  =0 ; \ \ \ \Leftrightarrow \ \ \ x_1\beta_1 + x_2 \beta_2 + \cdots + x_n \beta_n + c = 0
+	\end{align*}
+	(其中$n$为分类对象的属性个数)，我们称此类问题为\textit{非线性分类}问题。
+\end{definition}
 
+\begin{remark}
+	假设特征变量$X$的长度为$n$，即有$n$个属性，那么下面的关系即为分线性:
+	\begin{align*}
+		w_1 x_1  + w_2 \sin x_2 + w_3 e^{x_3} + \cdots + w_n x_n + c = 0 
+	\end{align*}	
+	我们前面已经提及过，当$X$中的全部或者部分属性不能再线性公式中应用时，我们可以进行替换，比如上面的公式可以表达为:
+	\begin{align*}
+		w_1 x_2 + w_2 v_2 + w_3 v_3 + \cdots + w_n x_n + c = 0; \ \ \ v_2 = \sin x_2, \ \ v_3 = e^{x_3} 
+	\end{align*}
+\end{remark}
 
+在我们正式学习支持向量机模型之前，让我们重温下下面这张图片。
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-5,-4) grid (5,4);
+  \draw[<->] (-5,0)--(5,0) node[right]{$x$};
+  \draw[<->] (0,-4)--(0,4) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(4,2) node[anchor=south west]{$\boldsymbol{x_1=[4, 2]}$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(-4,-2) node[anchor=north east]{$\boldsymbol{x_1=[-4, -2]}$};
+  \draw[line width=1pt,red, -stealth](0,0)--(-1, 2) node[above]{$\boldsymbol{w=[-1, 2]}$};
+  \draw[line width=1pt, dashed, -stealth](0,0)--(2, -1) node[below]{$\boldsymbol{a=[2, -1]}$};
+   \draw[line width=1pt, dashed, -stealth](0,0)--(-1, -3) node[below]{$\boldsymbol{c=[-1, -3]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(1, 2) node[anchor=south west]{$\boldsymbol{b=[1, 2]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(-3, 2) node[anchor=north east]{$\boldsymbol{d=[-3, 2]}$};
+\end{tikzpicture}
+\caption{向量正交的可视化}
+\end{figure}
+根据我们之前的点积运行，我们可以得出以下结果:
+\begin{align*}
+	b \cdot w &= 3 > 0 &  d \cdot w & = 7 > 0 \\
+	a \cdot w & = -4 < 0  & c \cdot w & = -5 < 0 
+\end{align*}
+也就是一旦$x_1x_2$(蓝色分解面)确定之后，只要找到与其垂直的向量$w$，我们就可以进行线性分类。尽管这个模型在理论上进行线性分类时，没有什么问题，但是在处理实际的数据时，我们需要考虑以下问题:
+\begin{itemize}
+	\item 该直线分界面可能在部分区域并非完全线性；
+	\item 仅用一条直线进行线性分割的话，可能会导致较大的误差。
+\end{itemize}
+\begin{fullmodel}
+解决以上问题的方法时，与其引入一条直线分界面，不如引入\textbf{一段}直线分界面。下面这两个图片，比较直观的反应了这个问题。
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/C2C2svm1}	
+		\end{subfigure}
+		\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/C2C2svm2}	
+		\end{subfigure}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/C2C2svm3}
+		\caption{支持向量机的可视化}
+	\end{figure}
+\end{fullmodel}
 
+我们依然采用图2.12中的方法，不过现在我们将分界面扩大称一个分界区间，并且将支持向量$w$平移到纯真区间内，得到图2.14。在确定了分界区间之后，我们需要对分界区间进行测量。这个分界区间的测量，需要用到点积投影的概念，公式为:
+\begin{align*}
+	a \cdot b= ||a|| ||b|| \cos \theta; \ \ \ \ a_{proj} \perp b = \frac{a \cdot b}{||b||} = ||a || \cos \theta
+\end{align*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig/C2C2svmprojc}
+	\caption{点积投影图示}
+\end{figure}
+
+理解了点积投影的概念之后，我们就来构造支持向量机(Support Vector Machine)模型:
+\begin{itemize}
+	\item 仍然假设可分类对象为\textit{线性分类}，且分类过程为\textbf{二分过程}，其中规律参数$w$为我们需要计算的数值，而$x$则是由我们采集的数据组成特征变量，分类过程表示为下:
+	\begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w + b > 0 \\
+			-1 & x \cdot w + b < 0 
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$为我们在进行分类过程中需要标注的结果。因为$\hat{y}$和$x\cdot w$的正负值相同，所以我们可以将上面的分类过程表达为:
+	\begin{align*}
+		y(w \cdot x + b) \geq 1 
+	\end{align*}
+	\item 当$x_i$满足下列公式时:
+	\begin{align*}
+		y_i(w \cdot x_i + b) = 1; \ \ \ y_i(w \cdot x_i + b) - 1 = 0; \ \ \ \   \forall x_i \text{在分界区间内}
+	\end{align*}
+	我们将$x_i$组成的分界区间和正交(垂直)向量$w$称为支持向量。
+	\item 假设我我们有$x_{+}$和$x_{-1}$分别在分界区间的两条边界或者边界外上，那么分界区间的\textbf{宽度}可以由以下公式测量得出，
+	\begin{align*}
+		\text{分界区间宽度} = (x_{+} - x_{-1}) \cdot \frac{w}{||w||}
+	\end{align*}
+	\item 另外根据我们的分类过程的设定，我们有以下条件: 
+	\begin{align*}
+		1(w \cdot x_{+} +b ) & = 1; \ \ \  \Rightarrow \ \ \  x_{+} \cdot w = 1 - b  \\
+		-1(w \cdot x_{-1} + b) & = 1; \ \ \ \Rightarrow \ \ \ -w \cdot x_{-1} = 1 + b 
+	\end{align*}
+	上面两个公式左右相加可以得到:
+	\begin{align*}
+		(x_{+} - x_{-1} ) \cdot w = 2 
+	\end{align*}
+	将以上公式代入到分界区间宽度公式中可以得出:
+	\begin{align*}
+		\text{分界区间宽度} =  \frac{2}{||w||}
+	\end{align*}
+	\item 我们想要尽可能的扩大我们的分界区间宽度，
+	\begin{align*}
+		\max \ \text{分界区间宽度} =  \frac{2}{||w||}; \ \ \ \Leftrightarrow \ \ \ \min \frac{1}{2} ||w||^2
+	\end{align*}
+\end{itemize}
+
+那么，我们的优化问题就可以表示为: 
+\begin{align*}
+	& \min_{w} \ \frac{1}{2} ||w ||^2 \\
+	\ \text{s.t.} & \ \ y_i(w \cdot x_i + b)  \geq 1
+\end{align*}
+因为之前的模型我们假定了这个直线分界面的存在，但是具体到实际应用中，这条假定的直线并不存在，因此我们在我们的模型中添加一定的容错率,那么我们的优化问题就变成了:
+\begin{align*}
+	& \min_{w, \xi} \frac{1}{2} ||w||^2 + C \sum_{i}^m \xi_i \\
+	\ \text{s.t.} & \ \ y_i(w \cdot x_i + b) \geq  1 - \xi_i
+\end{align*}
+对该问题的求解需要使用Lagrange方程，这里我们就不做详细的解释了。以上就是支持向量机的线性分类过程，如果要实现非线性分类，我们需要对特征变量$X$进行非线性转换，常用的非线性转换包括: 
+\begin{itemize}
+	\item 多项式转换: $K(x, x') = (1 + <x, x'>)^d$
+	\item 指数转换: $K(x, x') = \exp(-\gamma ||x - x'||^2)$
+	\item 神经网络转换: $K(x, x') = \tanh (\kappa_1 <x, x'> + \kappa_2)$
+\end{itemize}
 
 
 
