@@ -1,8 +1,9 @@
 %%
 % Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
 %%
-\documentclass[handout]{beamer}
+\documentclass[handout]{ctexbeamer}
 % \mode<presentation> % change it to presentation model, but it does not work with [handout] option
+\setCJKsansfont{SimSun}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
@@ -16,6 +17,8 @@
 \usepackage{amsthm} % for theorem definition style
 \usepackage{rotating} % for the horizontal page table
 \usepackage{pgfplots} % plot functions 
+\usepackage{CJKutf8}
+\usepackage{times}  
 
 % \usepackage{enumitem} % never use this package for beamer
 %\usepackage{theorem}  % define new environment, don't use this one for beamer  
@@ -37,6 +40,7 @@
 \usepackage[ruled,vlined]{algorithm2e}  % algorithm 
 
 \setbeamertemplate{caption}[numbered]  % set the figure number
+\usepackage{bbm} % indicator function
 
 % select the theme and color
 \usetheme{Boadilla}
@@ -83,7 +87,7 @@
 \date{\today}
 
 \author[王斐]{王斐, Michael}
-\institute[SenseTime, Edu]{SenseTime Edu \and Math, Economics, Philosophy \and \url{https://github.com/Michael-yunfei/MDLforBeginners}}
+\institute[SenseTime, Edu]{SenseTime Edu \and Math, Economics, Philosophy (UCD, Nottingham, CUHK) \and \url{https://github.com/Michael-yunfei/MDLforBeginners}}
 
 %[January 2019] (optional)
 %{Demo for SenseTime}
@@ -102,13 +106,13 @@
 
 
 \begin{document}
-
 \definecolor{franceblue}{RGB}{14, 76, 96}
 \definecolor{brightred}{RGB}{243, 66, 53}
 
-\setbeamercolor{block title alerted}{use=structure,fg=white,bg=structure.fg!75!black}
-\setbeamercolor{block body alerted}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+%\setbeamercolor{block title alerted}{use=structure,fg=white,bg=structure.fg!75!black}
+%\setbeamercolor{block body alerted}{parent=normal text,use=block title,bg=block title.bg!10!bg}
 
+%\setbeamercovered{dynamic}  
 
 \begin{frame}[noframenumbering]
   \titlepage
@@ -178,9 +182,9 @@
 	\hfil
 	\begin{itemize}
 	\setlength\itemsep{1em}
-		\item 想象力的构建上(后面我会在神经网络模型中介绍，很多巧妙的设计数学概念并不复杂，更多是需要想象力)
-		\item 强化学生的人工智能思维
-		\item 强化学生的数据感觉和数据处理能力
+		\item \underline{想象力}的构建上(后面我会在神经网络模型中介绍，很多巧妙的设计数学概念并不复杂，更多是需要想象力)
+		\item 强化学生的\underline{人工智能思维}
+		\item 强化学生的\underline{数据感觉和数据处理能力}
 	\end{itemize}
 \end{frame}
 
@@ -216,10 +220,6 @@
 		\item 当然最重要的是要有耐心！
 	\end{itemize}
 \end{frame}
-
-
-
-\section{课前预习C1}
 
 \begin{frame}{课前预习题目浅析}
 	课前预习第一部分是生活案例题，从生活中找一个分类的例子，然后描述下你是如何分类的(不超过60字)，描述必须包含下面三个部分:
@@ -662,131 +662,286 @@
 \end{frame}
 
 
-
-
-
-\begin{frame}{人工智能的思维方式}
-
-传统的问题解决方式和人工智能问题解决方式最大的不同体现在以下两个方面:
-	\begin{itemize}
-	\setlength\itemsep{1em}
-		\item 传统的问题解决方式着重对问题进行分步骤拆解和处理；
-		\item 人工智能对问题的解决方式着重对整个流程的\underline{两个端口}进行数据和模型调试。
-	\end{itemize}	
-\end{frame}
-
-\begin{frame}{人工智能的思维方式}
-教材中有两张图片，即图3-15和图3-19,给出了神经网络模型的工作流程。我们把两个图片中的模型进行简化，绘制下面这张流程图(来源:斯坦福大学深度学习官网)。
+\begin{frame}{感知器线性分类(perceptron)}
+感知器被定义为:
+\begin{align*}
+	X \cdot w + b = 0
+\end{align*}	
+也就是下图中的蓝色和红色的向量。
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png}
-\end{figure}
+	\includegraphics[width=0.8\textwidth]{fig/C2C2dotprodt}
+\end{figure}	
 \end{frame}
 
-\begin{frame}{深度神经网络模型}
-	概念的关联(神经网络): 构加 + 参数
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.8\textwidth]{fig/StdNN}
-	\end{figure}
-\end{frame}
+\begin{frame}{感知器线性分类(perceptron)过程}
+	\begin{block}{感知器分类}
+	我们将向量$w$和$x$组成的分界面以及正交矢量(在二维中，就是一条线和其垂直线)称为\textit{感知器}(percepton),其中$w$就是我们需要计算的规律参数，而$x$则是由我们采集的数据组成的特征变量。感知器分类一个\textbf{二分}过程，分类过程如下:
+	\begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w > 0 \\
+			-1 & x \cdot w < 0
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$是我们在进行分类是需要标注的结果。	
+	\end{block}
 
-\begin{frame}{人工智能思维方式:数据石油}
-	为什么是深度神经网络；为什么数据是未来的石油？
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.9\textwidth]{fig/dataoil}
-		\caption{数据量和模型表现关系(Andrew, NG, 2018)}
-	\end{figure}
-\end{frame}
-
-%		\begin{tikzpicture}
-%\begin{axis}[
-%  ticks = none,
-%  samples=100,
-%  ymax=3,
-%  axis x line=bottom,axis y line=left,xlabel={数据量}, ylabel={模型表现}
-%]
-%\addplot[cyan,domain=0.001:30, line width=0.35mm,
-%restrict y to domain=0:16] {log2(x+1)};
-%\addplot[red!70!black,domain=-2:1.4] {exp(x)};
-%
-%\node[pin={90:$f(x)=\lvert\log x\rvert$},inner sep=0pt] 
-%  at (axis cs:{2,log10(2)}) {};
-%\node[pin={0:$f(x)=e^{x}$},inner sep=0pt] 
-%  at (axis cs:{1,exp(1)}) {};
-%\end{axis}
-%\end{tikzpicture}
-
-\begin{frame}{人工智能的思维方式}
-机器学习(人工智能): \textbf{通过对输入端的数据群(大数据)进行标注和整理后，建立一个人工智能构架，并设定目标函数(损失方程),对所建立的构建(或模型)进行反复训练，直到找到符合我们目标函数要求的参数核矩阵。}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png}
-\end{figure}
 \end{frame}
 
 
+\section{损失函数(Loss Function)}
 
-
-\section{损失方程(Loss Function)}
-
-\begin{frame}{损失方程}
+\begin{frame}{损失函数}
 拥有了标注的数据，就有了\underline{对比依据}\footnote[frame]{对，没有对比就没有伤害。}, 就可以训练人工智能模型，从而可以调整模型参数，来提升预测准确度。而用来衡量准确度的方程就需要损失方程。
 
 \hfil
 
 \begin{definition}
-	假设数据群标注过的数据准确可靠，在人工智能模型中，模型在整合输入数据且加工计算后输出的结果与数据群标注的数据差别的方程称为\textit{损失方程(Loss Function)}。损失方程的一般形式为:
+	假设数据阵标注过的数据准确可靠，在机器学习模型中，模型在根据学习到参数规律对特征变量(统计的数据)计算后输出的结果与数据阵\footnote{(注意是`数据阵'，所以是衡量的是模型在整个数据阵下的表现)}标注的数据差别的函数统称为\textit{损失函数(Loss Function)}。损失方程的一般形式为:
 \begin{align*}
-	L: (Y, \hat{Y}): \ \to \rn 
+	L(Y, \hat{Y}): \ \to \rn 
 \end{align*}	
 \end{definition}
 \end{frame}
 
-\begin{frame}{损失方程}
-比如我们想要通过人工智能来判定图片中人类的性别，下面的表格中给出了最为简单的一种损失方程。
-\begin{table}[H]
-	\centering
-	\renewcommand{\arraystretch}{1.5}
-	\begin{tabular}{cccc}
-	\hline 
-		图片(1400, 1400, 3) & 标注(1-男,0-女) & 模型预测 & 差异\\
-		\hline 
-		图1 & 1 & 0 & 1 \\
-		图2 & 0 & 1 & 1 \\
-		图3 & 1 & 1 & 0 \\
-		\hline 
-	\end{tabular}
-\end{table}
-用$\hat{Y}$来代表预测的结果，$Y$来代表标注结果，那么损失方程为:
+\begin{frame}{感知器损失函数}
+\begin{definition}
+	给定机器学习模型，对单个数据串的预测准确度的衡量的方程，被成为测量公式(cost function)，例如，$x_1$为一个数据串，$w$是我们的训练得出的规律参数，$\hat{y}_1$为我们预测的结果，$y_1$为数据串标注的结果，那么我们的测量公式(cost function) 为:
+	\begin{align*}
+		y_1 - \hat{y}_1 = y_1 - x_1 \cdot w 
+	\end{align*}
+	实际上，损失函数(Loss function)就是对测量公式的求和:
+	\begin{align*}
+		L = \sum_{i=1}^m y_i - \hat{y}_i 
+	\end{align*}
+	其中$L$为损失函数。
+\end{definition}
+\end{frame}
+
+
+\begin{frame}{感知器损失函数}
+我们来详细解释下在感知分类中所定义的损失函数，以及为什么我们需要其最小化。再重复一下，$y_i$为标注的结果，$\hat{y}_i$为模型预测的结果，我们看一下具体的计算:
+		\begin{align*}
+				-(y_i \times \hat{y}_i) = \begin{cases}
+					-1 & \text{如果$y_i = 1, \hat{y_i} = 1$, 预测正确} \\
+					-1 & \text{如果$y_i = -1, \hat{y_i} = -1$, 预测正确} \\
+					1 & \text{如果$y_i = 1, \hat{y}_i  -1$, 预测错误} \\
+					1 & \text{如果$y_i = -1, \hat{y}_i = 1$,预测错误} 
+				\end{cases}
+		\end{align*}
+	那么由此得出的测量方程(cost function)为:
+		\begin{align*}
+				c_i = \max \{ 0, -(y_i \times \hat{y}_i) \}  = \begin{cases}
+					0 & \text{如果$y_i = 1, \hat{y_i} = 1$, 预测正确} \\
+					0 & \text{如果$y_i = -1, \hat{y_i} = -1$, 预测正确} \\
+					1 & \text{如果$y_i = 1, \hat{y}_i  -1$, 预测错误} \\
+					1 & \text{如果$y_i = -1, \hat{y}_i = 1$,预测错误} 
+				\end{cases}
+		\end{align*}	
+\end{frame}
+
+
+\begin{frame}{感知器损失函数}
+那么最终的损失函数为,
+		\begin{align*}
+			L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - (y_i \times \hat{y}_i) \} = \sum_{i=1}^m \mathbbm{1} [ \text{预测错误}] 
+		\end{align*}
+		因为损失函数统计的是预测错误的情况，所以我们希望最小化该损失函数，因为当预测错误的情况越少时，准确率越高，模型表现越好:
+		\begin{align*}
+			\min_{w}  L = \sum_{i=1}^m c_i & = \sum_{i=1}^m \max \{ 0, - (y_i \times \hat{y}_i) \} \\
+			&  = \sum_{i=1}^m \mathbbm{1} [ \text{预测错误}]  \\
+			& = \sum_{i=1}^m \max \{ 0, -y_i \times (x_i \cdot w) \}
+		\end{align*}	
+\end{frame}
+
+
+\section{梯度下降法(Gradient Descent)}
+
+\begin{frame}{理解梯度下降法(Gradient Descent)}
+	一旦确定了我们的损失函数后，我们希望最小化我们的函数，这样损失越小，准确率越高:
+	\begin{align*}
+			\min_{w}  L = \sum_{i=1}^m c_i & = \sum_{i=1}^m \max \{ 0, - (y_i \times \hat{y}_i) \} \\
+			&  = \sum_{i=1}^m \mathbbm{1} [ \text{预测错误}]  \\
+			& = \sum_{i=1}^m \max \{ 0, -y_i \times (x_i \cdot w) \}
+		\end{align*}	
+\begin{itemize}
+	\item 优化问题需要借助导数的概念
+	\item 天不生仲尼(牛顿)亘古如长夜
+\end{itemize}
+\end{frame}
+
+\begin{frame}{理解梯度下降法(Gradient Descent)}
+	\begin{definition}
+	设有定义域和取值在实数域中的函数$y=f(x)$。若$f(x)$在点$x_0$的某个邻域内有定义，则当自变量$x$在$x_0$处取得增量$\Delta x$时，$y$相应地取得增量$\Delta y = f(x_0 + \Delta x) - f(x_0)$；当$\Delta y$与$\Delta x$之比在$\Delta x \to 0$时极限存在，则称函数$y=f(x)$在点$x_0$处可导，并称这个函数在$x_0$点处的\textit{导数},记为$f'(x_0)$,即：
+	\begin{align*}
+		f'(x_0) = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}
+	\end{align*}
+\end{definition}
+对以上定义，对于高中生来说，不需要太在意细节，我们需要重点了解其变化率的意涵。
+\end{frame}
+
+\begin{frame}{理解梯度下降法(Gradient Descent)}
+我们还是通过下面的例子来理解导数变化率的概念:
 \begin{align*}
-	L(Y, \hat{Y}): |Y-\hat{Y}| 
+	f(x) & = -x^2 + 2x + 3 \\
+	f'(x) & = -2x + 2 \\
 \end{align*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/C2preGrades}
+\end{figure}
+\end{frame}
+
+\begin{frame}{理解梯度下降法(Gradient Descent)}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{fig/C2preGd2}
+\end{figure}	
+\end{frame}
+
+
+\begin{frame}{理解梯度下降法(Gradient Descent)}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.96\textwidth]{fig/C2C2GradientDes}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{梯度下降法(Gradient Descent)}
+\begin{definition}
+	选定初始值$\theta_0$, 梯度下降法(Gradient Descent)通过下面的公式去逐步计算$\theta_1, \theta_2, \cdots$,指导我们到达满意的结果(可以是计算的次数，也可以是计算的误差):
+	\begin{align*}
+		\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)
+	\end{align*}
+	其中，$\alpha$是为更新参数(learning rate), $\nabla f(\theta_t)$为公式$f(\cdot)$在$\theta_t$时的导数值。因为在机器学习领域，$f(\cdot)$为我们所定义的损失函数(Loss function), 所以我们希望最小化损失，因此是
+	\begin{align*}
+		\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)
+	\end{align*}
+	而不是
+	\begin{align*}
+		\theta_{t+1} = \theta_t + \alpha \nabla f(\theta_t)
+	\end{align*}
+\end{definition}
+\end{frame}
+
+
+\begin{frame}{梯度下降法(Gradient Descent)}
+\begin{align*}
+		\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)
+	\end{align*}
+注意更新参数(learning rate) $\alpha$的选择对于我们找到期望的$\theta$值有比较大的影响。一般可概括为:
+\begin{itemize}
+	\item $\alpha$ 较小时， 需要多次计算，$\theta$的更新较慢；
+	\item $\alpha$ 较大时，计算次数下降，但是每次更新可能会错过期望值。
+\end{itemize}
+具体到$\alpha$的选择时，我们后面在结合不同的案例时，还会进一步讲解。	
+\end{frame}
+
+
+\begin{frame}{感知器二元分类算法}
+在理解了什么是损失函数和梯度下降法后，我们来学习感知器分类的具体算法。这个算法的核心要点为:
+	\begin{itemize}
+		\item 假设分类问题可线性分类，即符合下列分类过程 \begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w + b > 0 \\
+			-1 & x \cdot w  + b < 0
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$为我们再分类过程中需要标注的结果，$x$为$1\times n$的向量，表示分类对象有$n$个属性，$w$长度为$1 \times n$，表示为分类属性的规律参数。注意我们如果把点积写成矩阵的相乘的话应该是$x w^T$。
+	\item 我们设定的损失函数为 \begin{align*}
+		L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - y_i \times (x_i \cdot w + b) \} 
+	\end{align*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{感知器二元分类算法}
+	\begin{itemize}
+		\item  损失函数的导数为:$\frac{\partial L}{\partial w} = \{ 0, -y_i \times x_i \}$, 等同于
+	\begin{align*}
+		\frac{\partial L}{\partial w} & = - y_i \times x_i; \ \ \ \text{当$x_i \cdot w < 0$时} \\
+		\frac{\partial L}{\partial w} & = 0; \ \ \ \ \ \ \ \ \ \ \text{当$x_i \cdot w > 0$时}
+	\end{align*}
+	\item 根据梯度下降法的公式(求最小值),我们对规律参数的更新公式为: \begin{align*}
+		w_{t+1} & = w_{t} - \alpha \frac{\partial L}{\partial w} \\
+		& = w_{t} + \alpha (y_i \times x_i) \tag{当$x_i \cdot w < 0$}
+	\end{align*}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{感知器二元分类算法}
+教材中的公式，假设我们的数据阵中有两个属性和一个自变量$b$，那么我们的算法就变为: 
+\begin{itemize}
+	\item 假设分类问题可线性分类，即符合下列分类过程 \begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x^{[1]} a_1 + x^{[2]} a_2 + b > 0 \\
+			-1 & x^{[1]} a_1 + x^{[2]} a_2 + b < 0
+		\end{cases}
+	\end{align*}
+	\item 我们设定的损失函数为 \begin{align*}
+		L = \sum_{i=1}^m c_i = \sum_{i=1}^m \max \{ 0, - y_i \times (x^{[1]}_i a_1 + x^{[2]}_i a_2 + b_i) \} 
+	\end{align*}
+	\item 损失函数的导数为:$\frac{\partial L}{\partial a_1} = \{ 0, -y_i \times x_i^{[1]} \}$, 等同于
+	\begin{align*}
+		\frac{\partial L}{\partial w} & = - y_i \times x_i^{[1]}; \ \ \ \text{当$x^{[1]} a_1 + x^{[2]} a_2 + b > 0$时} \\
+		\frac{\partial L}{\partial w} & = 0; \ \ \ \ \ \ \ \ \ \ \text{当$x^{[1]} a_1 + x^{[2]} a_2 + b < 0$时}
+	\end{align*}
+	\end{itemize}	
+\end{frame}
+
+
+\begin{frame}{感知器二元分类算法}
+\begin{itemize}
+	\item 根据梯度下降法的公式(求最小值),我们对规律参数的更新公式为: \begin{align*}
+		a_{1, t+1} & = a_{1, t} - \alpha \frac{\partial L}{\partial a_1} \\
+		& = a_{1, t} + \alpha (y_i \times x_i^{[1]}) \tag{当$x^{[1]} a_1 + x^{[2]} a_2 + b > 0$时}
+	\end{align*}
+	\item 相应得对于其它的参数的更新公式为: 
+	\begin{align*}
+		a_{2, t+1} & = a_{2, t} + \alpha (y_i \times x_i^{[2]}) \\
+		b_{t+1} & = b_{t}  + \alpha y_i
+	\end{align*}
+\end{itemize}	
+\end{frame}
+
+\begin{frame}{感知器二元分类算法存在的问题}
+	这里我们特别提醒同学们在使用感知线性分类模型时需要注意的几个问题: 
+		\begin{itemize}
+			\item 当可分类对象存在线性分类规律时，该模型和算法给出的规律参数并不唯一，即存在多个集合解；
+			\item 根据你数据阵的大小以及学习参数(learning rate)的选择不同，以上算法的运行时间会非常长
+			\item 当可分类对象不存在线性分类时，该算法可能会陷入`无限循环'且仍无解的情况。
+		\end{itemize}
 \end{frame}
 
 
 
+\section{支持向量机(Support Vector Machine)}
 
+\begin{frame}{支持向量机(Support Vector Machine)}
+支持向量机的发展:
+\begin{itemize}
+	\item Vladimir Vapnik (1960s), 博士论文，心理学测量
+	\item Vladimir Vapnik (1990s), AT\&T (American Telephone and Telegraph Company)
+	\item Cortes and Vapnik (1995)发表文章，介绍了核方法(kernel), 之后该模型便`一发不可收'
+	\end{itemize}
+	
+	\begin{quote}
+		``[SVM] needs to be in the tool bag of every civilized person.'' \\
+		\hfill - Professor Dr. Patrick Winston, MIT
+	\end{quote}
+	
+	\begin{quote}
+		``Wow! This topic is totally devoid of any statistical content'' \\
+		\hfill - -Dr. David Dickey, NCSU
+	\end{quote}
+\end{frame}
+
+
+\section{非线性分类介绍(SVM - kernels)}
 
 
 \begin{frame}{再见}
 	Thank you !  请完成课后习题C3 !
-\begin{columns}
-	\begin{column}{0.4\textwidth}
-			\begin{figure}[H]
-				\centering
-			\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C1qrcode.png}
-			\caption{C3C1-问卷}
-			\end{figure}
-	\end{column}
-	\begin{column}{0.4\textwidth}
-		\begin{figure}[H]
-	\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C2qrcode.png}
-	\caption{C3C2-问卷}
-\end{figure}	
-	\end{column}
-\end{columns}
 \end{frame}
 
 
