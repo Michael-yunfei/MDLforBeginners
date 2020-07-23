@@ -1,7 +1,6 @@
-\BOOKMARK [1][-]{section.1}{Linear Regression}{}% 1
-\BOOKMARK [1][-]{section.2}{Gradient Descent}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Newton's Method}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.3}{Loss Function and Algorithm}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.4}{Feature Scaling}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.5}{Shrinkage Methods}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Stochastic Gradient Descent}{}% 7
+\BOOKMARK [1][-]{section.1}{前言}{}% 1
+\BOOKMARK [1][-]{section.2}{实验重点}{}% 2
+\BOOKMARK [1][-]{section.3}{实验1: 数据阵、向量和及其性质}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{鸢尾花数据阵构造和读取}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{鸢尾花数据阵可视化}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{鸢尾花种类选取}{section.3}% 6
