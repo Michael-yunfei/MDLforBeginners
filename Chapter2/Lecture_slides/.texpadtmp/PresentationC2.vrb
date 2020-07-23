@@ -1,0 +1,12 @@
+\frametitle{数据阵定义}
+因为我们在机器学习领域经常接触数据阵，所以我们先来熟悉一下数据阵的概念和相关术语。
+^^I^^I
+\begin{block}{定义}
+^^I我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个样本下的数列，称为\text{数据组}(数据串); 有多个数据组构成的一系列数据，称为\textit{数据阵}。
+\end{block}
+\begin{figure}[H]
+^^I\centering
+^^I\includegraphics[width=0.67\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/dataframeEx.png}
+\end{figure}
+
+数 和 数据 的差别还是很大的!

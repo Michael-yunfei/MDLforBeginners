@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{课程结构和进程简介}{3}{0}{1}
+\beamer@sectionintoc {2}{课前预习C1}{8}{0}{2}
+\beamer@sectionintoc {3}{数据阵(Dataframe)简介}{11}{0}{3}
+\beamer@sectionintoc {4}{两个大脑论和人工智能的思维方式}{13}{0}{4}
+\beamer@sectionintoc {5}{分类和线性分类}{15}{0}{5}
+\beamer@sectionintoc {6}{损失方程(Loss Function)}{37}{0}{6}

@@ -264,6 +264,4 @@ print(conv_df2.to_latex(index=False))
 
 
 
-
-
 #

@@ -822,7 +822,7 @@ tb_norm_reg.coef_
 	\item 支持向量机\mn{Support Vector Machines}分类(可以进行非线性分类)
 \end{enumerate}
 
-按照惯例，本章的学习仍然有三部分组成:课前预习，课堂讲义，和课后练习。在课前预习中，我们将会讨论\textit{什么是分类，在什么情况下可以分类}；在课堂讲义中，我们会在理解了分类的意涵后，来定义\textit{测量和优化},明白了测量和优化之后，我们便可以比较好得掌握简单的线性分类模型和支持向量模型。
+按照惯例，本章的学习仍然有三部分组成:课前预习，课堂讲义，和课后练习。在课前预习中，我们将会讨论\textit{什么是分类，在什么情况下可以分类}；在课堂讲义中，我们会在理解了分类的意涵后，来定义\textit{测量和优化},明白了测量和优化之后，我们便可以比较好得掌握简单的线性分类模型和支持向量机模型。
 
 
 \subsection{课前预习C1}
@@ -955,7 +955,7 @@ B' &  169 & 4 & 9 \\
 \end{align*}
 
 \begin{question}{C1-Q5 解方程}
-	我们再做几个个解方程题目, 求解$x, y$
+	我们再做几个个解方程题目, 求解$x, y$, 可以使用计算器。
 	\begin{align*}
 		2x + 3y & =1 \\
 		x + y & = -1 
@@ -968,22 +968,65 @@ B' &  169 & 4 & 9 \\
 \end{align*}
 \end{question}
 
-\begin{fullmodel}
-	上面的预习题目C1-Q5中，我们可以把$x, y, z$的方程组进行下列转换:
+\begin{question}{C1-Q6, 向量点积运算}
+	向量的点积是一个比较重要的概念，所以需要同学们提前了解下，并且做一下相关计算。这里我们先不做具体的定义介绍，只是把向量点积的运算公式告诉大家，然后举例后大家进行练习。\textbf{相同长度的}向量$A$和$B$的点积等于其同位元素求积后再求和，比如:
 	\begin{align*}
-		56x + 8y -35 & = 36 - 35  \ \ \Rightarrow 56x + 8y -35 = 1\\
-		32x + 4y + z - 21.5 & = 20.5 - 21.5 \ \ \Rightarrow 32x + 4y + z - 21.5  = -1 \\
-		48x + 3y + z - 30.8 & = 29.8 - 30.8  \ \ \Rightarrow 48x + 3y + z - 30.8 = -1  
+		& A = [3, 5]; \ \ \ B [ 2, 1]; \ \ \ \ A \cdot B = 3 \times 2 + 5 \times 1 = 6 + 5 = 11 \\
+		& A' [ -2, 1]; \ \ \ B' = [2, -5]; \ \ \ \ A' \cdot B' = -2 \times 2 + [1 \times (-5)] = -4 - 5 = -9 
 	\end{align*}
-	从而得到下列方程组
-	\begin{align*}
-		56x + 8y -35 & = 1\\
-		32x + 4y + z - 21.5 &  = -1 \\
-48x + 3y + z - 30.8 & = -1 
-	\end{align*}
-\end{fullmodel}
+	现在请同学们计算下列向量的点积
+	下面，我们来进行几个简单的点积运算, 为了帮助同学们了解点积的几何意义，我们固定一个向量$w$:
+\begin{align*}
+	 w = [-1, \ 2] 
+\end{align*}	
+然后让下面的几个向量依次与$v$进行点积:
+\begin{align*}
+	x_1 = [4, \ 2] & & a = [2, \ -1] & & b  = [1, \ 2] \\
+x_2 = [-4, \ -2] & & c = [-1, \ -3] & & d = [-3, \ 2 ]
+\end{align*}
+结算可以得出以下结果:
+\begin{align*}
+	w\cdot x_1  = -1 \times 4 + 2 \times 2 = 0  & & w \cdot  a =   & & w \cdot b  =   \\
+w \cdot x_2 =  & & w \cdot c =   & & w \cdot d  =  \end{align*}
+计算结果完成后，请填下下列表格:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|ccc}
+	\hline 
+		与$w$点积 & $< 0$ & $=0$ & $ > 0 $ \\
+		\hline 
+		&  & $x_1$ &  \\
+		&  & $x_2$ &  \\
+		\hline 
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-5,-4) grid (5,4);
+  \draw[<->] (-5,0)--(5,0) node[right]{$x$};
+  \draw[<->] (0,-4)--(0,4) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(4,2) node[anchor=south west]{$\boldsymbol{x_1=[4, 2]}$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(-4,-2) node[anchor=north east]{$\boldsymbol{x_1=[-4, -2]}$};
+  \draw[line width=1pt,red, -stealth](0,0)--(-1, 2) node[above]{$\boldsymbol{w=[-1, 2]}$};
+  \draw[line width=1pt, dashed, -stealth](0,0)--(2, -1) node[below]{$\boldsymbol{a=[2, -1]}$};
+   \draw[line width=1pt, dashed, -stealth](0,0)--(-1, -3) node[below]{$\boldsymbol{c=[-1, -3]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(1, 2) node[anchor=south west]{$\boldsymbol{b=[1, 2]}$};
+   \draw[line width=1pt, dashdotted, -stealth](0,0)--(-3, 2) node[anchor=north east]{$\boldsymbol{d=[-3, 2]}$};
+\end{tikzpicture}
+\end{figure}
+\end{question}
+
+\textcolor{purple}{反馈统计}:请扫描右边二维码，回答对此次课前预习的评估,30秒就可以搞定。老师会表示非常感谢，请同学多多配合。老师会根据你们的反馈对每一次C1进行提升和改进。填问卷的时候记得喝一杯茶或者咖啡$\heartsuit$。
+
+\begin{marginfigure}
+	\centering
+	\includegraphics[width=\textwidth]{fig/C2C1qrcode}
+\end{marginfigure}
 
 
+\newpage
 \subsection{课堂讲义C2}
 
 本章节的课堂讲义较为重要\mn{本章可以说是全书的重中之重，如果本章的学习同学们能够领会和进行实验操作，那么后面的章节都会`不在话下’。}，希望同学们认真阅读。我们会在本章的课堂讲义中，逐步介绍以下的知识点:

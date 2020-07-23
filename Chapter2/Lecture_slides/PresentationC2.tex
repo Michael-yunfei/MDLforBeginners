@@ -1,0 +1,804 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+\documentclass[handout]{beamer}
+% \mode<presentation> % change it to presentation model, but it does not work with [handout] option
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{etoolbox} % adjust the space before and after figure
+\usepackage{hyperref}
+\usepackage{courier} % font for code in text
+\usepackage{xeCJK} % Chinese 
+\usepackage{listings}
+\usepackage{wasysym}
+\usepackage{amsthm} % for theorem definition style
+\usepackage{rotating} % for the horizontal page table
+\usepackage{pgfplots} % plot functions 
+
+% \usepackage{enumitem} % never use this package for beamer
+%\usepackage{theorem}  % define new environment, don't use this one for beamer  
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{bm} % bold math symbol
+\usepackage{blkarray}  % for labeling row and columns of matrix
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{bm} % bold math symbol
+\usepackage{bibentry}
+\nobibliography*
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage[ruled,vlined]{algorithm2e}  % algorithm 
+
+\setbeamertemplate{caption}[numbered]  % set the figure number
+
+% select the theme and color
+\usetheme{Boadilla}
+\usecolortheme{beaver}
+
+\lstset{language=Python}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Matlab,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  belowcaptionskip= 1 ex,
+  belowskip = 1 ex
+}
+
+
+\title[]{察异辨花:简单得线性和非线性分类}
+\subtitle{Introduction to linear and nonlinear methods for classification}
+
+\date{\today}
+
+\author[王斐]{王斐, Michael}
+\institute[SenseTime, Edu]{SenseTime Edu \and Math, Economics, Philosophy \and \url{https://github.com/Michael-yunfei/MDLforBeginners}}
+
+%[January 2019] (optional)
+%{Demo for SenseTime}
+
+\usecolortheme[RGB={128,0,0}]{structure}
+
+\newcommand{\zn}{\mathbb{Z}}
+\newcommand{\cn}{\mathbb{C}}
+\newcommand{\qn}{\mathbb{Q}}
+\newcommand{\rn}{\mathbb{R}}
+\newcommand{\pn}{\mathbb{P}}
+\newcommand{\fn}{\mathbb{F}}
+\newcommand{\nn}{\mathbb{N}}
+
+
+
+
+\begin{document}
+
+\definecolor{franceblue}{RGB}{14, 76, 96}
+\definecolor{brightred}{RGB}{243, 66, 53}
+
+\setbeamercolor{block title alerted}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+
+
+\begin{frame}[noframenumbering]
+  \titlepage
+\end{frame}
+
+
+
+\begin{frame}{本节内容}
+	\tableofcontents
+\end{frame}
+
+\section{课程结构和进程简介}
+
+\begin{frame}{课程结构}
+第二章是我们高中教材机器学习的入门章节，本章可以说是整本教材最重要的章节，原因有:
+\begin{itemize}
+\setlength\itemsep{1em}
+	\item 第一次开始介绍机器学习的数理模型
+	\item 第一次系统介绍分类(人工智能领域70\%的问题是涉及分类)
+	\item 透过本章了解机器学习的整个思路和流程
+\end{itemize}
+
+\hfil
+
+辅导讲义的组成部分:
+\begin{itemize}
+\setlength\itemsep{1em}
+	\item 课前预习C1 
+	\item 课堂讲义C2 (讲义偏重数学严谨度，课堂偏重理解)
+	\item 课后练习C3
+\end{itemize}
+
+\hfil 
+
+认真完成以上三个内容可以得到A, 只完成C1-C2可以得B。
+\end{frame}
+
+\begin{frame}{相关考核}
+	考核机制的设计如下:
+	
+	\hfil
+	
+	\begin{itemize}
+	\setlength\itemsep{1em}
+		\item 课后练习C3 - 10\% 
+		\item 期中考试 - 20 \% 
+		\item 期末考试 - 30 \%
+		\item 案例报告 - 40 \% （会讲故事+编程且调用相关程序)
+	\end{itemize}
+	
+	\hfil 
+	
+	具体的考试形式和报告内容要求，后面会有具体的指示。
+\end{frame}
+
+\begin{frame}{课程结构和进程}
+	写给辅导老师们的前言: 我们整个高中教材大体可以分为三大块:
+	\begin{itemize}
+	\setlength\itemsep{1em}
+		\item 图片(分类，识别和聚类): Convolutional Neural Network
+		\item 语音(识别，分类): Sequence Model (Recurrent NN)
+		\item 文本(特征提取和分析): Sequence Model (RNN)
+	\end{itemize}
+	
+	三个方向都涉及到深度学习模型(神经网络模型), 给学生介绍的时候，重点放在:
+	
+	\hfil
+	\begin{itemize}
+	\setlength\itemsep{1em}
+		\item 想象力的构建上(后面我会在神经网络模型中介绍，很多巧妙的设计数学概念并不复杂，更多是需要想象力)
+		\item 强化学生的人工智能思维
+		\item 强化学生的数据感觉和数据处理能力
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{课程结构和进程}
+由于神经网络模型背后的数学框架较为复杂，深入得讲解并不符合高中的教学目标，所以:
+
+\hfill
+\begin{itemize}
+\setlength\itemsep{1em}
+	\item 线性(感知器 perceptron)和非线性(支持向量机 support vector machines)分类就成为整个高中的教学重点 \begin{itemize}
+	\setlength\itemsep{1em}
+	\item 数学模型要讲透彻: 理解每一个环节的公式和算法原理
+	\item 机器学习框架下的编程要逐步解释: 学生必须可以自主完成感知器的算法编写
+	\item 有条件得可以引导进行支持向量机的算法编写
+	\end{itemize}
+	\item 对于神经网络模型的讲解: \begin{itemize}
+	\setlength\itemsep{1em}
+	\item 可视化分析+案例演示
+	\item 课外体验+参观 (很多模型训练时间长，需要算力大)
+	\end{itemize}
+\end{itemize}	
+\end{frame}
+
+\begin{frame}{第二章的重要性}
+	我要在反复强调下第二章的重要性，你如果可以很好得理解第二章的模型，其它得才好举一反三，而且有助于我们学习神经网络模型。
+	
+	\hfil
+	
+	\begin{itemize}
+	\setlength\itemsep{1em}
+		\item 数学不好，没问题，不要担心；
+		\item 会算加减乘除就可以学懂，要对自己有信心；
+		\item 当然最重要的是要有耐心！
+	\end{itemize}
+\end{frame}
+
+
+
+\section{课前预习C1}
+
+\begin{frame}{课前预习题目浅析}
+	课前预习第一部分是生活案例题，从生活中找一个分类的例子，然后描述下你是如何分类的(不超过60字)，描述必须包含下面三个部分:
+	
+	\hfil
+	
+\begin{itemize}
+\setlength\itemsep{1em}
+	\item 分类的主体对象是什么？(比如，汽车，花草，等等)
+	\item 分类的依据和标准是什么？
+	\item 分类后如何衡量分类得好坏？
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{课前预习题目浅析}
+分类简单讲就是： 寻找差异 (看起来不一样) 比如下面这种图,
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{fig/clothes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{课前预习作文题目浅析}
+	因为事物的属性可以是很繁杂的，比如自然界中光是树木的科目分类就达到几万种(如果考虑不同植被的话，这个科目的量级会进一步上升, 吴征镒)。所以我们在对这些属性进行界定时，最简单有效的方式就是对其数字化(或者说有数字去测量和统计)，比如下面这个案例。
+	
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{lccc}
+		\hline 
+			属种 & 代码 &花瓣长度 & 花瓣宽度 \\
+			\hline 
+			山鸢尾 & s1 & 1.4 & 0.2 \\
+			山鸢尾 & s2 & 1.7 & 0.4 \\
+			变色鸢尾 & ve1 & 3.9  & 1.4 \\
+			变色鸢尾 & ve2& 4.9 & 1.5 \\
+			维吉尼亚鸢尾 & vig1 & 6.9 & 2.3  \\
+			维吉尼亚鸢尾 & vig2 & 6.1 & 1.9 \\
+			\hline  
+		\end{tabular}
+\end{table}
+	\end{column}
+	\begin{column}{0.3\textwidth}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/iris}
+	\end{figure}	
+	\end{column}
+\end{columns}
+\end{frame}
+
+\section{数据阵(Dataframe)简介}
+
+\begin{frame}[fragile]{数据阵定义}
+	因为我们在机器学习领域经常接触数据阵，所以我们先来熟悉一下数据阵的概念和相关术语。
+		
+\begin{block}{定义}
+	我们把由数字和对其的描述(有其根据)组成的信息形态，称为\textit{数据};我们将统一在一个样本下的数列，称为\text{数据组}(数据串); 有多个数据组构成的一系列数据，称为\textit{数据阵}。
+\end{block}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.67\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/dataframeEx.png}
+\end{figure}
+
+数 和 数据 的差别还是很大的!
+\end{frame}
+
+
+\begin{frame}{数据阵的常用术语}
+	因为我们几乎任何一个模型最初的切入点都是数据阵，所以很有必要统一下专业术语。
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.96\textwidth]{fig/dataframeVis}
+	\end{figure}
+\end{frame}
+
+\section{两个大脑论和人工智能的思维方式}
+
+\begin{frame}{人工智能思维方式}
+	这里我想给大家做一下思维转换，面向未来:
+	\begin{itemize}
+		\item 传统解决问题方案: 观察世界，抽象问题，解决问题
+		\item 人工智能解决问题方案: 电脑观察世界，人抽象问题，两个大脑共同解决问题。
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{fig/C1MLbigpct}
+	\end{figure}
+	假定自然界运行有规律的话，那么对这些规律事件的记录和存储全部交给计算机，然后再由机器学习、深度学习模型\underline{对这些规律进行提取}，从而进行预测。
+\end{frame}
+
+\begin{frame}{人工智能思维方式}
+现在我们就通过\underline{分类问题}来理解人工智能的思维方式！	
+\end{frame}
+
+
+\section{分类和线性分类}
+
+\begin{frame}{什么是分类?}
+	\begin{block}{定义}
+	分类指的是根据事物不同的属性，对某个或一些物体进行划分的过程。在没有任何属性的情况下，我们不能进行分类。在有属性的情况下，我们可以依据属性，进行分类，比如黑猫和白猫。
+\end{block}
+
+从哲学的角度上讲，存在的便是有属性的在。绝对的存在(即无属性的纯存在)在中文哲学的概念里指的是`道’(老子里有一句名言: 道生一，一生二，三生万物)，在西方哲学里指的是`上帝'。黑格尔有一句名言:绝对得有即是绝对得无(纯有等同于纯无，中文:白马非马)
+\begin{itemize}
+	\item 人 - 属性: 男女，身高，体重，肤色...
+	\item 花 - 属性: 颜色，开花季节...
+	\item 书本 - 重量，颜色，科目
+\end{itemize}
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+	\begin{example}
+		在预习题目中，我们要求同学们求解下列的方程组:
+	\begin{align*}
+	& 56w_1 + 8 w_2 = 36 \\
+	& 32 w_1+ 4 w_2 + w_3 = 20.5 \\
+	& 48 w_1 + 3w_2 + w_3 = 29.8 \\
+	& \begin{bmatrix}
+		56 & 8 & 0 \\
+		32 & 4 & 1 \\
+		48 & 3 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		w_1 \\
+		w_2 \\
+		w_3
+	\end{bmatrix} = \begin{bmatrix}
+		36 \\
+		20.5 \\
+		29.8 
+	\end{bmatrix} 
+\end{align*}
+稍加计算便可以得出:
+\begin{align*}
+	w_1= 0.6; \ \ \ w_2 = 0.3; \ \ \ w_3 = 0.1 
+\end{align*}
+	\end{example}
+	这个题目是老师专门设计过的，其背后的场景为下面的表格。
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/C1C2grade}
+	\end{figure}
+	\begin{example}
+	\begin{align*}
+		X \cdot w & = Y \\
+		\begin{bmatrix}
+		56 & 8 & 0 \\
+		32 & 4 & 1 \\
+		48 & 3 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		w_1 \\
+		w_2 \\
+		w_3
+	\end{bmatrix} & = \begin{bmatrix}
+		36 \\
+		20.5 \\
+		29.8 
+	\end{bmatrix}
+	\end{align*}	
+	\end{example}
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+	如果假定学习的各种属性(学习时间、练习题目数量，等)与结果(成绩)存在简单的线性关系的话，解方程可以告诉我们:
+\begin{itemize}
+	\item $w_1 = 0.6$, 即学习时间对成绩的影响比重约为60\%;
+	\item $w_2 = 0.3$, 即练习题目的数量对成绩的影响比重约30\%;
+	\item $w_3 = 0.1$, 即考前睡眠对成绩的影响比重约10\%。
+\end{itemize}
+
+虽然这个题目很简单的，但是其反应了机器学习的一般框架:
+\begin{itemize}
+	\item 假定自然界中的事物发展是有规律的
+	\item 这些规律被记录存储为数字和文本形式($X, Y$)
+	\item 人类根据对问题的抽象设定相关的框架和模型(例如，线性方程)
+	\item 结合模型和数据，获得规律参数$w$
+	\item 拿到规律参数$w$后，再去预测
+\end{itemize}
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+现在我们从鸢尾花数据阵中随意取三个样本，然后属性也取三个$X= 3 \times 3, Y = 3 \times 1$, 然后解方程
+\begin{table}[H]
+		\centering
+{\footnotesize
+		\begin{tabular}{lcccc}
+		\hline 
+			属种 & 代码 & 花萼宽度(a=1.1) &花瓣长度(b=-3.7) & 花瓣宽度(c=9.) \\
+			\hline 
+			山鸢尾 & 0 & 3 &  1.4 & 0.2 \\
+			变色鸢尾 & 1 & 3.2 & 4.5  & 1.5 \\
+			维吉尼亚鸢尾 & 2 & 2.7 &  5.1 & 1.9  \\
+			\hline  
+		\end{tabular}
+}
+\end{table}
+我们可以理解大自然在不同的鸢尾花进化时，特意的分配了下面的规律参数:
+		\begin{itemize}
+			\item 花萼宽度(1.1)
+			\item 花瓣长度(-3.7)
+			\item 花瓣宽度(9.4)
+		\end{itemize}
+		用这组规律参数去预测的话，准确率只有大约25\%，显示这种方法太过于简单粗暴。
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+	\begin{block}{定义}
+	我们把可以表现为下列形式的方程，称为\textit{线性方程}:
+	\begin{align*}
+		a_1 x_1 + a_2 x_2 + \cdots + a_n x_n + b = 0
+	\end{align*}
+	其中$x_1, x_2, \cdots, x_n$ 为变量, $a_1, a_2, \cdots, a_n$ 为系数。
+\end{block}
+线性方程本质是一种累计的过程，因为乘法也是加法，比如$3 \times 5 = 5 + 5 + 5 = 15$。我们刚才计算的那几个例子都是线性的。
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+	\begin{example}
+现实生活中，有些关系可以表现为线性关系，有些关系不可以表现为线性关系，比如,
+\begin{align*}
+	a_1 x_1^2 + a_2 \sin (x_2) + a_3 e^{x_3} + b  = 0 
+\end{align*}	
+当$x_1, x_2, x_3$之间的关系为非线性是，我们可以对其进行线性转换,比如:
+\begin{align*}
+	x'_1 = x_1^2; \ \ \ x'_2 = \sin (x_2); \ \ \ x'_3 = e^{x_3}
+\end{align*}
+那么新的关系就变成了线性: 
+\begin{align*}
+	a_1 x'_1 + a_2 x'_2 + a_3 x'_3 = 0 
+\end{align*}
+\end{example}
+\end{frame}
+
+\begin{frame}{什么是线性分类}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{fig/C2C2linear}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{什么是线性分类:矩阵和向量点积}
+\begin{definition}
+	\textit{矩阵}（Matrix）是一个按照长方阵列排列的复数或实数集合。对一个矩阵的简单描述可以为 $m \times n$ 的矩阵，即该矩阵有$m$ 行，$n$列. $m \times n$也被称为矩阵的大小。
+\end{definition}
+
+\begin{example}
+比如，我们有$3 \times 3 $的矩阵$A$ 和$2 \times 3$ 的矩阵$B$。
+\begin{align*}
+	 A = \begin{bmatrix}
+	1 & 3 & 4 \\
+	2 & 5 & 8 \\
+	3 & 9 & 7
+\end{bmatrix}, & & B = \begin{bmatrix}
+	3.2 & 1.9 & 5.7 \\
+	4.1 & 5.8 & 9.3 \\
+\end{bmatrix}
+\end{align*}	
+\end{example}
+\end{frame}
+
+\begin{frame}{什么是线性分类:矩阵和向量点积}
+\begin{definition}
+	矩阵中单独的一行被成为\textit{行向量}(row vector), 单独的一列别成为\textit{列向量}(column vector)。
+\end{definition}
+\begin{example}
+比如在上面的矩阵$A$中，	我们有以下单独的向量:
+\begin{align*}
+ & A = \begin{bmatrix}
+	1 & 3 & 4 \\
+	2 & 5 & 8 \\
+	3 & 9 & 7
+\end{bmatrix} \\
+	& A_{r2} = [2 \ 5 \ 8],   & A_{c2} = \begin{bmatrix}
+		3 \\
+		5 \\
+		9 
+	\end{bmatrix}
+\end{align*}
+\end{example}
+\end{frame}
+
+\begin{frame}{什么是线性分类:向量点积}
+矩阵和向量的运算，是根植于方程中变量与系数(规律参数)的对应关系来的。我们这一小节中重点学习向量运算，下一章中开始学习矩阵运算。比如，下面的方程可以转为向量相乘:
+		\begin{align*}
+			2a + 3b + c = 3 \ \ \Leftrightarrow \ \ \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b \\
+				c
+			\end{bmatrix} = [3] 
+		\end{align*}
+		因为变量和系数，必须相对应，所以下面的运算一个是不合法的，另外两个是不合法的:
+		\begin{align*}
+			\begin{bmatrix}
+				2 & 3 & 0
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b 
+			\end{bmatrix} & & \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b \\
+				c
+			\end{bmatrix} & & \begin{bmatrix}
+				2 & 3 & 1
+			\end{bmatrix} \begin{bmatrix}
+				a \\
+				b 
+			\end{bmatrix}
+		\end{align*}	
+		点积运算时，向量长度必须相同:同位元素相乘后累加。
+\end{frame}
+
+\begin{frame}{什么是线性分类:向量点积}
+\begin{definition}
+	已知两个长度相同的向量$w=[w_1, w_2, \cdots, w_n]$ 和$X = [x_1, x_2, \cdots, x_n]$, 那么向量的相乘，也并被成为点积(dot product)定义为:
+\begin{align*}
+		 X \cdot a & = \begin{bmatrix}
+		x_1 & x_2 & \cdots & x_n
+	\end{bmatrix} \begin{bmatrix}
+		w_1 \\
+		w_2 \\
+		\vdots \\
+		w_n
+	\end{bmatrix} \\
+	 w \cdot X & = \begin{bmatrix}
+		w_1 & w_2 & \cdots & w_n
+	\end{bmatrix} \begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		\vdots \\
+		x_n
+	\end{bmatrix}\\
+	& =  \sum_{i=1}^n x_i w_i = a_1 w_1 + a_2 w_2 + \cdots + a_n w_n 
+\end{align*}
+\end{definition}
+\end{frame}
+
+\begin{frame}{什么是线性分类:向量点积几何性质}
+\begin{definition}
+	当两个向量的点积运算结果为$0$时，我们称这两个向量\textit{正交}，或者互为正交向量，数学表示为:
+	\begin{align*}
+		 X \cdot w = <X, w> = 0 \ \ \Leftrightarrow \ \ \sum_{i=1}^n  x_i w_i =  x_1 w_1 +  x_2 w_2 + \cdots +  x_n w_n = 0 
+	\end{align*}
+\end{definition}
+
+两个向量正交时，在几何上表现为垂直(perpendicular)，比如
+\begin{align*}
+	u \cdot v = \begin{bmatrix}
+		2 & 1 
+	\end{bmatrix} \begin{bmatrix}
+		-1 \\
+		2
+	\end{bmatrix} = -2 + 2 = 0 & &  z \cdot x = \begin{bmatrix}
+		0 & 0 & 1
+	\end{bmatrix} \begin{bmatrix}
+		1 \\
+		0 \\
+		0
+	\end{bmatrix} = 0 
+\end{align*}		
+\end{frame}
+
+\begin{frame}{什么是线性分类:向量点积几何性质}
+两个向量正交时，在几何上表现为垂直(perpendicular)，比如
+\begin{figure}[H]
+	\centering
+		\begin{tikzpicture}
+  \draw[thin,gray!40] (-3,-3) grid (3,3);
+  \draw[<->] (-3,0)--(3,0) node[right]{$x$};
+  \draw[<->] (0,-3)--(0,3) node[above]{$y$};
+  \draw[line width=1pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{$\boldsymbol{u=[2, 1]}$};
+  \draw[line width=1pt,red,-stealth](0,0)--(-1,2) node[anchor=north east]{$\boldsymbol{v=[-1, 2]}$};
+  \draw[line width=1pt,brown, -stealth](0,0)--(1, -2) node[right]{$\boldsymbol{w=[1, -2]}$};
+\end{tikzpicture}
+\end{figure}
+注意$w\cdot u=0$, 他们在几何上垂直，在代数上正交(orthogonal)。	
+\end{frame}
+
+\begin{frame}{什么是线性分类:向量点积几何性质}
+整个感知器分类和支持向量机，完全可以用下面这张图来概括。
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fig/P2dotpTable}
+\end{column}
+\begin{column}{0.7\textwidth}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{fig/C2C2dotprodt}
+\end{figure}	
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{感知器线性分类(perceptron)}
+	\begin{definition}
+	假设自然界中可分类对象具有一定属性，且属性个数大于$1$，当其属性的特征变量($X$)与其属性的规律参数($w$)存在下列线性关系时:
+	\begin{align*}
+		X \cdot w + b  =0 ; \ \ \ \Leftrightarrow \ \ \ x_1 w_1 + x_2 w_2 + \cdots + x_n w_n + b = 0
+	\end{align*}
+	(其中$n$为分类对象的属性个数)，我们将其称为\textit{可线性分类}。因为该公式的点积为零，所以我们将其转换为下列的格式:
+	\begin{align*}
+		\begin{bmatrix}
+			X & 1
+		\end{bmatrix} \begin{bmatrix}
+			w \\
+			b
+		\end{bmatrix} = 0  
+	\end{align*}
+	其中$b$为常数变量(无属性变量), 我们将向量$w$和$x$组成的分界面以及正交矢量(在二维中，就是一条线和其垂直线)称为\textit{感知器}(percepton),其中$w$就是我们需要计算的规律参数，而$X$则是由我们采集的数据组成的特征变量
+	\end{definition}
+\end{frame}
+
+\begin{frame}{感知器线性分类(perceptron)}
+只能\underline{二分}! 但是自然界很多问题二分也足够了:
+\begin{itemize}
+	\item 黄猫 V.S. 非黄猫
+	\item 蓝猫 V.S. 非蓝猫
+	\item 重复二分等同于多类分法
+\end{itemize}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fig/P2dotpTable}
+\end{column}
+\begin{column}{0.7\textwidth}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{fig/C2C2dotprodt}
+\end{figure}	
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+
+\begin{frame}{人工智能的思维方式}
+
+传统的问题解决方式和人工智能问题解决方式最大的不同体现在以下两个方面:
+	\begin{itemize}
+	\setlength\itemsep{1em}
+		\item 传统的问题解决方式着重对问题进行分步骤拆解和处理；
+		\item 人工智能对问题的解决方式着重对整个流程的\underline{两个端口}进行数据和模型调试。
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{人工智能的思维方式}
+教材中有两张图片，即图3-15和图3-19,给出了神经网络模型的工作流程。我们把两个图片中的模型进行简化，绘制下面这张流程图(来源:斯坦福大学深度学习官网)。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{深度神经网络模型}
+	概念的关联(神经网络): 构加 + 参数
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{fig/StdNN}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{人工智能思维方式:数据石油}
+	为什么是深度神经网络；为什么数据是未来的石油？
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/dataoil}
+		\caption{数据量和模型表现关系(Andrew, NG, 2018)}
+	\end{figure}
+\end{frame}
+
+%		\begin{tikzpicture}
+%\begin{axis}[
+%  ticks = none,
+%  samples=100,
+%  ymax=3,
+%  axis x line=bottom,axis y line=left,xlabel={数据量}, ylabel={模型表现}
+%]
+%\addplot[cyan,domain=0.001:30, line width=0.35mm,
+%restrict y to domain=0:16] {log2(x+1)};
+%\addplot[red!70!black,domain=-2:1.4] {exp(x)};
+%
+%\node[pin={90:$f(x)=\lvert\log x\rvert$},inner sep=0pt] 
+%  at (axis cs:{2,log10(2)}) {};
+%\node[pin={0:$f(x)=e^{x}$},inner sep=0pt] 
+%  at (axis cs:{1,exp(1)}) {};
+%\end{axis}
+%\end{tikzpicture}
+
+\begin{frame}{人工智能的思维方式}
+机器学习(人工智能): \textbf{通过对输入端的数据群(大数据)进行标注和整理后，建立一个人工智能构架，并设定目标函数(损失方程),对所建立的构建(或模型)进行反复训练，直到找到符合我们目标函数要求的参数核矩阵。}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/deepmindflow.png}
+\end{figure}
+\end{frame}
+
+
+
+
+\section{损失方程(Loss Function)}
+
+\begin{frame}{损失方程}
+拥有了标注的数据，就有了\underline{对比依据}\footnote[frame]{对，没有对比就没有伤害。}, 就可以训练人工智能模型，从而可以调整模型参数，来提升预测准确度。而用来衡量准确度的方程就需要损失方程。
+
+\hfil
+
+\begin{definition}
+	假设数据群标注过的数据准确可靠，在人工智能模型中，模型在整合输入数据且加工计算后输出的结果与数据群标注的数据差别的方程称为\textit{损失方程(Loss Function)}。损失方程的一般形式为:
+\begin{align*}
+	L: (Y, \hat{Y}): \ \to \rn 
+\end{align*}	
+\end{definition}
+\end{frame}
+
+\begin{frame}{损失方程}
+比如我们想要通过人工智能来判定图片中人类的性别，下面的表格中给出了最为简单的一种损失方程。
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{cccc}
+	\hline 
+		图片(1400, 1400, 3) & 标注(1-男,0-女) & 模型预测 & 差异\\
+		\hline 
+		图1 & 1 & 0 & 1 \\
+		图2 & 0 & 1 & 1 \\
+		图3 & 1 & 1 & 0 \\
+		\hline 
+	\end{tabular}
+\end{table}
+用$\hat{Y}$来代表预测的结果，$Y$来代表标注结果，那么损失方程为:
+\begin{align*}
+	L(Y, \hat{Y}): |Y-\hat{Y}| 
+\end{align*}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{再见}
+	Thank you !  请完成课后习题C3 !
+\begin{columns}
+	\begin{column}{0.4\textwidth}
+			\begin{figure}[H]
+				\centering
+			\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C1qrcode.png}
+			\caption{C3C1-问卷}
+			\end{figure}
+	\end{column}
+	\begin{column}{0.4\textwidth}
+		\begin{figure}[H]
+	\includegraphics[width=\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/C3C2qrcode.png}
+	\caption{C3C2-问卷}
+\end{figure}	
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Reference}
+  \bibliography{p3.bib}
+  \bibliographystyle{apalike}
+  I will add reference list later, in which only two websites should be listed. 
+\end{frame}
+
+
+
+
+
+\end{document}
