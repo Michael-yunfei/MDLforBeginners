@@ -142,7 +142,7 @@
 \setlength\itemsep{1em}
 	\item 课前预习C1 
 	\item 课堂讲义C2 (讲义偏重数学严谨度，课堂偏重理解)
-	\item 课后练习C3
+	\item 课后练习C3 (包括实验)
 \end{itemize}
 
 \hfil 
@@ -193,15 +193,13 @@
 
 \hfill
 \begin{itemize}
-\setlength\itemsep{1em}
 	\item 线性(感知器 perceptron)和非线性(支持向量机 support vector machines)分类就成为整个高中的教学重点 \begin{itemize}
-	\setlength\itemsep{1em}
 	\item 数学模型要讲透彻: 理解每一个环节的公式和算法原理
 	\item 机器学习框架下的编程要逐步解释: 学生必须可以自主完成感知器的算法编写
 	\item 有条件得可以引导进行支持向量机的算法编写
+	\item 课时安排: (1 + 2 + 6 = 9), 如果课堂讲解是3个小时，总课时就需要27个小时。(\underline{12个小时是必须的})
 	\end{itemize}
 	\item 对于神经网络模型的讲解: \begin{itemize}
-	\setlength\itemsep{1em}
 	\item 可视化分析+案例演示
 	\item 课外体验+参观 (很多模型训练时间长，需要算力大)
 	\end{itemize}
@@ -217,7 +215,7 @@
 	\setlength\itemsep{1em}
 		\item 数学不好，没问题，不要担心；
 		\item 会算加减乘除就可以学懂，要对自己有信心；
-		\item 当然最重要的是要有耐心！
+		\item 当然最重要的是要有耐心！（听课+练习+实验=12个小时)
 	\end{itemize}
 \end{frame}
 
@@ -285,7 +283,7 @@
 	\includegraphics[width=0.67\textwidth]{/Users/Michael/Documents/MDLforBeginners/Notes/fig/dataframeEx.png}
 \end{figure}
 
-数 和 数据 的差别还是很大的!
+\underline{数 和 数据 的差别还是很大的!}
 \end{frame}
 
 
@@ -536,12 +534,12 @@
 				b 
 			\end{bmatrix}
 		\end{align*}	
-		点积运算时，向量长度必须相同:同位元素相乘后累加。
+		点积运算时，\underline{向量维数}必须相同:同位元素相乘后累加。(不要说向量的长度，长度是另外的概念)
 \end{frame}
 
 \begin{frame}{什么是线性分类:向量点积}
 \begin{definition}
-	已知两个长度相同的向量$w=[w_1, w_2, \cdots, w_n]$ 和$X = [x_1, x_2, \cdots, x_n]$, 那么向量的相乘，也并被成为点积(dot product)定义为:
+	已知两个维数相同的向量$w=[w_1, w_2, \cdots, w_n]$ 和$X = [x_1, x_2, \cdots, x_n]$, 那么向量的相乘，也并被成为点积(dot product)定义为:
 \begin{align*}
 		 X \cdot a & = \begin{bmatrix}
 		x_1 & x_2 & \cdots & x_n
@@ -665,7 +663,8 @@
 \begin{frame}{感知器线性分类(perceptron)}
 感知器被定义为:
 \begin{align*}
-	X \cdot w + b = 0
+	& X \cdot w + b  = 0 \\
+	& x_1 w_1 + x_2 w_2 + \cdots + x_n w_n + b  =0
 \end{align*}	
 也就是下图中的蓝色和红色的向量。
 \begin{figure}[H]
@@ -697,7 +696,7 @@
 \hfil
 
 \begin{definition}
-	假设数据阵标注过的数据准确可靠，在机器学习模型中，模型在根据学习到参数规律对特征变量(统计的数据)计算后输出的结果与数据阵\footnote{(注意是`数据阵'，所以是衡量的是模型在整个数据阵下的表现)}标注的数据差别的函数统称为\textit{损失函数(Loss Function)}。损失方程的一般形式为:
+	假设数据阵标注过的数据准确可靠，在机器学习模型中，模型在根据学习到参数规律对特征变量(统计的数据)计算后输出的结果$\hat{Y}$与数据阵\footnote{(注意是`数据阵'，所以是衡量的是模型在整个数据阵下的表现)}标注的数据结果$Y$差别的函数统称为\textit{损失函数(Loss Function)}。损失方程的一般形式为:
 \begin{align*}
 	L(Y, \hat{Y}): \ \to \rn 
 \end{align*}	
@@ -706,7 +705,7 @@
 
 \begin{frame}{感知器损失函数}
 \begin{definition}
-	给定机器学习模型，对单个数据串的预测准确度的衡量的方程，被成为测量公式(cost function)，例如，$x_1$为一个数据串，$w$是我们的训练得出的规律参数，$\hat{y}_1$为我们预测的结果，$y_1$为数据串标注的结果，那么我们的测量公式(cost function) 为:
+	给定机器学习模型，对单个数据串的预测准确度的衡量的方程，被成为测量公式(cost function)，例如，$x_1$为一个数据串\footnote{即为$1 \times n$的向量，重复记忆$m \times n$, $m$样本数，$n$属性个数。}，$w$是我们的训练得出的规律参数，$\hat{y}_1$为我们预测的结果，$y_1$为数据串标注的结果，那么我们的测量公式(cost function) 为:
 	\begin{align*}
 		y_1 - \hat{y}_1 = y_1 - x_1 \cdot w 
 	\end{align*}
@@ -809,7 +808,7 @@
 
 \begin{frame}{梯度下降法(Gradient Descent)}
 \begin{definition}
-	选定初始值$\theta_0$, 梯度下降法(Gradient Descent)通过下面的公式去逐步计算$\theta_1, \theta_2, \cdots$,指导我们到达满意的结果(可以是计算的次数，也可以是计算的误差):
+	选定初始值$\theta_0$, 梯度下降法(Gradient Descent)通过下面的公式去逐步计算$\theta_1, \theta_2, \cdots$,直到达到我们满意的结果(可以是计算的次数，也可以是计算的误差):
 	\begin{align*}
 		\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)
 	\end{align*}
@@ -826,6 +825,7 @@
 
 
 \begin{frame}{梯度下降法(Gradient Descent)}
+梯度下降法的一般公式为(因为多数情况下是求最小值): 
 \begin{align*}
 		\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)
 	\end{align*}
@@ -936,8 +936,164 @@
 	\end{quote}
 \end{frame}
 
+\begin{frame}{支持向量机(SVM)}
+在学习感知分类器时，我们假定了直线分界面的存在，但是在现实生活中的很多例子，
+\begin{itemize}
+	\item 要么该直线分界面不存在
+	\item 要么该分界面并非完全线性
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.76\textwidth]{fig/C2C2svm1}
+\end{figure}
+\end{frame}
 
-\section{非线性分类介绍(SVM - kernels)}
+\begin{frame}{支持向量机(SVM)}
+解决这个问题的方法是，将原来的直线分界面变成一个\underline{直线分界区间}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.76\textwidth]{fig/C2C2svm2}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{支持向量机(SVM)}
+我们想要分界区间的宽度越大越好，因为分界区间越宽，说明越容易分类。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.96\textwidth]{fig/C2C2svm3}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{支持向量机(SVM): 测量分界面宽度}
+现在我们的问题就是如何\underline{测量}这个分界面的宽度。这里的测量指的是测量向量的长度。
+\begin{definition}
+	跟定长度为$n$的向量$x$，其长度被定义为:
+	\begin{align*}
+		||x|| = \sqrt{<x, x>} = \sqrt{x \cdot x} = \sqrt{\sum_{i=1}^n x_i^2}
+	\end{align*}
+	由此我们也可以得出下面的公式:
+	\begin{align*}
+		||x||^2 = <x, x > = x \cdot x = \sum_{i=1}^n x_i^2
+	\end{align*}
+\end{definition}
+\end{frame}
+
+\begin{frame}{点积的投影概念}
+	\begin{align*}
+	a \cdot b= ||a|| ||b|| \cos \theta; \ \ \ \ a_{proj} \perp b = \frac{a \cdot b}{||b||} = ||a || \cos \theta
+\end{align*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{fig/C2C2svmprojc}
+%	\caption{点积投影图示}
+\end{figure}
+\end{frame}
+
+\begin{frame}{支持向量机(SVM): 测量分界面宽度}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.96\textwidth]{fig/C2preProjection}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{支持向量机(SVM)模型}
+	支持向量机的整体思路与感知分类器十分类似，只是从一条线变成了一个分界区间。理解了点积投影的概念之后，我们就来构造支持向量机(SVM)模型:
+\begin{itemize}
+	\item 仍然假设可分类对象为\textit{线性分类}，且分类过程为\textbf{二分过程}，其中规律参数$w$为我们需要计算的数值，而$x$则是由我们采集的数据组成特征变量，分类过程表示为下:
+	\begin{align*}
+		\hat{y} = \begin{cases}
+			+1 & x \cdot w + b > 0 \\
+			-1 & x \cdot w + b < 0 
+		\end{cases}
+	\end{align*}
+	其中$\hat{y}$为我们在进行分类过程中需要标注的结果。因为$\hat{y}$和$x\cdot w$的正负值相同，所以我们可以将上面的分类过程表达为:
+	\begin{align*}
+		y(w \cdot x + b) \geq 1 
+	\end{align*}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{支持向量机(SVM)模型}
+	\begin{itemize}
+		\item 当$x_i$满足下列公式时:
+	\begin{align*}
+		y_i(w \cdot x_i + b) = 1; \ \ \ y_i(w \cdot x_i + b) - 1 = 0; \ \ \ \   \forall x_i \  \text{在分界区间内}
+	\end{align*}
+	我们将$x_i$组成的分界区间和正交(垂直)向量$w$称为支持向量。
+	\item 假设我我们有$x_{+}$和$x_{-}$分别在分界区间的两条边界或者边界外上，那么分界区间的\textbf{宽度}可以由以下公式测量得出，
+	\begin{align*}
+		\text{分界区间宽度} = (x_{+} - x_{-}) \cdot \frac{w}{||w||}
+	\end{align*}
+	\item 另外根据我们的分类过程的设定，我们有以下条件: 
+	\begin{align*}
+		1(w \cdot x_{+} +b ) & = 1; \ \ \  \Rightarrow \ \ \  x_{+} \cdot w = 1 - b  \\
+		-1(w \cdot x_{-} + b) & = 1; \ \ \ \Rightarrow \ \ \ -w \cdot x_{-} = 1 + b 
+	\end{align*}
+	上面两个公式左右相加可以得到:
+	\begin{align*}
+		(x_{+} - x_{-} ) \cdot w = 2 
+	\end{align*}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{支持向量机(SVM)模型}
+\begin{itemize}
+	\item 将公式
+\begin{align*}
+	(x_{+} - x_{-1}) \cdot w = 2 
+\end{align*}	
+代入到下列分界区间宽度公式，可得
+\begin{align*}
+	\text{分界区间宽度} & = (x_{+} - x_{-}) \cdot \frac{w}{||w||} \\
+	& =  \frac{2}{||w||} \\
+\end{align*}
+\item 我们想要尽可能的扩大我们的分界区间宽度，
+	\begin{align*}
+		\max \ \text{分界区间宽度} =  \frac{2}{||w||}; \ \ \ \Leftrightarrow \ \ \ \min \frac{1}{2} ||w||^2
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{支持向量机(SVM)模型}
+那么，我们的优化问题就可以表示为: 
+\begin{align*}
+	& \min_{w} \ \frac{1}{2} ||w ||^2 \\
+	\ \text{s.t.} & \ \ y_i(w \cdot x_i + b)  \geq 1
+\end{align*}
+因为之前的模型我们假定了这个直线分界面的存在，但是具体到实际应用中，这条假定的直线并不存在，因此我们在我们的模型中添加一定的容错率$\xi$,那么我们的优化问题就变成了:
+\begin{align*}
+	& \min_{w, \xi} \frac{1}{2} ||w||^2 + C \sum_{i}^m \xi_i \\
+	\ \text{s.t.} & \ \ y_i(w \cdot x_i + b) \geq  1 - \xi_i
+\end{align*}
+对该问题的求解需要使用Lagrange方程，这里我们就不做详细的解释了。以上就是支持向量机的线性分类过程。 
+\end{frame}
+
+
+
+
+\section{非线性分类介绍(SVM, kernels)}
+
+
+\begin{frame}{支持向量机: 核方法}
+	如果想要使用支持向量机(SVM)进行分线性分类，我们需要对特征变量$X$进行非线性转换，常用的非线性转换包括: 
+\begin{itemize}
+	\item 多项式转换: $K(x, x') = (1 + <x, x'>)^d$
+	\item 指数转换: $K(x, x') = \exp(-\gamma ||x - x'||^2)$
+	\item 神经网络转换: $K(x, x') = \tanh (\kappa_1 <x, x'> + \kappa_2)$
+\end{itemize}
+对这些(kernles)方法的转换，我们并不做要求，同学们需要了解下，这些核方法，因为后续我们还会见到这些方程。
+\end{frame}
+
+\begin{frame}{支持向量机: 核方法}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/C2preSVMvis}
+\end{figure}	
+\end{frame}
+
 
 
 \begin{frame}{再见}
@@ -949,7 +1105,11 @@
 \begin{frame}[allowframebreaks]{Reference}
   \bibliography{p3.bib}
   \bibliographystyle{apalike}
-  I will add reference list later, in which only two websites should be listed. 
+  MIT OpenCourserWare: \url{https://www.youtube.com/watch?v=_PwhiWxHK8o&t=50s} 
+  
+  Stanford Online: \url{https://www.youtube.com/watch?v=8NYoQiRANpg&t=335s}
+  
+  Notes written by myself: \url{https://github.com/Michael-yunfei/CS229/blob/master/Notes/Support_Vector_Machines.pdf} 
 \end{frame}
 
 

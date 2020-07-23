@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+% add some essential packages, some might not be used
+
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage[a4paper,margin=1in,bottom=1.0in]{geometry}
+\usepackage{url}
+\usepackage{array}
+\usepackage{bbding}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[english, greek]{babel}
+\usepackage{adjustbox}
+%\usepackage{enumitem}
+\usepackage{textgreek}
+\usepackage{tcolorbox}
+
+
+\usepackage{listings}
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{framed}
+
+\usepackage{rotating} % for the horizontal page table
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{bm}
+
+
+\usepackage{tcolorbox} % package for making colorful box 
+
+ \setlength{\parskip}{0.15cm} % change the paragraph spacing 
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$} % set the bullet size as tiny 
+
+% \newcommand*\rot{\rotatebox{90}} % for rotate text  
+
+\usepackage{sectsty} %package for section size 
+
+\sectionfont{\fontsize{14}{12}\selectfont} % Change the section font size
+
+\subsectionfont{\fontsize{13}{12}\selectfont} 
+\subsubsectionfont{\fontsize{12}{12}\selectfont}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % new command 
+
+\newenvironment{remark}[2][\textit{Remark:}]{\begin{trivlist}
+\item[\hskip \labelsep { #1}]}{\end{trivlist}}
+
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{corollary}[subsection]{Corollary}
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{axiom}[subsubsection]{Axiom}
+\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{example}[subsection]{Example}
+\newtheorem{hypothesis}[subsubsection]{Hypothesis}
+
+\newcommand{\zn}{\mathbb{Z}}
+\newcommand{\cn}{\mathbb{C}}
+\newcommand{\qn}{\mathbb{Q}}
+\newcommand{\rn}{\mathbb{R}}
+\newcommand{\pn}{\mathbb{P}}
+\newcommand{\fn}{\mathbb{F}}
+\newcommand{\nn}{\mathbb{N}}
+\usepackage{pythonhighlight}
+\renewcommand{\arraystretch}{1.2}
+
+\usepackage{courier}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\selectlanguage{english}
+
+
+\title{人工智能基础第二章实验}
+\author{王斐 Michael}
+\affil{SenseTime Edu}
+\date{}
+
+\maketitle
+
+\section{前言}
+
+这一章是人工智能基础的入门章节，即通过鸢尾花案例来介绍简单的感知器(perceptron)线性二元分类，并且引入支持向量机(support vector machine)模型的学习。在本章节的实验中，我们会通过不同的案例来，来学习和训练以下相关知识点:
+\begin{itemize}
+	\item 向量运算和其几何性质
+	\item 线性分类
+	\item 梯度下降法(Gradient Descent)
+	\item 感知器线性二元线性分类
+	\item 支持向量机(support vector machine)二元线性线性分类
+	\item 支持向量机(support vector machine)二元非线性分类(选修)
+\end{itemize}
+
+\section{实验重点}
+
+同学们在进行本章的实验练习时，要留意下面几个要点:
+\begin{enumerate}
+	\item 摆脱计算思维，所有计算能扔给计算机的就扔给计算机
+	\item 理解数学概念后，善于用计算机来直观得呈现相关概念
+	\item 培养对数据阵的直观感受训练自己对机器学习模型的流程化理解，即 \begin{itemize}
+		\item 数据准备和可视化
+		\item 模型搭建和调用
+		\item 模型运行寻找规律参数
+		\item 模型预测和评估
+	\end{itemize}
+\end{enumerate}
+
+提示: 只要你会解一元二次方程组，那么你就可以顺利完成该实验，所以请耐心做完(可以分三次，每次30分钟完成全部实验)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

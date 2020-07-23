@@ -5,4 +5,4 @@
 \beamer@sectionintoc {5}{损失函数(Loss Function)}{34}{0}{5}
 \beamer@sectionintoc {6}{梯度下降法(Gradient Descent)}{38}{0}{6}
 \beamer@sectionintoc {7}{支持向量机(Support Vector Machine)}{50}{0}{7}
-\beamer@sectionintoc {8}{非线性分类介绍(SVM - kernels)}{51}{0}{8}
+\beamer@sectionintoc {8}{非线性分类介绍(SVM, kernels)}{61}{0}{8}
