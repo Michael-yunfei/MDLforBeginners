@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{缘起}{3}{0}{1}
+\beamer@sectionintoc {2}{初中教材从线性回归引入到分类的疑难}{4}{0}{2}
+\beamer@sectionintoc {3}{线性分类的切入方法再思考}{14}{0}{3}
+\beamer@sectionintoc {4}{详解梯度下降法和其动画演示}{17}{0}{4}

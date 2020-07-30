@@ -1,6 +1,4 @@
-\BOOKMARK [1][-]{section.1}{前言}{}% 1
-\BOOKMARK [1][-]{section.2}{实验重点}{}% 2
-\BOOKMARK [1][-]{section.3}{实验1: 数据阵、向量和及其性质}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{鸢尾花数据阵构造和读取}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{鸢尾花数据阵可视化}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{鸢尾花种类选取}{section.3}% 6
+\BOOKMARK [2][-]{subsection.1.1}{鸢尾花数据阵构造和读取}{}% 1
+\BOOKMARK [2][-]{subsection.1.2}{鸢尾花数据阵可视化}{}% 2
+\BOOKMARK [2][-]{subsection.1.3}{鸢尾花种类选取}{}% 3
+\BOOKMARK [2][-]{subsection.1.4}{向量的运算和其性质}{}% 4

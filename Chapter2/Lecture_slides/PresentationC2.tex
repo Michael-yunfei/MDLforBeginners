@@ -87,7 +87,7 @@
 \date{\today}
 
 \author[王斐]{王斐, Michael}
-\institute[SenseTime, Edu]{SenseTime Edu \and Math, Economics, Philosophy (UCD, Nottingham, CUHK) \and \url{https://github.com/Michael-yunfei/MDLforBeginners}}
+\institute[SenseTime, Edu]{SenseTime Edu, wangfei1@sensetime.com \and Math, Economics, Philosophy (UCD, Nottingham, CUHK) \and \url{https://github.com/Michael-yunfei/MDLforBeginners} \and 讲义、PPT、代码、图片设计}
 
 %[January 2019] (optional)
 %{Demo for SenseTime}
@@ -430,7 +430,102 @@
 			\item 花瓣长度(-3.7)
 			\item 花瓣宽度(9.4)
 		\end{itemize}
-		用这组规律参数去预测的话，准确率只有大约25\%，显示这种方法太过于简单粗暴。
+	\underline{沿用这种进行线性分类存在一个很大的问题}
+\end{frame}
+
+\begin{frame}{从线性回归引入到分类}
+再看一下表格
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{lccc}
+		\hline 
+			属种 & 结果($y$) &花瓣长度 & 花瓣宽度 \\
+			\hline 
+			山鸢尾 & 0 & 1.4 & 0.2 \\
+			山鸢尾 & 0 & 1.7 & 0.4 \\
+			变色鸢尾 & 1 & 3.9  & 1.4 \\
+			变色鸢尾 & 1& 4.9 & 1.5 \\
+			维吉尼亚鸢尾 & 2 & 6.9 & 2.3  \\
+			维吉尼亚鸢尾 & 2 & 6.1 & 1.9 \\
+			\hline  
+		\end{tabular}
+\end{table}	
+\end{frame}
+
+\begin{frame}{从线性回归引入到分类}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/logisticreg1}
+\end{figure}	
+\end{frame}
+
+
+\begin{frame}{从线性回归引入到分类}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/logisticreg2}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{从线性回归引入到分类}
+引入逻辑回归(logistic regression), sigmoid function:
+	\begin{align*}
+		\sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{X\beta + \varepsilon}}
+	\end{align*}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig/logisticreg3}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{线性分类的切入}
+	线性分类的切入:
+	\begin{itemize}
+	\setlength\itemsep{0.6em}
+		\item 延续线性回归思路，需要转换$Y$轴，借助logistic regression(sigmoid function) 
+		\item 不延续线性回顾思路，完全代数性质(点积)
+	\end{itemize}
+	\begin{align*}
+		a \cdot b = ||a|| ||b|| \cos \theta
+	\end{align*}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{fig/C2C2svmprojc}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{线性分类的切入}
+	\begin{align*}
+		a \cdot b & = ||a|| ||b|| \cos \theta \\
+		&= ||a|| ||b|| \cos \theta  \begin{cases}
+		> 0 &  0 \leq \theta < \frac{\pi}{2} \\
+		= 0 & \theta = \frac{\pi}{2}  \ \ \text{即$a$与$b$垂直} \\
+		< 0 &  \frac{\pi}{2} < \theta \leq \pi 
+	\end{cases}
+	\end{align*}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{fig/C2C2svmprojc}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{线性分类的切入}
+Vladimir Vapnik 还活着，所以可以了解到最初他是如何创立支持向量机(Support vector machine)的。
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fig/P2dotpTable}
+\end{column}
+\begin{column}{0.7\textwidth}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{fig/C2C2dotprodt}
+\end{figure}	
+\end{column}
+\end{columns}
+Reference: Patrick Winston (Youtube, 点击率1百万)
 \end{frame}
 
 \begin{frame}{什么是线性分类}
@@ -688,9 +783,20 @@
 			-1 & x \cdot w < 0
 		\end{cases}
 	\end{align*}
-	其中$\hat{y}$是我们在进行分类是需要标注的结果。	
+	其中$\hat{y}$是我们在进行分类是需要预测的结果。	
 	\end{block}
-
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccccc}
+		\hline 
+		样本 & 花瓣长度 & 花瓣宽度 & 统计结果 & 重新标注 & 预测结果 \\
+		\hline 
+		山鸢尾 & 2 & 1.6 & 0 & 1 & 1  \\
+		变色鸢尾 & 1.3 & 0.7 & 1 & -1 & 1  \\
+		维吉尼亚鸢尾 & 1.1 & 0.8 & 2 & -1 &  -1 \\
+		\hline  
+	\end{tabular}
+\end{table}
 \end{frame}
 
 \begin{frame}{感知器线性分类(perceptron)过程}
@@ -1111,7 +1217,13 @@
 
 
 \begin{frame}{再见}
-	Thank you !  请完成课后习题C3 和 相关实验 !
+	Thank you !  请完成课后习题C3 和 相关实验：
+	\begin{itemize}
+		\item Python: pandas, matplotlib
+		\item 数据思维: 数据阵 - 数据基本结果(float, int, string)
+		\item 数学思维: 向量，矩阵运算
+		\item 机器学习案例: 线性分类
+	\end{itemize}
 \end{frame}
 
 

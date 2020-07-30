@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  24 JUL 2020 00:33
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.6.16)  26 JUL 2020 23:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2208,189 +2208,236 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
 
 ] [20
 
-] [21
+]
+File: fig/logisticreg1.png Graphic file (type bmp)
+<fig/logisticreg1.png>
+
+Overfull \vbox (4.81606pt too high) detected at line 460
+ []
+
+[21
+
+]
+File: fig/logisticreg2.png Graphic file (type bmp)
+<fig/logisticreg2.png>
+
+Overfull \vbox (42.12816pt too high) detected at line 468
+ []
+
+[22
+
+]
+File: fig/logisticreg3.png Graphic file (type bmp)
+<fig/logisticreg3.png>
+ [23
+
+]
+File: fig/C2C2svmprojc.png Graphic file (type bmp)
+<fig/C2C2svmprojc.png>
+ [24
+
+]
+File: fig/C2C2svmprojc.png Graphic file (type bmp)
+<fig/C2C2svmprojc.png>
+ [25
+
+]
+File: fig/P2dotpTable.png Graphic file (type bmp)
+<fig/P2dotpTable.png>
+File: fig/C2C2dotprodt.png Graphic file (type bmp)
+<fig/C2C2dotprodt.png>
+ [26
+
+] [27
+
+] [28
 
 ]
 File: fig/C2C2linear.png Graphic file (type bmp)
 <fig/C2C2linear.png>
 
-Overfull \vbox (10.3497pt too high) detected at line 469
+Overfull \vbox (10.3497pt too high) detected at line 564
  []
 
-[22
+[29
 
-] [23
+] [30
 
-] [24
+] [31
 
-] [25
+] [32
 
 ]
-Overfull \vbox (1.23412pt too high) detected at line 569
+Overfull \vbox (1.23412pt too high) detected at line 664
  []
 
-[26
+[33
 
-] [27
+] [34
 
 ]
 
 LaTeX Font Warning: Font shape `TU/ptm/bx/n' undefined
-(Font)              using `TU/ptm/m/n' instead on input line 610.
+(Font)              using `TU/ptm/m/n' instead on input line 705.
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 610.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 705.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 610.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 705.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 610.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 705.
 
-Overfull \vbox (0.70787pt too high) detected at line 610
+Overfull \vbox (0.70787pt too high) detected at line 705
  []
 
-[28
+[35
 
 ]
 File: fig/P2dotpTable.png Graphic file (type bmp)
 <fig/P2dotpTable.png>
 File: fig/C2C2dotprodt.png Graphic file (type bmp)
 <fig/C2C2dotprodt.png>
- [29
-
-] [30
-
-]
-File: fig/P2dotpTable.png Graphic file (type bmp)
-<fig/P2dotpTable.png>
-File: fig/C2C2dotprodt.png Graphic file (type bmp)
-<fig/C2C2dotprodt.png>
- [31
-
-]
-File: fig/C2C2dotprodt.png Graphic file (type bmp)
-<fig/C2C2dotprodt.png>
-
-Overfull \vbox (33.76747pt too high) detected at line 680
- []
-
-[32
-
-]
-
-LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
-(Font)              using `TU/SimSun(0)/m/n' instead on input line 694.
-
-[33
-
-]
-File: fig/C2prevIris2.png Graphic file (type bmp)
-<fig/C2prevIris2.png>
- [34
-
-] [35
-
-] [36
+ [36
 
 ] [37
 
 ]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 768.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [38
-
-] [39
-
-] [40
+File: fig/P2dotpTable.png Graphic file (type bmp)
+<fig/P2dotpTable.png>
+File: fig/C2C2dotprodt.png Graphic file (type bmp)
+<fig/C2C2dotprodt.png>
+ [38
 
 ]
-File: fig/C2preGrades.png Graphic file (type bmp)
-<fig/C2preGrades.png>
+File: fig/C2C2dotprodt.png Graphic file (type bmp)
+<fig/C2C2dotprodt.png>
 
-Overfull \vbox (39.34526pt too high) detected at line 806
+Overfull \vbox (33.76747pt too high) detected at line 775
  []
 
-[41
+[39
 
 ]
-File: fig/C2preGd2.png Graphic file (type bmp)
-<fig/C2preGd2.png>
- [42
+
+LaTeX Font Warning: Font shape `TU/SimSun(0)/bx/n' undefined
+(Font)              using `TU/SimSun(0)/m/n' instead on input line 800.
+
+
+Overfull \hbox (14.40456pt too wide) in paragraph at lines 800--800
+ [] 
+ []
+
+
+Overfull \vbox (3.93712pt too high) detected at line 800
+ []
+
+[40
 
 ]
-File: fig/C2C2GradientDes.png Graphic file (type bmp)
-<fig/C2C2GradientDes.png>
- [43
+File: fig/C2prevIris2.png Graphic file (type bmp)
+<fig/C2prevIris2.png>
+ [41
+
+] [42
+
+] [43
 
 ] [44
 
-] [45
+]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 874.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+) [45
 
 ] [46
 
 ] [47
 
-] [48
+]
+File: fig/C2preGrades.png Graphic file (type bmp)
+<fig/C2preGrades.png>
 
-] [49
+Overfull \vbox (39.34526pt too high) detected at line 912
+ []
 
-] [50
+[48
+
+]
+File: fig/C2preGd2.png Graphic file (type bmp)
+<fig/C2preGd2.png>
+ [49
+
+]
+File: fig/C2C2GradientDes.png Graphic file (type bmp)
+<fig/C2C2GradientDes.png>
+ [50
 
 ] [51
+
+] [52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+] [57
+
+] [58
 
 ]
 File: fig/C2C2svm1.png Graphic file (type bmp)
 <fig/C2C2svm1.png>
 
-Overfull \vbox (4.95749pt too high) detected at line 963
+Overfull \vbox (4.95749pt too high) detected at line 1069
  []
 
-[52
+[59
 
 ]
 File: fig/C2C2svm2.png Graphic file (type bmp)
 <fig/C2C2svm2.png>
- [53
+ [60
 
 ]
 File: fig/C2C2svm3.png Graphic file (type bmp)
 <fig/C2C2svm3.png>
- [54
-
-] [55
-
-]
-File: fig/C2C2svmprojc.png Graphic file (type bmp)
-<fig/C2C2svmprojc.png>
- [56
-
-]
-File: fig/C2preProjection.png Graphic file (type bmp)
-<fig/C2preProjection.png>
- [57
-
-] [58
-
-] [59
-
-] [60
-
-] [61
+ [61
 
 ] [62
 
 ]
-File: fig/C2preSVMvis.png Graphic file (type bmp)
-<fig/C2preSVMvis.png>
+File: fig/C2C2svmprojc.png Graphic file (type bmp)
+<fig/C2C2svmprojc.png>
  [63
 
-] [64
+]
+File: fig/C2preProjection.png Graphic file (type bmp)
+<fig/C2preProjection.png>
+ [64
 
-] (/Users/Michael/Documents/MDLforBeginners/Chapter2/Lecture_slides/.texpadtmp/PresentationC2.bbl
+] [65
 
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
+] [66
 
-) [65
+] [67
+
+] [68
+
+] [69
+
+]
+File: fig/C2preSVMvis.png Graphic file (type bmp)
+<fig/C2preSVMvis.png>
+ [70
+
+] [71
+
+] (/Users/Michael/Documents/MDLforBeginners/Chapter2/Lecture_slides/.texpadtmp/PresentationC2.bbl) [72
 
 ]
 \tf@nav=\write6
@@ -2402,11 +2449,11 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 \tf@snm=\write8
 \openout8 = `PresentationC2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1133.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1133.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1245.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1245.
  (/Users/Michael/Documents/MDLforBeginners/Chapter2/Lecture_slides/.texpadtmp/PresentationC2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1133.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1133.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1245.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1245.
 Package rerunfilecheck Info: File `PresentationC2.out' has not changed.
 (rerunfilecheck)             Checksum: .
 
@@ -2415,12 +2462,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 51310 strings out of 492970
- 1186899 string characters out of 6133938
- 1376566 words of memory out of 5000000
- 54354 multiletter control sequences out of 15000+600000
+ 51341 strings out of 492970
+ 1187846 string characters out of 6133938
+ 1376568 words of memory out of 5000000
+ 54382 multiletter control sequences out of 15000+600000
  597838 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  64i,21n,98p,10443b,824s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/Michael/Documents/MDLforBeginners/Chapter2/Lecture_slides/.texpadtmp/PresentationC2.pdf (65 pages).
+Output written on /Users/Michael/Documents/MDLforBeginners/Chapter2/Lecture_slides/.texpadtmp/PresentationC2.pdf (72 pages).
